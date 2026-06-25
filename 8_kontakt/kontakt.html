@@ -26,6 +26,8 @@
             font-weight: 800;
             margin: 0 0 1rem;
             line-height: 1.1;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         .kontakt-title span {
@@ -107,6 +109,17 @@
             color: var(--White);
             font-size: 1.5rem;
             opacity: 0.6;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .kontakt-card {
+                padding: 1.1rem 1.2rem;
+                gap: 1rem;
+            }
+            .kontakt-title {
+                font-size: clamp(1.6rem, 9vw, 2.4rem);
+            }
         }
 
         .nav-right span {

@@ -572,7 +572,9 @@ body {
 
   /* --- DETAIL-SEITEN --- */
   .detail-title {
-    font-size: clamp(2.2rem, 8vw, 2.8rem) !important;
+    font-size: clamp(1.6rem, 7vw, 2.4rem) !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .detail-meta {
