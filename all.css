@@ -430,9 +430,11 @@ body {
   .hero-right {
     padding-left: 0;
     margin-left: 0;
+    margin-right: 0;
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .hero-right img {
