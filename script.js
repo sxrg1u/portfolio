@@ -39,4 +39,47 @@ function loadTheme() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", loadTheme);
+// ── HAMBURGER MENU ──────────────────────────────────────────────
+function initHamburger() {
+    const hamburger = document.getElementById("hamburger-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeBtn   = document.getElementById("mobile-menu-close");
+
+    if (!hamburger || !mobileMenu) return;
+
+    function openMenu() {
+        mobileMenu.classList.add("open");
+        hamburger.classList.add("open");
+        hamburger.setAttribute("aria-expanded", "true");
+        document.body.style.overflow = "hidden"; // kein scroll hinter Menu
+    }
+
+    function closeMenu() {
+        mobileMenu.classList.remove("open");
+        hamburger.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+    }
+
+    hamburger.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("open")) closeMenu();
+        else openMenu();
+    });
+
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+
+    // Klick ausserhalb schliesst Menu
+    mobileMenu.addEventListener("click", (e) => {
+        if (e.target === mobileMenu) closeMenu();
+    });
+
+    // ESC schliesst Menu
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadTheme();
+    initHamburger();
+});
