@@ -574,9 +574,7 @@ body {
 
   /* --- DETAIL-SEITEN --- */
   .detail-title {
-    font-size: clamp(1.6rem, 7vw, 2.4rem) !important;
-    word-break: break-word;
-    overflow-wrap: break-word;
+    font-size: clamp(1.3rem, 6vw, 2rem) !important;
   }
 
   .detail-meta {
