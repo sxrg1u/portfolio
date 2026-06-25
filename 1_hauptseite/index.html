@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Sergiu Bolohan</title>
+    <link rel="stylesheet" href="../all.css">
+    <link rel="icon" href="../bilder/sb.ico"> 
+    <style>
+        /* HERO */
+        #hero {
+            padding: 4rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-left {
+            max-width: 520px;
+        }
+
+        .hero-tag {
+            color: var(--Grün);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 6vw, 3.4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title span {
+            color: var(--Lila);
+        }
+
+        .hero-desc span.Lila {
+            color: var(--Lila);
+        }
+
+        .hero-desc span.Grün {
+            color: var(--Grün);
+        }
+
+        .hero-desc {
+            color: var(--Gray);
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* BUTTONS */
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.6rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .btn-projects {
+            background-color: var(--Lila);
+            color: var(--White);
+            border: none;
+        }
+
+        .btn-projects:hover {
+            background-color: var(--LilaHover);
+            box-shadow: var(--GlowLila);
+        }
+
+        .btn-contact {
+            background-color: transparent;
+            border: 1px solid var(--Gray);
+            color: var(--White);
+        }
+
+        .btn-contact:hover {
+            border-color: var(--White);
+            box-shadow: var(--GlowBlack);
+        }
+
+        /* TERMINAL GIF */
+        .hero-right {
+            margin-left: auto;
+            padding-left: clamp(0rem, 3vw, 6rem);
+        }
+
+        .hero-right img {
+            width: min(440px, 100%);
+            border-radius: 10px;
+            box-shadow: var(--GlowBlack);
+        }
+
+        .navbar span {
+            color: var(--Lila);
+        }
+
+        /* Curser animation */
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .cursor {
+            color: var(--Grün);
+            animation: blink 1s step-end infinite;
+            font-weight: 400;
+            margin-left: 2px;
+        }
+
+        .nav-lang .nav-DE {
+            color: var(--Lila);
+            font-size: x-large;
+        }
+
+        .nav-lang:hover .nav-EN {
+            color: var(--Lila);
+            font-size: x-large;
+        }
+
+        .nav-lang:hover .nav-DE {
+            color: var(--White);
+            font-size: 1.1rem;
+        }
+
+        .hero-tag {
+            animation: fade-up 0.6s ease forwards;
+            animation-delay: 0.1s;
+            opacity: 0;
+        }
+
+        .hero-title {
+            animation: fade-up 0.6s ease forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+
+        .hero-desc {
+            animation: fade-up 0.6s ease forwards;
+            animation-delay: 0.5s;
+            opacity: 0;
+        }
+
+        .hero-buttons {
+            animation: fade-up 0.6s ease forwards;
+            animation-delay: 0.7s;
+            opacity: 0;
+        }
+
+        .hero-right {
+            animation: fade-up 0.6s ease forwards;
+            animation-delay: 0.9s;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-left">
+            <a href="../1_hauptseite/index.html" class="nav-home-text"><span>Home</span></a>
+            <a href="../1_hauptseite/index.html" class="nav-home-icon"><img id="home-icon" src="../bilder/home.png"
+                    alt="Home"></a>
+            <img id="theme-icon" src="../bilder/sun.png" alt="Theme Toggle" class="nav-icon" onclick="toggleTheme()"
+                style="cursor:pointer;">
+            <a href="../1_hauptseite/indexen.html" class="nav-lang"><span class="nav-EN">EN</span>/<span
+                    class="nav-DE">DE</span></a>
+        </div>
+
+        <div class="nav-right">
+            <a href="../2_projekte/projekte.html">Projekte</a>
+            <a href="../6_skills/skills.html">Skills</a>
+            <a href="../7_uebermich/uebermich.html">Über mich</a>
+            <a href="../8_kontakt/kontakt.html">Kontakt</a>
+        </div>
+    </nav>
+
+    <main id="hero">
+        <div class="hero-left">
+            <p class="hero-tag">// Applikationsentwickler in Ausbildung<span class="cursor">|</span></p>
+
+            <h1 class="hero-title">Ich bin <br><span>Sergiu Bolohan</span></h1>
+
+            <p class="hero-desc">
+                Ich lerne, digitale Ideen in funktionierende <span class="Grün">Apps</span> zu verwandeln — sauber im
+                <span class="Lila">Code</span>, klar im Denken.
+                Aktuell an der Informatikschule mit Fokus auf <span class="Grün">Applikationsentwicklung</span>.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="../2_projekte/projekte.html" class="btn btn-projects">Projekte ansehen</a>
+                <a href="../8_kontakt/kontakt.html" class="btn btn-contact">Kontakt aufnehmen</a>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <img src="../bilder/terminalhome.gif" alt="Terminal Animation">
+        </div>
+    </main>
+    <script src="../script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skills | Sergiu Bolohan</title>
+    
+    <link rel="stylesheet" href="../all.css" />
+    <link rel="icon" href="../bilder/skill.ico"> 
+    <style>
+      .skills-section {
+        padding: 4rem 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      }
+
+      /* HEADER */
+      .section-label {
+        font-size: 0.85rem;
+        letter-spacing: 0.12em;
+        color: var(--Grün);
+        margin-bottom: 1rem;
+      }
+      .section-title {
+        font-size: clamp(2rem, 6.5vw, 3.6rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin: 0 0 3.5rem;
+      }
+      .section-title .highlight-green {
+        color: var(--Grün);
+      }
+      .section-title .highlight-purple {
+        color: var(--Lila);
+      }
+
+      /* BLOCK TITLES */
+      .block-heading {
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        color: var(--Gray);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      /* EDUCATION */
+      .ausbildung-grid {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 3.5rem;
+      }
+      .ausbildung-card {
+        flex: 1;
+        background: var(--CardBg);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 1.5rem 1.7rem;
+        transition: 0.3s ease;
+      }
+      .ausbildung-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--Lila);
+        box-shadow: 3px 3px 8px var(--Lila);
+      }
+      .ausbildung-tag {
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        color: var(--Grün);
+        margin-bottom: 0.6rem;
+      }
+      .ausbildung-tag span {
+        color: var(--Lila);
+      }
+      .ausbildung-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 1.2rem;
+        line-height: 1.4;
+      }
+      .ausbildung-bar-wrap {
+        height: 3px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 2px;
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+      .ausbildung-bar-lila{
+        height: 100%;
+        border-radius: 2px;
+        background: var(--Lila);
+      }
+      .ausbildung-bar {
+        height: 100%;
+        border-radius: 2px;
+        background: var(--Grün);
+      }
+      .ausbildung-percent {
+        font-size: 0.8rem;
+        color: var(--Gray);
+        text-align: right;
+      }
+      .ausbildung-desc {
+        font-size: 0.85rem;
+        color: var(--Gray);
+        margin-top: 0.5rem;
+      }
+
+      /* TECH CARDS */
+      .tech-card {
+        background: var(--CardBg);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 1.5rem 1.7rem;
+        margin-bottom: 1.5rem;
+        transition: 0.3s ease;
+      }
+      .tech-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--Lila);
+        box-shadow: 3px 3px 8px var(--Lila);
+      }
+
+      .tech-name {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: var(--Grün);
+        margin-bottom: 1.2rem;
+      }
+      .tech-grid {
+        display: flex;
+        gap: 2rem;
+        align-items: flex-start;
+      }
+      .tech-bars {
+        flex: 1;
+      }
+      .tech-bar-row {
+        margin-bottom: 0.9rem;
+      }
+      .tech-bar-label {
+        font-size: 0.85rem;
+        color: var(--Gray);
+        margin-bottom: 0.3rem;
+      }
+      .tech-bar-track {
+        height: 3px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 2px;
+      }
+      .tech-bar-fill {
+        height: 100%;
+        border-radius: 2px;
+      }
+      .fill-green {
+        background: var(--Grün);
+      }
+      .fill-purple {
+        background: var(--Lila);
+      }
+      .fill-gray {
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      .tech-badges {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        min-width: 130px;
+      }
+      .badge {
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        padding: 0.3rem 0.8rem;
+        border-radius: 6px;
+        text-align: center;
+        font-weight: 600;
+      }
+      .badge-green {
+        background: rgba(0, 255, 157, 0.12);
+        color: var(--Grün);
+        border: 1px solid var(--Grün);
+      }
+      .badge-purple {
+        background: rgba(108, 99, 255, 0.12);
+        color: var(--Lila);
+        border: 1px solid var(--Lila);
+      }
+      .badge-gray {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--Gray);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* LOGOS */
+      .logos-row {
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+        margin-top: 4rem;
+        flex-wrap: wrap;
+      }
+      .logos-row img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        opacity: 0.85;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+      .logos-row img:hover {
+        opacity: 1;
+        transform: translateY(-4px);
+      }
+
+      /* NAV LANG */
+      .nav-lang .nav-EN {
+        color: var(--Lila);
+        font-size: x-large;
+      }
+      .nav-lang:hover .nav-DE {
+        color: var(--Lila);
+        font-size: x-large;
+      }
+      .nav-lang:hover .nav-EN {
+        color: var(--White);
+        font-size: 1.1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav id="navbar">
+      <div class="nav-left">
+        <a href="../1_hauptseite/indexen.html" class="nav-home-text">Home</a>
+        <a href="../1_hauptseite/indexen.html" class="nav-home-icon"
+          ><img id="home-icon" src="../bilder/home.png" alt="Home"
+        /></a>
+        <img id="theme-icon" src="../bilder/sun.png" alt="Theme Toggle" class="nav-icon" onclick="toggleTheme()" style="cursor:pointer;">
+        <a href="../6_skills/skills.html" class="nav-lang"
+          ><span class="nav-EN">EN</span>/<span class="nav-DE">DE</span></a
+        >
+      </div>
+      <div class="nav-right">
+        <a href="../2_projekte/projekteen.html">Projects</a>
+        <a href="../6_skills/skillsen.html"><span style="color: var(--Lila)">Skills</span></a>
+        <a href="../7_uebermich/uebermichen.html">About Me</a>
+        <a href="../8_kontakt/kontakten.html">Contact</a>
+      </div>
+    </nav>
+
+    <section class="skills-section">
+      <div class="section-label">// SKILLS & EDUCATION</div>
+      <h1 class="section-title">
+        What I <span class="highlight-green">can do</span> &<br />
+        what I <span class="highlight-purple">am learning</span>.
+      </h1>
+
+      <!-- EDUCATION -->
+      <div class="block-heading">01 EDUCATION</div>
+      <div class="ausbildung-grid">
+        <div class="ausbildung-card">
+          <div class="ausbildung-tag"><span>● EFZ</span></div>
+          <div class="ausbildung-title">
+            IT Specialist<br />Application Development
+          </div>
+          <div class="ausbildung-bar-wrap">
+            <div class="ausbildung-bar-lila" style="width: 25%"></div>
+            <span
+              class="ausbildung-percent"
+              style="
+                position: absolute;
+                right: 0;
+                top: -1.3rem;
+                font-size: 0.75rem;
+                color: var(--Gray);
+              "
+              >25%</span
+            >
+          </div>
+          <div class="ausbildung-desc">
+            I am currently in the second of six semesters total.
+          </div>
+        </div>
+        <div class="ausbildung-card">
+          <div class="ausbildung-tag">● BM</div>
+          <div class="ausbildung-title">Vocational Baccalaureate</div>
+          <div class="ausbildung-bar-wrap">
+            <div class="ausbildung-bar" style="width: 25%"></div>
+            <span
+              class="ausbildung-percent"
+              style="
+                position: absolute;
+                right: 0;
+                top: -1.3rem;
+                font-size: 0.75rem;
+                color: var(--Gray);
+              "
+              >25%</span
+            >
+          </div>
+          <div class="ausbildung-desc">
+            I am currently in the second of six semesters total.
+          </div>
+        </div>
+      </div>
+
+      <!-- TECHNOLOGIES -->
+      <div class="block-heading">02 TECHNOLOGIES</div>
+
+      <!-- C# -->
+      <div class="tech-card">
+        <div class="tech-name">C#</div>
+        <div class="tech-grid">
+          <div class="tech-bars">
+            <div class="tech-bar-row">
+              <div class="tech-bar-label">Syntax & Fundamentals - 90%</div>
+              <div class="tech-bar-track">
+                <div class="tech-bar-fill fill-green" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="tech-bar-row">
+              <div class="tech-bar-label">
+                OOP - Classes & Inheritance - 65%
+              </div>
+              <div class="tech-bar-track">
+                <div class="tech-bar-fill fill-purple" style="width: 65%"></div>
+              </div>
+            </div>
+            <div class="tech-bar-row">
+              <div class="tech-bar-label">Database Integration - 0%</div>
+              <div class="tech-bar-track">
+                <div class="tech-bar-fill fill-gray" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="badge badge-green">Advanced</span>
+            <span class="badge badge-purple">Good</span>
+            <span class="badge badge-gray">Not yet covered</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HTML & CSS -->
+      <div class="tech-card">
+        <div class="tech-name">HTML & CSS</div>
+        <div class="tech-grid">
+          <div class="tech-bars">
+            <div class="tech-bar-row">
+              <div class="tech-bar-label">HTML Structure - 75%</div>
+              <div class="tech-bar-track">
+                <div class="tech-bar-fill fill-green" style="width: 75%"></div>
+              </div>
+            </div>
+            <div class="tech-bar-row">
+              <div class="tech-bar-label">CSS - Styling & Layouts - 60%</div>
+              <div class="tech-bar-track">
+                <div class="tech-bar-fill fill-purple" style="width: 60%"></div>
+              </div>
+            </div>
+            <div class="tech-bar-row">
+              <div class="tech-bar-label">Responsive Design - 50%</div>
+              <div class="tech-bar-track">
+                <div class="tech-bar-fill fill-gray" style="width: 50%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="badge badge-green">Good to Advanced</span>
+            <span class="badge badge-purple">Good</span>
+            <span class="badge badge-gray">Currently Learning</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SQL -->
+      <div class="tech-card">
+        <div class="tech-name">SQL</div>
+        <div class="tech-grid">
+          <div class="tech-bars">
+            <div class="tech-bar-row">
+              <div class="tech-bar-label">
+                SQL - DDL, DML etc. - 85%
+              </div>
+              <div class="tech-bar-track">
+                <div class="tech-bar-fill fill-green" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="tech-bar-row">
+              <div class="tech-bar-label">Database Design - 70%</div>
+              <div class="tech-bar-track">
+                <div class="tech-bar-fill fill-purple" style="width: 70%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="badge badge-green">Advanced</span>
+            <span class="badge badge-purple">Very Good</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bash -->
+      <div class="tech-card">
+        <div class="tech-name">Bash</div>
+        <div class="tech-grid">
+          <div class="tech-bars">
+            <div class="tech-bar-row">
+              <div class="tech-bar-label">
+                Linux Commands & Navigation - 65%
+              </div>
+              <div class="tech-bar-track">
+                <div class="tech-bar-fill fill-green" style="width: 65%"></div>
+              </div>
+            </div>
+            <div class="tech-bar-row">
+              <div class="tech-bar-label">Shell Scripting - 60%</div>
+              <div class="tech-bar-track">
+                <div class="tech-bar-fill fill-purple" style="width: 60%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="badge badge-green">Solid</span>
+            <span class="badge badge-purple">Good</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOGOS -->
+      <div class="logos-row">
+        <img src../bilder/csharp.png" alt="C#" />
+        <img src../bilder/html.png" alt="HTML5" />
+        <img src../bilder/css.png" alt="CSS3" />
+        <img src../bilder/sql.png" alt="SQL" />
+        <img src../bilder/bash.png" alt="Bash" />
+      </div>
+    </section>
+      <script src="../script.js"></script>
+</body>
+</html>

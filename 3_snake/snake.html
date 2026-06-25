@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projekt Snake | Sergiu Bolohan</title>
+    
+    <link rel="stylesheet" href="../all.css" />
+    <link rel="icon" href="../bilder/snake.ico"> 
+    <style>
+      .detail-section {
+        padding: 4rem 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      }
+
+      /* META */
+      .detail-meta {
+        float: right;
+        text-align: right;
+        font-size: 0.95rem;
+        line-height: 1.8;
+        color: var(--Gray);
+      }
+      .detail-meta .meta-year {
+        color: var(--Lila);
+        font-weight: 700;
+      }
+      .detail-meta .meta-type {
+        color: var(--Grün);
+        font-weight: 700;
+      }
+      .detail-meta .meta-school {
+        color: var(--White);
+        font-weight: 700;
+      }
+
+      /* TITLE */
+      .detail-number {
+        color: var(--Grün);
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      .detail-title {
+        font-size: clamp(1.8rem, 6vw, 3.4rem);
+        font-weight: 800;
+        margin: 0.3rem 0 2rem;
+        line-height: 1.05;
+      }
+
+      /* STACK BOX */
+      .stack-box {
+        background: var(--CardBg);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 1.5rem 1.7rem;
+        margin-bottom: 3rem;
+        display: inline-block;
+        min-width: 280px;
+      }
+      .stack-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        color: var(--Gray);
+        margin-bottom: 0.8rem;
+      }
+      .stack-tags {
+        display: flex;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+      }
+      .stack-tags span {
+        border: 1px solid var(--Lila);
+        color: var(--LilaLight);
+        padding: 0.45rem 1.1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      /* GRID */
+      .content-grid {
+        display: flex;
+        gap: 4rem;
+        align-items: flex-start;
+      }
+      .left-col {
+        flex: 1;
+      }
+      .right-col {
+        width: 360px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      /* TEXT */
+      .block-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+      }
+      .block-text {
+        color: var(--Gray);
+        line-height: 1.75;
+        font-size: 1.05rem;
+        margin-bottom: 2rem;
+      }
+
+      /* LIST */
+      .learn-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .learn-list li {
+        color: var(--Gray);
+        font-size: 1.05rem;
+        line-height: 1.75;
+        padding-left: 1.2rem;
+        position: relative;
+      }
+      .learn-list li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--Lila);
+      }
+
+      /* IMAGE */
+      .preview-img {
+        width: 100%;
+        border-radius: 10px;
+        display: block;
+      }
+
+      /* DETAILS BOX */
+      .details-box {
+        background: var(--CardBg);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 1.5rem 1.7rem;
+      }
+      .details-box-title {
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        color: var(--Gray);
+        margin-bottom: 1rem;
+      }
+      .detail-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.55rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        font-size: 1rem;
+      }
+      .detail-row:last-child {
+        border-bottom: none;
+      }
+      .detail-row .key {
+        color: var(--Gray);
+      }
+      .detail-row .val {
+        font-weight: 700;
+      }
+
+      /* CODE BOX */
+      .code-box {
+        background: var(--CardBg);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 1.5rem 1.7rem;
+        transition:
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+        cursor: pointer;
+      }
+      .code-box:hover {
+        box-shadow: var(--GlowLila);
+        border-color: var(--Lila);
+      }
+      .code-box-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+      }
+      .code-box-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        color: var(--Gray);
+        margin-bottom: 0.4rem;
+      }
+      .code-box-text {
+        color: var(--Lila);
+        font-size: 1rem;
+        font-weight: 600;
+      }
+      .code-box-link:hover .code-box-text {
+        text-decoration: underline;
+      }
+      .gh-circle {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .gh-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* HIGHLIGHTS */
+      .highlight-green {
+        color: var(--Grün);
+        font-weight: 650;
+      }
+      .highlight-purple {
+        color: var(--Lila);
+        font-weight: 650;
+      }
+      .highlight-white {
+        color: var(--White);
+        font-weight: 650;
+      }
+
+      .nav-lang .nav-DE {
+        color: var(--Lila);
+        font-size: x-large;
+      }
+      .nav-lang:hover .nav-EN {
+        color: var(--Lila);
+        font-size: x-large;
+      }
+
+      .nav-lang:hover .nav-DE {
+        color: var(--White);
+        font-size: 1.1rem;
+      }
+
+      .detail-meta {
+        animation: fade-up 0.6s ease forwards;
+        animation-delay: 0.1s;
+        opacity: 0;
+      }
+
+      .detail-number {
+        animation: fade-up 0.6s ease forwards;
+        animation-delay: 0.3s;
+        opacity: 0;
+      }
+
+      .detail-title {
+        animation: fade-up 0.6s ease forwards;
+        animation-delay: 0.5s;
+        opacity: 0;
+      }
+      .stack-box {
+        animation: fade-up 0.6s ease forwards;
+        animation-delay: 0.7s;
+        opacity: 0;
+      }
+      .content-grid {
+        animation: fade-up 0.6s ease forwards;
+        animation-delay: 0.9s;
+        opacity: 0;
+      }
+      .right-col {
+        animation: fade-up 0.6s ease forwards;
+        animation-delay: 1.1s;
+        opacity: 0;
+      }
+      .details-box {
+        animation: fade-up 0.6s ease forwards;
+        animation-delay: 1.3s;
+        opacity: 0;
+      }
+
+      .code-box {
+        animation: fade-up 0.6s ease forwards;
+        animation-delay: 1.5s;
+        opacity: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav id="navbar">
+      <div class="nav-left">
+        <a href="../1_hauptseite/index.html" class="nav-home-text">Home</a>
+        <a href="../1_hauptseite/index.html" class="nav-home-icon"
+          ><img id="home-icon" src="../bilder/home.png" alt="Home"
+        /></a>
+        <img id="theme-icon" src="../bilder/sun.png" alt="Theme Toggle" class="nav-icon" onclick="toggleTheme()" style="cursor:pointer;">
+        <a href="snakeen.html" class="nav-lang"
+          ><span class="nav-EN">EN</span>/<span class="nav-DE">DE</span></a
+        >
+      </div>
+      <div class="nav-right">
+        <a href="../2_projekte/projekte.html"><span style="color: var(--Lila)">Projekte</span></a>
+        <a href="../6_skills/skills.html">Skills</a>
+        <a href="../7_uebermich/uebermich.html">Über mich</a>
+        <a href="../8_kontakt/kontakt.html">Kontakt</a>
+      </div>
+    </nav>
+
+    <section class="detail-section">
+      <div class="detail-meta">
+        <div>Jahr: <span class="meta-year">2026</span></div>
+        <div>Typ: <span class="meta-type">Schulprojekt</span></div>
+        <div>Schule: <span class="meta-school">IMS-T Schweiz</span></div>
+      </div>
+
+      <div class="detail-number">// 01</div>
+      <h1 class="detail-title">Snake spiel</h1>
+
+      <div class="stack-box">
+        <div class="stack-label">STACK</div>
+        <div class="stack-tags">
+          <span>C#</span>
+          <span>Win-Forms</span>
+          <span>.NET</span>
+          <span>RawGameController API</span>
+        </div>
+      </div>
+
+      <div class="content-grid">
+        <div class="left-col">
+          <h2 class="block-title">Über das Projekt</h2>
+          <p class="block-text">
+            Dieses Projekt ist eine Umsetzung des klassischen
+            <span class="highlight-green">Snake-Spiels</span> in
+            <span class="highlight-purple">C#</span> mithilfe von Windows Forms.
+            Ziel war es, ein vollständig funktionierendes
+            <span class="highlight-white">Spiel</span> zu entwickeln, das sowohl
+            über die Tastatur als auch über einen Game-Controller gesteuert
+            werden kann. Die Spiellogik umfasst die Bewegung der Schlange, das
+            Erkennen von Kollisionen, das Erzeugen von Äpfeln sowie das
+            dynamische Verlängern des Schwanzes. Zusätzlich wurde ein einfaches
+            Game-Over-System implementiert, das einen Neustart ermöglicht.
+          </p>
+
+          <h2 class="block-title">Was war die Aufgabe?</h2>
+          <p class="block-text">
+            Die Aufgabe bestand darin, ein eigenes kleines
+            <span class="highlight-green">Spiel</span> zu programmieren, das
+            grundlegende
+            <span class="highlight-purple">Programmierkonzepte</span> wie Logik,
+            Events, Timer und Objektverwaltung nutzt. Außerdem sollte das
+            Projekt sauber strukturiert sein und eine stabile
+            <span class="highlight-white">Spielfunktionalität</span> bieten.
+          </p>
+
+          <h2 class="block-title">Was ich gelernt habe</h2>
+          <ul class="learn-list">
+            <li>
+              Arbeiten mit C# Windows <span class="highlight-green">Forms</span>
+            </li>
+            <li>
+              Umgang mit Timern und <span class="highlight-purple">Events</span>
+            </li>
+            <li>
+              Objektorientierte
+              <span class="highlight-white">Programmierung</span> in einem
+              echten Projekt
+            </li>
+            <li>
+              Kollisionserkennung und
+              <span class="highlight-green">Spiellogik</span>
+            </li>
+            <li>
+              Einbinden eines
+              <span class="highlight-purple">Game-Controllers</span> über
+              RawGameController
+            </li>
+          </ul>
+        </div>
+
+        <div class="right-col">
+          <img
+            class="preview-img"
+            src="../bilder/snake.gif"
+            alt="Snake Game Preview"
+          />
+
+          <div class="details-box">
+            <div class="details-box-title">PROJEKTDETAILS</div>
+            <div class="detail-row">
+              <span class="key">Zeitraum</span><span class="val">2026</span>
+            </div>
+            <div class="detail-row">
+              <span class="key">Schule</span
+              ><span class="val">IMS-T Schweiz</span>
+            </div>
+            <div class="detail-row">
+              <span class="key">Typ</span><span class="val">Schulprojekt</span>
+            </div>
+            <div class="detail-row">
+              <span class="key">Status</span
+              ><span class="val">Abgeschlossen</span>
+            </div>
+          </div>
+
+          <div class="code-box">
+            <a
+              href="https://github.com/sxrg1u/28_snake"
+              target="_blank"
+              class="code-box-link"
+            >
+              <div>
+                <div class="code-box-label">ZUM CODE</div>
+                <span class="code-box-text">sxrg1u/28_snake</span>
+              </div>
+              <div class="gh-circle">
+                <img src="../bilder/githublogo.png" alt="GitHub" />
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+      <script src="../script.js"></script>
+</body>
+</html>

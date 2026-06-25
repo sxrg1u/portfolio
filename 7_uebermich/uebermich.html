@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über mich | Sergiu Bolohan</title>
+    
+    <link rel="stylesheet" href="../all.css">
+    <link rel="icon" href="../bilder/boy.ico"> 
+    <style>
+        .nav-lang .nav-DE {
+            color: var(--Lila);
+            font-size: x-large;
+        }
+
+        .nav-lang:hover .nav-EN {
+            color: var(--Lila);
+            font-size: x-large;
+        }
+
+        .nav-lang:hover .nav-DE {
+            color: var(--White);
+            font-size: 1.1rem;
+        }
+
+        .ueber-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 0 8rem;
+            animation: fade-up 0.6s ease forwards;
+            animation-delay: 0.1s;
+            opacity: 0;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+            color: var(--Grün);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3.6rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0 0 4rem;
+        }
+
+        .section-title .highlight-purple {
+            color: var(--Lila);
+        }
+
+        .block-heading {
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            color: var(--Gray);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* VORSTELLUNG */
+        .vorstellung-grid {
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+            margin-bottom: 5rem;
+        }
+
+        .vorstellung-img {
+            width: min(360px, 100%);
+            min-width: 320px;
+            border-radius: 12px;
+            border: 1px solid rgba(108, 99, 255, 0.35);
+            box-shadow: 0 0 30px rgba(108, 99, 255, 0.15);
+            object-fit: cover;
+            transition: box-shadow 0.4s ease, transform 0.4s ease;
+        }
+
+        .vorstellung-img:hover {
+            box-shadow: 0 0 50px rgba(108, 99, 255, 0.4);
+            transform: scale(1.02);
+        }
+
+        .vorstellung-right h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 0 1.5rem;
+        }
+
+        .vorstellung-right h2 .name-grün {
+            color: var(--Grün);
+        }
+
+        .vorstellung-right h2 .name-lila {
+            color: var(--Lila);
+        }
+
+        .info-block {
+            margin-bottom: 1.2rem;
+        }
+
+        .info-tag {
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            color: var(--Grün);
+            margin-bottom: 0.35rem;
+        }
+
+        .info-text {
+            color: var(--Gray);
+            line-height: 1.65;
+            font-size: 0.97rem;
+        }
+
+        /* HOBBYS */
+        .hobby-block {
+            margin-bottom: 4.5rem;
+        }
+
+        .hobby-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hobby-title.grün {
+            color: var(--Grün);
+        }
+
+        .hobby-title.lila {
+            color: var(--Lila);
+        }
+
+        .hobby-text {
+            color: var(--Gray);
+            line-height: 1.7;
+            font-size: 0.97rem;
+            max-width: 780px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* FUSSBALL IMAGES */
+        .hobby-images {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .hobby-img-wrap {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hobby-img-wrap:hover {
+            border-color: rgba(0, 255, 157, 0.45);
+            box-shadow: 0 0 25px rgba(0, 255, 157, 0.1);
+        }
+
+        .hobby-img-wrap img {
+            width: 100%;
+            height: clamp(200px, 40vw, 380px);
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .hobby-img-wrap-buchs {
+            object-position: bottom;
+        }
+
+        .hobby-img-wrap:hover {
+            border-color: var(--Lila);
+            box-shadow: var(--GlowLila);
+        }
+
+        .hobby-img-caption {
+            font-size: 0.72rem;
+            color: var(--Gray);
+            text-align: center;
+            padding: 0.6rem 0.8rem;
+            background: var(--CardBg);
+            letter-spacing: 0.05em;
+        }
+
+        /* GYM */
+        .gym-layout {
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .gym-left {
+            flex: 1;
+        }
+
+        .gym-right {
+            width: 280px;
+            min-width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .gym-img {
+            width: 100%;
+            height: clamp(150px, 25vw, 210px);
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .gym-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 30px rgba(108, 99, 255, 0.3);
+        }
+
+        .gym-callout {
+            background: var(--CardBg);
+            border: 1px solid rgba(108, 99, 255, 0.25);
+            border-radius: 10px;
+            padding: 1rem 1.2rem;
+            font-size: 0.85rem;
+            color: var(--Gray);
+            line-height: 1.55;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* REISEN */
+        .reisen-intro {
+            color: var(--Gray);
+            line-height: 1.7;
+            font-size: 0.97rem;
+            max-width: 780px;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-label {
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            color: var(--Gray);
+            margin-bottom: 1.8rem;
+            margin-top: 1rem;
+        }
+
+        .destination-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .dest-card {
+            background: var(--CardBg);
+            border: 1px solid rgba(108, 99, 255, 0.2);
+            border-radius: 14px;
+            padding: 1.6rem 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dest-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--Grün);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.35s ease;
+        }
+
+        .dest-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .dest-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 255, 157, 0.3);
+            box-shadow: 0 8px 30px rgba(0, 255, 157, 0.07);
+        }
+
+        .dest-card.dream {
+            border-color: rgba(108, 99, 255, 0.35);
+        }
+
+        .dest-card.dream::before {
+            background: var(--Lila);
+        }
+
+        .dest-card.dream:hover {
+            border-color: rgba(108, 99, 255, 0.55);
+            box-shadow: 0 8px 30px rgba(108, 99, 255, 0.12);
+        }
+
+        .dest-text {
+            flex: 1;
+        }
+
+        .dest-name {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--Grün);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .dest-card.dream .dest-name {
+            color: var(--Lila);
+        }
+
+        .dream-badge {
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            color: var(--Lila);
+            border: 1px solid rgba(108, 99, 255, 0.4);
+            border-radius: 20px;
+            padding: 0.15rem 0.55rem;
+            font-family: 'JetBrains Mono', monospace;
+            white-space: nowrap;
+        }
+
+        .dest-desc {
+            color: var(--Gray);
+            line-height: 1.65;
+            font-size: 0.91rem;
+        }
+
+        .dest-desc strong {
+            color: var(--Grün);
+            font-weight: 600;
+        }
+
+        .dest-card.dream .dest-desc strong {
+            color: var(--Lila);
+        }
+
+        .dest-img {
+            width: 175px;
+            min-width: 175px;
+            height: 115px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            flex-shrink: 0;
+        }
+
+        .dest-card:hover .dest-img {
+            transform: scale(1.04);
+            box-shadow: 0 0 20px rgba(108, 99, 255, 0.25);
+        }
+
+        /* LEBENSLAUF */
+        .PDF-card {
+            display: block;
+            background: var(--CardBg);
+            border: 1px solid rgba(108, 99, 255, 0.25);
+            border-radius: 14px;
+            padding: 2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            max-width: 700px;
+        }
+
+        .PDF-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--Grün);
+            box-shadow: 0 0 30px rgba(63, 255, 140, 0.15);
+        }
+
+        .PDF-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .PDF-tag {
+            color: var(--Grün);
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+        }
+
+        .PDF-arrow {
+            color: var(--Lila);
+            font-size: 1.4rem;
+        }
+
+        .PDF-card h2 {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            color: var(--White);
+        }
+
+        .PDF-footer {
+            color: var(--Lila);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-left">
+            <a href="../1_hauptseite/index.html" class="nav-home-text">Home</a>
+            <a href="../1_hauptseite/index.html" class="nav-home-icon"><img id="home-icon" src="../bilder/home.png"
+                    alt="Home"></a>
+            <img id="theme-icon" src="../bilder/sun.png" alt="Theme Toggle" class="nav-icon" onclick="toggleTheme()" style="cursor:pointer;">
+            <a href="uebermichen.html" class="nav-lang"><span class="nav-EN">EN</span>/<span
+                    class="nav-DE">DE</span></a>
+        </div>
+        <div class="nav-right">
+            <a href="../2_projekte/projekte.html">Projekte</a>
+            <a href="../6_skills/skills.html">Skills</a>
+            <a href="../7_uebermich/uebermich.html"><span style="color: var(--Lila)">Über mich</span></a>
+            <a href="../8_kontakt/kontakt.html">Kontakt</a>
+        </div>
+    </nav>
+
+    <main class="ueber-section">
+
+        <div class="section-label">// über mich</div>
+        <h1 class="section-title">Wer ich<br><span class="highlight-purple">bin.</span></h1>
+
+        <!-- 01 VORSTELLUNG -->
+        <div class="block-heading">01 VORSTELLUNG</div>
+        <div class="vorstellung-grid">
+            <img src="../bilder/me.jpeg" alt="Sergiu Bolohan" class="vorstellung-img">
+            <div class="vorstellung-right">
+                <h2>Hallo, <span class="name-grün">ich</span> bin<br><span class="name-lila">Sergiu.</span></h2>
+                <div class="info-block">
+                    <div class="info-tag">// AUSBILDUNG</div>
+                    <p class="info-text">Ich absolviere die duale Ausbildung als Informatiker EFZ mit Fachrichtung
+                        Applikationsentwicklung und besuche gleichzeitig die Berufsmaturität. Die Kombination aus
+                        Ausbildung und Schule motiviert mich, mich sowohl fachlich als auch persönlich stetig
+                        weiterzuentwickeln.</p>
+                </div>
+                <div class="info-block">
+                    <div class="info-tag">// PERSÖNLICHKEIT</div>
+                    <p class="info-text">Mich zeichnen Neugier, Lernbereitschaft und Ausdauer aus. Ich arbeite gerne mit
+                        anderen zusammen, bringe eigene Ideen ein und freue mich darauf, von den Erfahrungen anderer zu
+                        lernen. Herausforderungen sehe ich als Chance, Neues zu entdecken.</p>
+                </div>
+                <div class="info-block">
+                    <div class="info-tag">// MOTIVATION</div>
+                    <p class="info-text">In der Softwareentwicklung begeistert mich besonders die Möglichkeit, kreative
+                        Ideen in funktionierende Lösungen umzusetzen. Es motiviert mich, Probleme zu analysieren,
+                        passende Wege zu finden und dabei kontinuierlich dazuzulernen.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 02 HOBBYS -->
+        <div class="block-heading">02 HOBBYS & INTERESSEN</div>
+
+        <!-- FUSSBALL -->
+        <div class="hobby-block">
+            <h2 class="hobby-title grün">Fussball</h2>
+            <p class="hobby-text">Fussball ist mehr als ein Hobby - er ist ein fester Teil meines Lebens. Seit ich vier
+                Jahre alt bin, spiele ich aktiv im Verein. Meine Position: rechter Flügel - Tempo, Dribblings und
+                Vorlagen sind mein Ding. Ich habe mehrere Jahre in Rumänien gespielt, dann beim FC Buchs, beim LFV
+                Liechtenstein und bin jetzt wieder beim FC Buchs.</p>
+            <div class="hobby-images">
+                <div class="hobby-img-wrap">
+                    <img src="../bilder/fussballlfv.jpeg" alt="LFV Liechtenstein">
+                    <div class="hobby-img-caption">LFV Liechtenstein</div>
+                </div>
+                <div class="hobby-img-wrap">
+                    <img src="../bilder/fussballbuchs.jpeg" alt="FC Buchs" class="hobby-img-wrap-buchs">
+                    <div class="hobby-img-caption">B-Junioren FC Buchs</div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- GYM -->
+        <div class="hobby-block">
+            <h2 class="hobby-title lila">Gym</h2>
+            <div class="gym-layout">
+                <div class="gym-left">
+                    <p class="hobby-text" style="max-width:100%">Neben dem Fussball ist das Gym mein zweiter sportlicher
+                        Ausgleich. Ich trainiere gemischt - Kraft, Ausdauer und alles dazwischen - und versuche, bis zu
+                        fünfmal die Woche reinzukommen. Für mich geht es nicht nur um Ästhetik, sondern darum,
+                        leistungsfähig zu bleiben, Disziplin aufzubauen und den Kopf freizubekommen.</p>
+                </div>
+                <div class="gym-right">
+                    <img src="../bilder/gym.jpeg" alt="Gym" class="gym-img">
+                    <div class="gym-callout">Ich trainiere im FitnessUnited in Buchs SG, meistens gemeinsam mit meinen
+                        Kollegen.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- REISEN -->
+        <div class="hobby-block">
+            <h2 class="hobby-title grün">Reisen</h2>
+            <p class="reisen-intro">Die Welt entdecken ist eine meiner grössten Leidenschaften. Neue Länder, fremde
+                Kulturen und unerwartete Erlebnisse geben mir Inspiration und erweitern meinen Horizont wie nichts
+                anderes.</p>
+            <p class="highlight-label">// Meine bisherigen Highlights</p>
+
+            <div class="destination-list">
+
+                <div class="dest-card">
+                    <div class="dest-text">
+                        <div class="dest-name">Japan</div>
+                        <p class="dest-desc">Japan fühlt sich an wie eine eigene Welt. <strong>Tempel in Kyoto</strong>,
+                            Neonlichter in Tokio, unglaubliche Küche - nirgendwo sonst habe ich so viele Kontraste auf
+                            einmal erlebt. Ein Land, das lange nachhallt.</p>
+                    </div>
+                    <img src="../bilder/japan.png" alt="Japan" class="dest-img">
+                </div>
+
+                <div class="dest-card">
+                    <div class="dest-text">
+                        <div class="dest-name">Hawaii</div>
+                        <p class="dest-desc">Türkisblaues Wasser, endlose Strände und eine entspannte Atmosphäre, die
+                            sofort ansteckt. Hawaii hat mir gezeigt, wie schön echte Entschleunigung sein kann -
+                            <strong>jeder Sonnenuntergang dort fühlt sich wie ein Geschenk an.</strong>
+                        </p>
+                    </div>
+                    <img src="../bilder/hawaii.png" alt="Hawaii" class="dest-img">
+                </div>
+
+                <div class="dest-card">
+                    <div class="dest-text">
+                        <div class="dest-name">Barcelona</div>
+                        <p class="dest-desc">Drei Dinge machen Barcelona für mich besonders: das <strong>Camp
+                                Nou</strong>, die Sagrada Família und der FC Barça. Diese Stadt verbindet Architektur,
+                            Emotion und Fussball wie keine andere.</p>
+                    </div>
+                </div>
+
+                <div class="dest-card">
+                    <div class="dest-text">
+                        <div class="dest-name">England</div>
+                        <p class="dest-desc">London ist Tradition und Moderne in einer Stadt. Rote Doppeldeckerbusse,
+                            Big Ben, der Tower - und für einen Fussballfan ist England natürlich ein <strong>absolutes
+                                Pflichtprogramm.</strong></p>
+                    </div>
+                    <img src="../bilder/london.png" alt="London" class="dest-img">
+                </div>
+
+                <div class="dest-card dream">
+                    <div class="dest-text">
+                        <div class="dest-name">Safari in Afrika <span class="dream-badge">Bucket List</span></div>
+                        <p class="dest-desc">Mein Traumziel. Einmal hautnah erleben, wie <strong>Löwen, Elefanten und
+                                Giraffen</strong> in freier Wildbahn leben - das ist ein Erlebnis, das kein Film
+                            ersetzen kann. Afrika steht ganz oben auf meiner Liste.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 03 LEBENSLAUF -->
+        <div class="block-heading">03 LEBENSLAUF</div>
+        <a href="#" target="_blank" class="PDF-card">
+            <div class="PDF-card-top">
+                <span class="PDF-tag">// PDF</span>
+                <span class="PDF-arrow">↗</span>
+            </div>
+            <h2>Mein Lebenslauf</h2>
+            <div class="PDF-footer">PDF öffnen</div>
+        </a>
+
+    </main>
+    <script src="../script.js"></script>
+</body>
+</html>

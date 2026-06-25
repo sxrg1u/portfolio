@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | Sergiu Bolohan</title>
+    
+    <link rel="stylesheet" href="../all.css">
+    <link rel="icon" href="../bilder/bubble.ico"> 
+    <style>
+        .kontakt-section {
+            padding: 4rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .kontakt-subtitle {
+            color: var(--Grün);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .kontakt-title {
+            font-size: clamp(1.8rem, 6vw, 3.4rem);
+            font-weight: 800;
+            margin: 0 0 1rem;
+            line-height: 1.1;
+        }
+
+        .kontakt-title span {
+            color: var(--Lila);
+        }
+
+        .kontakt-desc {
+            color: var(--Gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .kontakt-links-title {
+            color: var(--Gray);
+            font-size: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .kontakt-links-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.12);
+        }
+
+        .kontakt-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .kontakt-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: var(--CardBgAlt);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            transition: 0.3s ease;
+        }
+
+        .kontakt-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--Lila);
+            box-shadow: 3px 3px 8px var(--Lila);
+        }
+
+        .kontakt-card-icon {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            flex-shrink: 0;
+            opacity: 0.85;
+        }
+
+        .kontakt-card-info {
+            flex: 1;
+        }
+
+        .kontakt-card-info h3 {
+            margin: 0 0 0.3rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--White);
+        }
+
+        .kontakt-card-info p {
+            margin: 0;
+            color: var(--Lila);
+            font-size: 1rem;
+        }
+
+        .kontakt-card-arrow {
+            color: var(--White);
+            font-size: 1.5rem;
+            opacity: 0.6;
+        }
+
+        .nav-right span {
+            color: var(--Lila);
+        }
+
+        .nav-lang .nav-DE {
+            color: var(--Lila);
+            font-size: x-large;
+        }
+
+        .nav-lang:hover .nav-EN {
+            color: var(--Lila);
+            font-size: x-large;
+        }
+
+        .nav-lang:hover .nav-DE {
+            color: var(--White);
+            font-size: 1.1rem;
+        }
+
+        .kontakt-subtitle {
+            animation: fade-up 0.6s ease forwards;
+            animation-delay: 0.1s;
+            opacity: 0;
+        }
+
+        .kontakt-title {
+            animation: fade-up 0.6s ease forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+
+        .kontakt-desc {
+            animation: fade-up 0.6s ease forwards;
+            animation-delay: 0.5s;
+            opacity: 0;
+        }
+        .kontakt-links-title {
+            animation: fade-up 0.6s ease forwards;
+            animation-delay: 0.7s;
+            opacity: 0;
+        }
+        .kontakt-cards {
+            animation: fade-up 0.6s ease forwards;
+            animation-delay: 0.9s;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav id="navbar">
+    <div class="nav-left">
+        <a href="../1_hauptseite/index.html" class="nav-home-text">Home</a>
+        <a href="../1_hauptseite/index.html" class="nav-home-icon"><img id="home-icon" src="../bilder/home.png" alt="Home"></a>
+        <img id="theme-icon" src="../bilder/sun.png" alt="Theme Toggle" class="nav-icon" onclick="toggleTheme()" style="cursor:pointer;">
+        <a href="../8_kontakt/kontakten.html" class="nav-lang"><span class="nav-EN">EN</span>/<span class="nav-DE">DE</span></a>
+    </div>
+
+    <div class="nav-right">
+        <a href="../2_projekte/projekte.html">Projekte</a>
+        <a href="../6_skills/skills.html">Skills</a>
+        <a href="../7_uebermich/uebermich.html">Über mich</a>
+        <a href="../8_kontakt/kontakt.html"><span style="color: var(--Lila)">Kontakt</span></a>
+    </div>
+</nav>
+
+<section class="kontakt-section">
+
+    <p class="kontakt-subtitle">// Kontakte</p>
+    <h1 class="kontakt-title">Kontaktieren<br>Sie <span>mich.</span></h1>
+    <p class="kontakt-desc">Du findest mich auf GitHub, per Mail oder auf Instagram — such dir aus was dir lieber ist.</p>
+
+    <p class="kontakt-links-title">01 Links zur Kontaktaufnahme</p>
+
+    <div class="kontakt-cards">
+
+        <a href="https://github.com/sxrg1u" target="_blank" class="kontakt-card">
+            <img class="kontakt-card-icon" src="../bilder/githublogo.png" alt="GitHub">
+            <div class="kontakt-card-info">
+                <h3>GitHub</h3>
+                <p>sxrg1u (sergiu bolohan)</p>
+            </div>
+            <span class="kontakt-card-arrow">→</span>
+        </a>
+
+        <a href="https://www.instagram.com/_sxrgiu_/" target="_blank" class="kontakt-card">
+            <img class="kontakt-card-icon" src="../bilder/insta.png" alt="Instagram">
+            <div class="kontakt-card-info">
+                <h3>Instagram</h3>
+                <p>_sxrgiu_ </p>
+            </div>
+            <span class="kontakt-card-arrow">→</span>
+        </a>
+
+        <a href="mailto:sergiu.bolohan@stud.bzbs.ch" class="kontakt-card">
+            <img class="kontakt-card-icon" src="../bilder/mail.png" alt="E-Mail">
+            <div class="kontakt-card-info">
+                <h3>E-Mail der Schule</h3>
+                <p>sergiu.bolohan@stud.bzbs.ch</p>
+            </div>
+            <span class="kontakt-card-arrow">→</span>
+        </a>
+
+        <a href="mailto:sergiu.bolohan@outlook.com" class="kontakt-card">
+            <img class="kontakt-card-icon" src="../bilder/mail.png" alt="E-Mail">
+            <div class="kontakt-card-info">
+                <h3>Privat E-Mail</h3>
+                <p>sergiu.bolohan@outlook.com</p>
+            </div>
+            <span class="kontakt-card-arrow">→</span>
+        </a>
+
+    </div>
+</section>
+
+    <script src="../script.js"></script>
+</body>
+</html>
