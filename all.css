@@ -97,6 +97,10 @@ body {
 
   color: var(--White);
   padding-top: 6rem;
+  /* Immer mindestens 1.5rem Abstand links/rechts, ab MaxWidth zentriert */
+  padding-left: max(var(--SpaceMD), calc((100% - var(--MaxWidth)) / 2));
+  padding-right: max(var(--SpaceMD), calc((100% - var(--MaxWidth)) / 2));
+  box-sizing: border-box;
 }
 
 /* Hamburger — nur auf Mobile */
@@ -329,9 +333,6 @@ body {
   /* --- BODY --- */
   body {
     padding-top: 4.5rem;
-    padding-left: var(--SpaceMD);
-    padding-right: var(--SpaceMD);
-    box-sizing: border-box;
     overflow-x: hidden;
   }
 
