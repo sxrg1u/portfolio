@@ -22,9 +22,9 @@
         }
 
         .ueber-section {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 4rem 0 8rem;
+            padding: 4rem 1.5rem 8rem;
             animation: fade-up 0.6s ease forwards;
             animation-delay: 0.1s;
             opacity: 0;
@@ -38,7 +38,7 @@
         }
 
         .section-title {
-            font-size: 3.6rem;
+            font-size: clamp(2.4rem, 8vw, 3.6rem);
             font-weight: 800;
             line-height: 1.1;
             margin: 0 0 4rem;
@@ -59,16 +59,17 @@
 
         /* INTRODUCTION */
         .vorstellung-grid {
-            display: flex;
-            gap: 4rem;
-            align-items: flex-start;
-            margin-bottom: 5rem;
+            display: grid;
+            grid-template-columns: minmax(280px, 340px) 1fr;
+            gap: 3.5rem;
+            align-items: start;
+            margin-bottom: 6rem;
         }
 
         .vorstellung-img {
-            width: min(360px, 100%);
-            min-width: 320px;
-            border-radius: 12px;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            border-radius: 14px;
             border: 1px solid rgba(108, 99, 255, 0.35);
             box-shadow: 0 0 30px rgba(108, 99, 255, 0.15);
             object-fit: cover;
@@ -81,7 +82,7 @@
         }
 
         .vorstellung-right h2 {
-            font-size: 2rem;
+            font-size: clamp(1.6rem, 5vw, 2rem);
             font-weight: 800;
             margin: 0 0 1.5rem;
         }
@@ -95,14 +96,14 @@
         }
 
         .info-block {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.4rem;
         }
 
         .info-tag {
             font-size: 0.75rem;
             letter-spacing: 0.12em;
             color: var(--Grün);
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.4rem;
         }
 
         .info-text {
@@ -111,156 +112,120 @@
             font-size: 0.97rem;
         }
 
-        /* HOBBIES */
-        .hobby-block {
-            margin-bottom: 4.5rem;
-        }
-
-        .hobby-title {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .hobby-title.grün {
-            color: var(--Grün);
-        }
-
-        .hobby-title.lila {
-            color: var(--Lila);
-        }
-
-        .hobby-text {
-            color: var(--Gray);
-            line-height: 1.7;
-            font-size: 0.97rem;
-            max-width: 780px;
-            margin-bottom: 1.5rem;
-        }
-
-        /* FOOTBALL IMAGES */
-        .hobby-images {
-            display: flex;
+        /* HOBBIES — compact cards */
+        .hobby-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
-            margin-top: 1.5rem;
+            margin-bottom: 3.5rem;
         }
 
-        .hobby-img-wrap {
-            flex: 1;
-            border-radius: 12px;
+        .hobby-card {
+            background: var(--CardBg);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            position: relative;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
         }
 
-        .hobby-img-wrap:hover {
-            border-color: rgba(0, 255, 157, 0.45);
-            box-shadow: 0 0 25px rgba(0, 255, 157, 0.1);
-        }
-
-        .hobby-img-wrap img {
+        .hobby-card-media {
             width: 100%;
-            height: clamp(200px, 40vw, 380px);
+            height: 170px;
+            overflow: hidden;
+        }
+
+        .hobby-card-media img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             display: block;
             transition: transform 0.5s ease;
         }
 
-        .hobby-img-wrap-buchs {
-            object-position: bottom;
+        .hobby-card:hover .hobby-card-media img {
+            transform: scale(1.05);
         }
 
-        .hobby-img-wrap:hover {
-            border-color: var(--Lila);
-            box-shadow: var(--GlowLila);
-        }
-
-        .hobby-img-caption {
-            font-size: 0.72rem;
-            color: var(--Gray);
-            text-align: center;
-            padding: 0.6rem 0.8rem;
-            background: var(--CardBg);
-            letter-spacing: 0.05em;
-        }
-
-        /* GYM */
-        .gym-layout {
-            display: flex;
-            gap: 3rem;
-            align-items: flex-start;
-        }
-
-        .gym-left {
+        .hobby-card-body {
+            padding: 1.4rem 1.5rem 1.6rem;
             flex: 1;
         }
 
-        .gym-right {
-            width: 280px;
-            min-width: 280px;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .gym-img {
-            width: 100%;
-            height: clamp(150px, 25vw, 210px);
-            object-fit: cover;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        .gym-img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 30px rgba(108, 99, 255, 0.3);
-        }
-
-        .gym-callout {
-            background: var(--CardBg);
-            border: 1px solid rgba(108, 99, 255, 0.25);
-            border-radius: 10px;
-            padding: 1rem 1.2rem;
-            font-size: 0.85rem;
-            color: var(--Gray);
-            line-height: 1.55;
+        .hobby-card-tag {
+            display: block;
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            margin-bottom: 0.5rem;
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* TRAVEL */
-        .reisen-intro {
-            color: var(--Gray);
-            line-height: 1.7;
-            font-size: 0.97rem;
-            max-width: 780px;
-            margin-bottom: 0.5rem;
+        .hobby-card h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin: 0 0 0.7rem;
         }
 
+        .hobby-card p {
+            color: var(--Gray);
+            line-height: 1.6;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .hobby-card.grün {
+            border-top: 3px solid var(--Grün);
+        }
+
+        .hobby-card.grün .hobby-card-tag,
+        .hobby-card.grün h3 {
+            color: var(--Grün);
+        }
+
+        .hobby-card.grün:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 255, 157, 0.35);
+            box-shadow: 0 12px 30px rgba(0, 255, 157, 0.08);
+        }
+
+        .hobby-card.lila {
+            border-top: 3px solid var(--Lila);
+        }
+
+        .hobby-card.lila .hobby-card-tag,
+        .hobby-card.lila h3 {
+            color: var(--Lila);
+        }
+
+        .hobby-card.lila:hover {
+            transform: translateY(-6px);
+            border-color: rgba(108, 99, 255, 0.4);
+            box-shadow: 0 12px 30px rgba(108, 99, 255, 0.12);
+        }
+
+        /* TRAVEL HIGHLIGHTS — compact grid */
         .highlight-label {
             font-size: 0.85rem;
             letter-spacing: 0.1em;
             color: var(--Gray);
-            margin-bottom: 1.8rem;
-            margin-top: 1rem;
+            margin: 0 0 1.4rem;
+            font-family: 'JetBrains Mono', monospace;
         }
 
-        .destination-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
+        .dest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1rem;
+            margin-bottom: 6rem;
         }
 
         .dest-card {
             background: var(--CardBg);
-            border: 1px solid rgba(108, 99, 255, 0.2);
-            border-radius: 14px;
-            padding: 1.6rem 2rem;
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            transition: all 0.35s ease;
+            border: 1px solid rgba(108, 99, 255, 0.18);
+            border-radius: 12px;
+            padding: 1.3rem 1.4rem;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
         }
@@ -285,80 +250,25 @@
         .dest-card:hover {
             transform: translateY(-4px);
             border-color: rgba(0, 255, 157, 0.3);
-            box-shadow: 0 8px 30px rgba(0, 255, 157, 0.07);
-        }
-
-        .dest-card.dream {
-            border-color: rgba(108, 99, 255, 0.35);
-        }
-
-        .dest-card.dream::before {
-            background: var(--Lila);
-        }
-
-        .dest-card.dream:hover {
-            border-color: rgba(108, 99, 255, 0.55);
-            box-shadow: 0 8px 30px rgba(108, 99, 255, 0.12);
-        }
-
-        .dest-text {
-            flex: 1;
+            box-shadow: 0 8px 24px rgba(0, 255, 157, 0.07);
         }
 
         .dest-name {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 800;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             color: var(--Grün);
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-        }
-
-        .dest-card.dream .dest-name {
-            color: var(--Lila);
-        }
-
-        .dream-badge {
-            font-size: 0.65rem;
-            letter-spacing: 0.1em;
-            color: var(--Lila);
-            border: 1px solid rgba(108, 99, 255, 0.4);
-            border-radius: 20px;
-            padding: 0.15rem 0.55rem;
-            font-family: 'JetBrains Mono', monospace;
-            white-space: nowrap;
+            gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
         .dest-desc {
             color: var(--Gray);
-            line-height: 1.65;
-            font-size: 0.91rem;
-        }
-
-        .dest-desc strong {
-            color: var(--Grün);
-            font-weight: 600;
-        }
-
-        .dest-card.dream .dest-desc strong {
-            color: var(--Lila);
-        }
-
-        .dest-img {
-            width: 175px;
-            min-width: 175px;
-            height: 115px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            flex-shrink: 0;
-        }
-
-        .dest-card:hover .dest-img {
-            transform: scale(1.04);
-            box-shadow: 0 0 20px rgba(108, 99, 255, 0.25);
+            line-height: 1.55;
+            font-size: 0.86rem;
+            margin: 0;
         }
 
         /* CV */
@@ -398,7 +308,7 @@
         }
 
         .PDF-card h2 {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 5vw, 2rem);
             margin-bottom: 0.8rem;
             color: var(--White);
         }
@@ -406,6 +316,47 @@
         .PDF-footer {
             color: var(--Lila);
             font-weight: 600;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 860px) {
+            .vorstellung-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-bottom: 4.5rem;
+            }
+
+            .vorstellung-img {
+                max-width: 320px;
+                aspect-ratio: 1 / 1;
+            }
+
+            .hobby-grid {
+                grid-template-columns: 1fr;
+                max-width: 460px;
+            }
+
+            .hobby-card-media {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .ueber-section {
+                padding: 2.5rem 1.1rem 5rem;
+            }
+
+            .section-title {
+                margin-bottom: 3rem;
+            }
+
+            .dest-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .PDF-card {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -468,99 +419,70 @@
         <!-- 02 HOBBIES -->
         <div class="block-heading">02 HOBBIES & INTERESTS</div>
 
-        <!-- FOOTBALL -->
-        <div class="hobby-block">
-            <h2 class="hobby-title grün">Football</h2>
-            <p class="hobby-text">Football is more than a hobby — it's a core part of my life. I've been playing in
-                clubs since I was four years old. My position: right winger — pace, dribbles and assists are my thing.
-                I played for several years in Romania, then at FC Buchs, at LFV Liechtenstein, and I'm now back at FC
-                Buchs.</p>
-            <div class="hobby-images">
-                <div class="hobby-img-wrap">
-                    <img src="../bilder/fussballlfv.jpeg" alt="LFV Liechtenstein">
-                    <div class="hobby-img-caption">LFV Liechtenstein</div>
+        <div class="hobby-grid">
+            <article class="hobby-card grün">
+                <div class="hobby-card-media">
+                    <img src="../bilder/fussballlfv.jpeg" alt="Football">
                 </div>
-                <div class="hobby-img-wrap">
-                    <img src="../bilder/fussballbuchs.jpeg" alt="FC Buchs" class="hobby-img-wrap-buchs">
-                    <div class="hobby-img-caption">U18 FC Buchs</div>
+                <div class="hobby-card-body">
+                    <span class="hobby-card-tag">// SPORT</span>
+                    <h3>Football</h3>
+                    <p>Playing in clubs since I was four, on the right wing. After stints in Romania and at LFV
+                        Liechtenstein, I now play for FC Buchs.</p>
                 </div>
-            </div>
+            </article>
+
+            <article class="hobby-card lila">
+                <div class="hobby-card-media">
+                    <img src="../bilder/gym.jpeg" alt="Gym">
+                </div>
+                <div class="hobby-card-body">
+                    <span class="hobby-card-tag">// TRAINING</span>
+                    <h3>Gym</h3>
+                    <p>My second sporting outlet, up to five times a week. For me it's about discipline, staying
+                        performant and clearing my head.</p>
+                </div>
+            </article>
+
+            <article class="hobby-card grün">
+                <div class="hobby-card-media">
+                    <img src="../bilder/japan.png" alt="Travel">
+                </div>
+                <div class="hobby-card-body">
+                    <span class="hobby-card-tag">// ON THE ROAD</span>
+                    <h3>Travel</h3>
+                    <p>Discovering new countries and cultures inspires me and broadens my horizons. My highlights so
+                        far are below.</p>
+                </div>
+            </article>
         </div>
 
-        <!-- GYM -->
-        <div class="hobby-block">
-            <h2 class="hobby-title lila">Gym</h2>
-            <div class="gym-layout">
-                <div class="gym-left">
-                    <p class="hobby-text" style="max-width:100%">Alongside football, the gym is my second sporting
-                        outlet. I train in a mixed style — strength, endurance, and everything in between — and try to
-                        get in up to five times a week. For me it's not just about aesthetics; it's about staying
-                        performant, building discipline, and clearing my head.</p>
-                </div>
-                <div class="gym-right">
-                    <img src="../bilder/gym.jpeg" alt="Gym" class="gym-img">
-                    <div class="gym-callout">I train at FitnessUnited in Buchs SG, usually together with my friends.</div>
-                </div>
+        <p class="highlight-label">// Travel highlights</p>
+        <div class="dest-grid">
+            <div class="dest-card">
+                <div class="dest-name">Japan</div>
+                <p class="dest-desc">A world of its own: temples in Kyoto, neon lights in Tokyo and incredible food.</p>
             </div>
-        </div>
 
-        <!-- TRAVEL -->
-        <div class="hobby-block">
-            <h2 class="hobby-title grün">Travel</h2>
-            <p class="reisen-intro">Exploring the world is one of my greatest passions. New countries, unfamiliar
-                cultures, and unexpected experiences give me inspiration and broaden my horizons like nothing else.</p>
-            <p class="highlight-label">// My highlights so far</p>
+            <div class="dest-card">
+                <div class="dest-name">Hawaii</div>
+                <p class="dest-desc">Turquoise water, endless beaches and sunsets that feel like a gift.</p>
+            </div>
 
-            <div class="destination-list">
+            <div class="dest-card">
+                <div class="dest-name">Barcelona</div>
+                <p class="dest-desc">Camp Nou, the Sagrada Família and FC Barça: architecture, emotion and football in
+                    one city.</p>
+            </div>
 
-                <div class="dest-card">
-                    <div class="dest-text">
-                        <div class="dest-name">Japan</div>
-                        <p class="dest-desc">Japan feels like its own world. <strong>Temples in Kyoto</strong>, neon
-                            lights in Tokyo, incredible food — nowhere else have I experienced so many contrasts at once.
-                            A country that stays with you long after you leave.</p>
-                    </div>
-                    <img src="../bilder/japan.png" alt="Japan" class="dest-img">
-                </div>
+            <div class="dest-card">
+                <div class="dest-name">England</div>
+                <p class="dest-desc">London between tradition and modernity, and a must-visit for any football fan.</p>
+            </div>
 
-                <div class="dest-card">
-                    <div class="dest-text">
-                        <div class="dest-name">Hawaii</div>
-                        <p class="dest-desc">Turquoise water, endless beaches and a relaxed atmosphere that is instantly
-                            contagious. Hawaii showed me how beautiful it is to truly slow down —
-                            <strong>every sunset there feels like a gift.</strong>
-                        </p>
-                    </div>
-                    <img src="../bilder/hawaii.png" alt="Hawaii" class="dest-img">
-                </div>
-
-                <div class="dest-card">
-                    <div class="dest-text">
-                        <div class="dest-name">Barcelona</div>
-                        <p class="dest-desc">Three things make Barcelona special for me: the <strong>Camp
-                                Nou</strong>, the Sagrada Família, and FC Barça. This city combines architecture,
-                            emotion, and football like no other.</p>
-                    </div>
-                </div>
-
-                <div class="dest-card">
-                    <div class="dest-text">
-                        <div class="dest-name">England</div>
-                        <p class="dest-desc">London is tradition and modernity in one city. Red double-decker buses,
-                            Big Ben, the Tower — and for a football fan, England is of course an <strong>absolute
-                                must-visit.</strong></p>
-                    </div>
-                    <img src="../bilder/london.png" alt="London" class="dest-img">
-                </div>
-
-                <div class="dest-card dream">
-                    <div class="dest-text">
-                        <div class="dest-name">Safari in Africa <span class="dream-badge">Bucket List</span></div>
-                        <p class="dest-desc">My dream destination. To experience up close how <strong>lions, elephants
-                                and giraffes</strong> live in the wild — that's something no film can replace. Africa is
-                            right at the top of my list.</p>
-                    </div>
-                </div>
+            <div class="dest-card dream">
+                <div class="dest-name">Safari in Africa</div>
+                <p class="dest-desc">My dream destination: seeing lions, elephants and giraffes in the wild.</p>
             </div>
         </div>
 
