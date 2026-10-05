@@ -1,4 +1,3 @@
-// Die Klasse "light-mode" sitzt auf <html> und wird schon im <head> gesetzt (kein Aufblitzen).
 function isLightMode() {
     return document.documentElement.classList.contains("light-mode");
 }
@@ -37,7 +36,7 @@ function loadTheme() {
     updateThemeIcons(isLightMode());
 }
 
-// ── HAMBURGER MENU ──────────────────────────────────────────────
+// HAMBURGER MENU
 function initHamburger() {
     const hamburger = document.getElementById("hamburger-btn");
     const mobileMenu = document.getElementById("mobile-menu");
@@ -77,7 +76,7 @@ function initHamburger() {
     });
 }
 
-// ── KOPIEREN-KNÖPFE (Kontaktseite) ─────────────────────────────
+// KOPIEREN-KNÖPFE (Kontaktseite)
 function copyText(text) {
     if (navigator.clipboard && window.isSecureContext) {
         return navigator.clipboard.writeText(text).catch(() => copyTextFallback(text));

@@ -585,6 +585,16 @@ html[lang="en"] .nav-lang:hover .nav-EN {
   }
 }
 
+/* Geist (Fliesstext), lokal gehostet wie Syne: keine Verbindung zu Google
+   Quelle: @fontsource-variable/geist 5.3.0, Lizenz: SIL Open Font License */
+@font-face {
+  font-family: "Geist";
+  src: url(geist-variable.woff2) format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @font-face {
   font-family: Syne;
   src: url(syne-variablefont_wght.ttf);
