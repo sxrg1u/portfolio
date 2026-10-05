@@ -109,6 +109,9 @@ function initCopyButtons() {
     });
 }
 
+// Icons sofort passend zum Theme setzen (das Skript steht unter der Navigation)
+updateThemeIcons(isLightMode());
+
 document.addEventListener("DOMContentLoaded", () => {
     loadTheme();
     initHamburger();

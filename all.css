@@ -55,6 +55,31 @@ html.light-mode {
 
 html {
   scroll-behavior: smooth;
+  /* Platz für den Scrollbalken immer freihalten: kein seitliches Springen zwischen kurzen und langen Seiten */
+  scrollbar-gutter: stable;
+}
+
+/* Weicher Übergang beim Seitenwechsel (Chrome, Edge, Safari) */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.18s;
+}
+
+/* Die Navigation bleibt beim Seitenwechsel stehen */
+#navbar {
+  view-transition-name: navbar;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -597,5 +622,8 @@ html[lang="en"] .nav-lang:hover .nav-EN {
 
 @font-face {
   font-family: Syne;
-  src: url(syne-variablefont_wght.ttf);
+  src: url(syne-variable.woff2) format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
 }
