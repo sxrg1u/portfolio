@@ -4,29 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projekt Getränkeautomat | Sergiu Bolohan</title>
+    <meta name="description" content="Ein Getränkeautomat im Terminal, geschrieben in Bash, mit Bargeld, TWINT und PayPal. Ein Schulprojekt von Sergiu Bolohan.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sergiu Bolohan">
+    <meta property="og:title" content="Projekt Getränkeautomat | Sergiu Bolohan">
+    <meta property="og:description" content="Ein Getränkeautomat im Terminal, geschrieben in Bash, mit Bargeld, TWINT und PayPal. Ein Schulprojekt von Sergiu Bolohan.">
+    <meta property="og:url" content="https://sergiu-bolohan.vercel.app/4_getraenkeautomat/geraenkeautomat.html">
+    <meta property="og:image" content="https://sergiu-bolohan.vercel.app/bilder/portfolioscc.png">
+    <meta property="og:locale" content="de_CH">
+    <meta name="twitter:card" content="summary_large_image">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../all.css" />
     <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode")}catch(e){}</script>
     <link rel="icon" href="../bilder/tea.ico"> 
     <style>
-              .nav-lang .nav-DE {
-            color: var(--Lila);
-            font-size: x-large;
-        }
-        .nav-lang:hover .nav-EN {
-            color: var(--Lila);
-            font-size: x-large;
-        }
-        .nav-lang:hover .nav-DE {
-            color: var(--White);
-            font-size:  1.1rem;
-        }
-
-      .detail-section {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 4rem 1.5rem 8rem;
-      }
 
       .detail-back {
         display: inline-block;
@@ -212,9 +206,6 @@
       }
 
       @media (max-width: 600px) {
-        .detail-section {
-          padding: 2.5rem 1.1rem 5rem;
-        }
 
         .stack-tags {
           margin-bottom: 2.5rem;
@@ -228,6 +219,7 @@
   </head>
 
   <body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
     <nav id="navbar">
       <div class="nav-left">
         <a href="../1_hauptseite/index.html" class="nav-home-text">Home</a>
@@ -240,7 +232,7 @@
         >
       </div>
       <div class="nav-right">
-        <a href="../2_projekte/projekte.html"><span style="color: var(--Lila)">Projekte</span></a>
+        <a href="../2_projekte/projekte.html" aria-current="true">Projekte</a>
         <a href="../6_skills/skills.html">Skills</a>
         <a href="../7_uebermich/uebermich.html">Über mich</a>
         <a href="../8_kontakt/kontakt.html">Kontakt</a>
@@ -251,7 +243,7 @@
     </button></div>
     </nav>
 
-    <section class="detail-section">
+    <section class="detail-section" id="main" tabindex="-1">
       <a href="../2_projekte/projekte.html" class="detail-back">← Alle Projekte</a>
       <h1 class="detail-title">Getränkeautomat</h1>
       <p class="detail-meta">2025 · Schulprojekt · IMS-T Schweiz</p>
@@ -323,7 +315,7 @@
   <div id="mobile-menu">
     <button type="button" id="mobile-menu-close" aria-label="Menü schliessen">&times;</button>
     <a href="../1_hauptseite/index.html" class="mobile-menu-link">Home</a>
-    <a href="../2_projekte/projekte.html" class="mobile-menu-link">Projekte</a>
+    <a href="../2_projekte/projekte.html" class="mobile-menu-link" aria-current="true">Projekte</a>
     <a href="../6_skills/skills.html" class="mobile-menu-link">Skills</a>
     <a href="../7_uebermich/uebermich.html" class="mobile-menu-link">Über mich</a>
     <a href="../8_kontakt/kontakt.html" class="mobile-menu-link">Kontakt</a>

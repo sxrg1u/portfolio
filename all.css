@@ -1,9 +1,10 @@
 :root {
-  /*  FARBEN  */
+  /*  FARBEN
+     --Lila ist die einzige Akzentfarbe der Seite. Wer sie ändern will,
+     ändert hier und unten im Light Mode nur --Lila, --LilaHover und --LilaLight. */
   --Lila: #6c63ff;
   --LilaHover: #5850ff;
   --LilaLight: #bdb8ff;
-  --Grün: #00ff9d;
   --Gray: #b3b3b3;
   --White: #ffffff;
   --Black: #0b0b0d;
@@ -29,6 +30,16 @@
   --TransitionFast: 0.2s ease;
   --TransitionMD: 0.3s ease;
   --TransitionSlow: 0.6s ease;
+
+  /*  SCHRIFTEN  */
+  --FontText: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --FontHeading: "Syne", sans-serif;
+
+  /*  EBENEN (z-index)  */
+  --z-grain: -1;
+  --z-menu: 10;
+  --z-nav: 20;
+  --z-skip: 30;
 }
 
 /* LIGHT MODE (Klasse sitzt auf <html>, damit sie schon vor dem Rendern gesetzt werden kann) */
@@ -36,15 +47,43 @@ html.light-mode {
   --Lila: #3b35b0;
   --LilaHover: #2d2890;
   --LilaLight: #8b85ff;
-  --Grün: #007a4d;
   --Gray: #747474;
   --White: #000000;
   --Black: #f7f8fa;
   --CardBg: #e8e8f0;
 }
 
-* {
-  font-family: "Syne", sans-serif;
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: var(--FontText);
+}
+
+/* Syne nur für Überschriften, Navigation und Menü */
+h1,
+h2,
+h3,
+#navbar,
+.mobile-menu-link {
+  font-family: var(--FontHeading);
+}
+
+/* Grosse Titel etwas straffer, keine einzelnen Wörter auf der letzten Zeile */
+h1,
+h2 {
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 a {
@@ -56,31 +95,84 @@ a {
 body {
   margin: 0;
   min-height: 100vh;
+  min-height: 100dvh;
 
+  /* Ein einziger, ruhiger Lichtfleck in der Akzentfarbe */
   background:
     radial-gradient(
-      circle at 20% 20%,
-      color-mix(in srgb, var(--Lila) 20%, transparent),
-      transparent 40%
-    ),
-    radial-gradient(
-      circle at 80% 60%,
-      color-mix(in srgb, var(--Grün) 15%, transparent),
-      transparent 40%
-    ),
-    radial-gradient(
-      circle at 30% 80%,
-      color-mix(in srgb, var(--White) 8%, transparent),
-      transparent 50%
+      circle at 15% 10%,
+      color-mix(in srgb, var(--Lila) 14%, transparent),
+      transparent 45%
     ),
     var(--Black);
 
   color: var(--White);
   padding-top: 6rem;
-  /* Immer mindestens 1.5rem Abstand links/rechts, ab MaxWidth zentriert */
-  padding-left: max(var(--SpaceMD), calc((100% - var(--MaxWidth)) / 2));
-  padding-right: max(var(--SpaceMD), calc((100% - var(--MaxWidth)) / 2));
   box-sizing: border-box;
+}
+
+/* Feines Rauschen über dem Hintergrund, liegt hinter dem Inhalt */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-grain);
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Gemeinsamer Inhaltsbereich aller Seiten */
+.home,
+.projects-section,
+.skills-section,
+.ueber-section,
+.kontakt-section,
+.detail-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 8rem;
+}
+
+/* Sprung zum Inhalt für Tastatur-Nutzer, nur sichtbar mit Fokus */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: var(--z-skip);
+  background: var(--Lila);
+  color: #ffffff;
+  padding: 0.6rem 1rem;
+  border-radius: var(--RadiusSM);
+  font-weight: 600;
+  transition: top var(--TransitionFast);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Einheitliche Fokus-Markierung für alle Links und Knöpfe */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--Lila);
+  outline-offset: 3px;
+  border-radius: var(--RadiusSM);
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
+/* Druck-Effekt beim Klicken */
+.project-card:active,
+.kontakt-card:active,
+.PDF-card:active,
+.code-box:active,
+.home-btn:active,
+.copy-btn:active,
+.skill-projects a:active {
+  transform: scale(0.98);
 }
 
 /* Hamburger — nur auf Mobile */
@@ -121,7 +213,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 999;
+  z-index: var(--z-menu);
   background: color-mix(in srgb, var(--Black) 92%, transparent);
   backdrop-filter: blur(16px);
   flex-direction: column;
@@ -204,7 +296,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: var(--z-nav);
   background-color: color-mix(in srgb, var(--Black) 50%, transparent);
   backdrop-filter: blur(12px);
 }
@@ -298,11 +390,110 @@ body {
   transform: rotate(180deg);
 }
 
-.nav-lang .nav-DE,
-.nav-lang .nav-EN {
-  transition:
-    color var(--TransitionMD),
-    font-size var(--TransitionMD);
+/* Sprachumschalter: aktuelle Sprache in der Akzentfarbe, beim Hover nur Farbwechsel */
+.nav-lang span {
+  transition: color var(--TransitionFast);
+}
+
+html[lang="de"] .nav-DE,
+html[lang="en"] .nav-EN,
+html[lang="de"] .nav-lang:hover .nav-EN,
+html[lang="en"] .nav-lang:hover .nav-DE {
+  color: var(--Lila);
+}
+
+html[lang="de"] .nav-lang:hover .nav-DE,
+html[lang="en"] .nav-lang:hover .nav-EN {
+  color: var(--White);
+}
+
+/* Aktive Seite in Navigation und Handy-Menü */
+.nav-right a[aria-current],
+.mobile-menu-link[aria-current] {
+  color: var(--Lila);
+}
+
+.nav-right a[aria-current]::after,
+.mobile-menu-link[aria-current]::after {
+  transform: scaleX(1);
+}
+
+/* PROJEKT-KARTEN (Startseite und Projekte-Seite) */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--CardBg);
+  border: 1px solid color-mix(in srgb, var(--White) 8%, transparent);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color var(--TransitionFast), transform var(--TransitionFast);
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  border-color: color-mix(in srgb, var(--Lila) 60%, transparent);
+}
+
+.project-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.project-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.75rem 2rem 2rem;
+}
+
+.project-card h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.project-meta {
+  color: var(--Gray);
+  font-size: 0.85rem;
+  margin: 0.35rem 0 1rem;
+}
+
+.project-desc {
+  color: var(--Gray);
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+/* Tags und "Details" immer am unteren Rand */
+.project-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tags span {
+  color: var(--Gray);
+  font-size: 0.8rem;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid color-mix(in srgb, var(--White) 12%, transparent);
+  border-radius: 6px;
+}
+
+.project-more {
+  color: var(--Lila);
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 /* CUSTOM SCROLLBAR */
@@ -368,6 +559,20 @@ body {
   /* Links auf Mobile verstecken */
   .nav-right a {
     display: none;
+  }
+
+  .home,
+  .projects-section,
+  .skills-section,
+  .ueber-section,
+  .kontakt-section,
+  .detail-section {
+    /* gleicher Seitenrand wie die Navigation */
+    padding: 2.5rem var(--SpaceMD) 5rem;
+  }
+
+  .project-body {
+    padding: 1.5rem;
   }
 
   /* Vorschaubilder auf den Detailseiten */

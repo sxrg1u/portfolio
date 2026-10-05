@@ -5,28 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Sergiu Bolohan</title>
+    <meta name="description" content="Portfolio von Sergiu Bolohan, Informatiker EFZ in Ausbildung (Applikationsentwicklung). Spiele und Tools in C#, Bash und HTML/CSS.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sergiu Bolohan">
+    <meta property="og:title" content="Portfolio | Sergiu Bolohan">
+    <meta property="og:description" content="Portfolio von Sergiu Bolohan, Informatiker EFZ in Ausbildung (Applikationsentwicklung). Spiele und Tools in C#, Bash und HTML/CSS.">
+    <meta property="og:url" content="https://sergiu-bolohan.vercel.app/1_hauptseite/index.html">
+    <meta property="og:image" content="https://sergiu-bolohan.vercel.app/bilder/portfolioscc.png">
+    <meta property="og:locale" content="de_CH">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../all.css">
     <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode")}catch(e){}</script>
     <link rel="icon" href="../bilder/sb.ico"> 
     <style>
-        .nav-lang .nav-DE {
-            color: var(--Lila);
-            font-size: x-large;
-        }
-        .nav-lang:hover .nav-EN {
-            color: var(--Lila);
-            font-size: x-large;
-        }
-        .nav-lang:hover .nav-DE {
-            color: var(--White);
-            font-size: 1.1rem;
-        }
-
-        .home {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem 8rem;
-        }
 
         .home-block {
             margin-bottom: 6rem;
@@ -130,82 +124,6 @@
             gap: 1.5rem;
         }
 
-        .project-card {
-            display: flex;
-            flex-direction: column;
-            background: var(--CardBg);
-            border: 1px solid color-mix(in srgb, var(--White) 8%, transparent);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: border-color var(--TransitionFast);
-        }
-
-        .project-card:hover,
-        .project-card:focus-visible {
-            border-color: color-mix(in srgb, var(--Lila) 60%, transparent);
-        }
-
-        .project-card img {
-            display: block;
-            width: 100%;
-            aspect-ratio: 16 / 10;
-            object-fit: cover;
-        }
-
-        .project-body {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            padding: 1.75rem 2rem 2rem;
-        }
-
-        .project-card h3 {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin: 0;
-        }
-
-        .project-meta {
-            color: var(--Gray);
-            font-size: 0.85rem;
-            margin: 0.35rem 0 1rem;
-        }
-
-        .project-desc {
-            color: var(--Gray);
-            line-height: 1.6;
-            margin: 0 0 1.5rem;
-        }
-
-        .project-footer {
-            margin-top: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .project-tags span {
-            color: var(--Gray);
-            font-size: 0.8rem;
-            padding: 0.25rem 0.6rem;
-            border: 1px solid color-mix(in srgb, var(--White) 12%, transparent);
-            border-radius: 6px;
-        }
-
-        .project-more {
-            color: var(--Lila);
-            font-size: 0.9rem;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
         @media (max-width: 860px) {
             .home-hero {
                 grid-template-columns: minmax(0, 1fr);
@@ -222,9 +140,6 @@
         }
 
         @media (max-width: 600px) {
-            .home {
-                padding: 2.5rem 1.1rem 5rem;
-            }
 
             .home-block {
                 margin-bottom: 4rem;
@@ -235,14 +150,12 @@
                 text-align: center;
             }
 
-            .project-body {
-                padding: 1.5rem;
-            }
         }
     </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
     <nav id="navbar">
         <div class="nav-left">
             <a href="../1_hauptseite/index.html" class="nav-home-text"><span>Home</span></a>
@@ -265,7 +178,7 @@
     </button></div>
     </nav>
 
-    <main class="home">
+    <main class="home" id="main" tabindex="-1">
         <section class="home-block home-hero">
             <div>
                 <p class="home-role">Applikationsentwickler in Ausbildung</p>
@@ -317,7 +230,7 @@
   <!-- Mobile Menu Overlay -->
   <div id="mobile-menu">
     <button type="button" id="mobile-menu-close" aria-label="Menü schliessen">&times;</button>
-    <a href="../1_hauptseite/index.html" class="mobile-menu-link">Home</a>
+    <a href="../1_hauptseite/index.html" class="mobile-menu-link" aria-current="page">Home</a>
     <a href="../2_projekte/projekte.html" class="mobile-menu-link">Projekte</a>
     <a href="../6_skills/skills.html" class="mobile-menu-link">Skills</a>
     <a href="../7_uebermich/uebermich.html" class="mobile-menu-link">Über mich</a>

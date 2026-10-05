@@ -4,29 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt | Sergiu Bolohan</title>
+    <meta name="description" content="Kontakt zu Sergiu Bolohan per E-Mail, GitHub oder Instagram.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sergiu Bolohan">
+    <meta property="og:title" content="Kontakt | Sergiu Bolohan">
+    <meta property="og:description" content="Kontakt zu Sergiu Bolohan per E-Mail, GitHub oder Instagram.">
+    <meta property="og:url" content="https://sergiu-bolohan.vercel.app/8_kontakt/kontakt.html">
+    <meta property="og:image" content="https://sergiu-bolohan.vercel.app/bilder/portfolioscc.png">
+    <meta property="og:locale" content="de_CH">
+    <meta name="twitter:card" content="summary_large_image">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../all.css">
     <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode")}catch(e){}</script>
     <link rel="icon" href="../bilder/bubble.ico"> 
     <style>
-        .nav-lang .nav-DE {
-            color: var(--Lila);
-            font-size: x-large;
-        }
-        .nav-lang:hover .nav-EN {
-            color: var(--Lila);
-            font-size: x-large;
-        }
-        .nav-lang:hover .nav-DE {
-            color: var(--White);
-            font-size: 1.1rem;
-        }
-
-        .kontakt-section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem 8rem;
-        }
 
         .kontakt-title {
             font-size: clamp(2.2rem, 6vw, 3.4rem);
@@ -149,9 +143,6 @@
         }
 
         @media (max-width: 600px) {
-            .kontakt-section {
-                padding: 2.5rem 1.1rem 5rem;
-            }
 
             .kontakt-desc {
                 margin-bottom: 2.5rem;
@@ -182,6 +173,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
 <nav id="navbar">
     <div class="nav-left">
@@ -195,7 +187,7 @@
         <a href="../2_projekte/projekte.html">Projekte</a>
         <a href="../6_skills/skills.html">Skills</a>
         <a href="../7_uebermich/uebermich.html">Über mich</a>
-        <a href="../8_kontakt/kontakt.html"><span style="color: var(--Lila)">Kontakt</span></a>
+        <a href="../8_kontakt/kontakt.html" aria-current="page">Kontakt</a>
     <button class="nav-hamburger" id="hamburger-btn" aria-label="Menü öffnen" aria-expanded="false">
       <span></span>
       <span></span>
@@ -203,7 +195,7 @@
     </button></div>
 </nav>
 
-<section class="kontakt-section">
+<section class="kontakt-section" id="main" tabindex="-1">
     <h1 class="kontakt-title">Kontakt</h1>
     <p class="kontakt-desc">Du erreichst mich per Mail oder auf Instagram. Meinen Code findest du auf GitHub.</p>
 
@@ -261,7 +253,7 @@
     <a href="../2_projekte/projekte.html" class="mobile-menu-link">Projekte</a>
     <a href="../6_skills/skills.html" class="mobile-menu-link">Skills</a>
     <a href="../7_uebermich/uebermich.html" class="mobile-menu-link">Über mich</a>
-    <a href="../8_kontakt/kontakt.html" class="mobile-menu-link">Kontakt</a>
+    <a href="../8_kontakt/kontakt.html" class="mobile-menu-link" aria-current="page">Kontakt</a>
   </div>
 </body>
 </html>

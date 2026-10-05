@@ -5,31 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Über mich | Sergiu Bolohan</title>
+    <meta name="description" content="Über Sergiu Bolohan: Ausbildung zum Informatiker EFZ mit Berufsmaturität, Fussball, Gym und Reisen.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sergiu Bolohan">
+    <meta property="og:title" content="Über mich | Sergiu Bolohan">
+    <meta property="og:description" content="Über Sergiu Bolohan: Ausbildung zum Informatiker EFZ mit Berufsmaturität, Fussball, Gym und Reisen.">
+    <meta property="og:url" content="https://sergiu-bolohan.vercel.app/7_uebermich/uebermich.html">
+    <meta property="og:image" content="https://sergiu-bolohan.vercel.app/bilder/portfolioscc.png">
+    <meta property="og:locale" content="de_CH">
+    <meta name="twitter:card" content="summary_large_image">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../all.css">
     <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode")}catch(e){}</script>
     <link rel="icon" href="../bilder/boy.ico"> 
     <style>
-        .nav-lang .nav-DE {
-            color: var(--Lila);
-            font-size: x-large;
-        }
-
-        .nav-lang:hover .nav-EN {
-            color: var(--Lila);
-            font-size: x-large;
-        }
-
-        .nav-lang:hover .nav-DE {
-            color: var(--White);
-            font-size: 1.1rem;
-        }
-
-        .ueber-section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem 8rem;
-        }
 
         .ueber-block {
             margin-bottom: 6rem;
@@ -97,6 +89,11 @@
             aspect-ratio: 4 / 5;
             object-fit: cover;
             border-radius: 12px;
+        }
+
+        /* Bildausschnitt nach rechts schieben (Palmen beim Hawaii-Foto) */
+        .photo img.photo-right {
+            object-position: 75% center;
         }
 
         .photo figcaption {
@@ -189,9 +186,6 @@
         }
 
         @media (max-width: 600px) {
-            .ueber-section {
-                padding: 2.5rem 1.1rem 5rem;
-            }
 
             .ueber-block {
                 margin-bottom: 4rem;
@@ -209,6 +203,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
     <nav id="navbar">
         <div class="nav-left">
             <a href="../1_hauptseite/index.html" class="nav-home-text">Home</a>
@@ -221,7 +216,7 @@
         <div class="nav-right">
             <a href="../2_projekte/projekte.html">Projekte</a>
             <a href="../6_skills/skills.html">Skills</a>
-            <a href="../7_uebermich/uebermich.html"><span style="color: var(--Lila)">Über mich</span></a>
+            <a href="../7_uebermich/uebermich.html" aria-current="page">Über mich</a>
             <a href="../8_kontakt/kontakt.html">Kontakt</a>
     <button class="nav-hamburger" id="hamburger-btn" aria-label="Menü öffnen" aria-expanded="false">
       <span></span>
@@ -230,7 +225,7 @@
     </button></div>
     </nav>
 
-    <main class="ueber-section">
+    <main class="ueber-section" id="main" tabindex="-1">
 
         <section class="ueber-block intro">
             <img src="../bilder/me.jpeg" alt="Sergiu Bolohan" class="intro-img">
@@ -268,7 +263,7 @@
                     <figcaption><strong>London</strong>Alte Gebäude und moderne Viertel. Als Fussballfan musste ich da hin.</figcaption>
                 </figure>
                 <figure class="photo">
-                    <img src="../bilder/hawaii.png" alt="Sonnenuntergang am Strand auf Hawaii" loading="lazy" style="object-position: 75% center;">
+                    <img src="../bilder/hawaii.png" alt="Sonnenuntergang am Strand auf Hawaii" loading="lazy" class="photo-right">
                     <figcaption><strong>Hawaii</strong>Türkisblaues Wasser, lange Strände und Sonnenuntergänge am Meer.</figcaption>
                 </figure>
             </div>
@@ -297,7 +292,7 @@
     <a href="../1_hauptseite/index.html" class="mobile-menu-link">Home</a>
     <a href="../2_projekte/projekte.html" class="mobile-menu-link">Projekte</a>
     <a href="../6_skills/skills.html" class="mobile-menu-link">Skills</a>
-    <a href="../7_uebermich/uebermich.html" class="mobile-menu-link">Über mich</a>
+    <a href="../7_uebermich/uebermich.html" class="mobile-menu-link" aria-current="page">Über mich</a>
     <a href="../8_kontakt/kontakt.html" class="mobile-menu-link">Kontakt</a>
   </div>
 </body>

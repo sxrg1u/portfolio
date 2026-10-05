@@ -4,29 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project Snake | Sergiu Bolohan</title>
+    <meta name="description" content="Snake in C# with Windows Forms, playable with keyboard or game controller. A school project by Sergiu Bolohan.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sergiu Bolohan">
+    <meta property="og:title" content="Project Snake | Sergiu Bolohan">
+    <meta property="og:description" content="Snake in C# with Windows Forms, playable with keyboard or game controller. A school project by Sergiu Bolohan.">
+    <meta property="og:url" content="https://sergiu-bolohan.vercel.app/3_snake/snakeen.html">
+    <meta property="og:image" content="https://sergiu-bolohan.vercel.app/bilder/portfolioscc.png">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../all.css" />
     <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode")}catch(e){}</script>
     <link rel="icon" href="../bilder/snake.ico"> 
     <style>
-              .nav-lang .nav-EN {
-            color: var(--Lila);
-            font-size: x-large;
-        }
-        .nav-lang:hover .nav-DE {
-            color: var(--Lila);
-            font-size: x-large;
-        }
-        .nav-lang:hover .nav-EN {
-            color: var(--White);
-            font-size:  1.1rem;
-        }
-
-      .detail-section {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 4rem 1.5rem 8rem;
-      }
 
       .detail-back {
         display: inline-block;
@@ -212,9 +206,6 @@
       }
 
       @media (max-width: 600px) {
-        .detail-section {
-          padding: 2.5rem 1.1rem 5rem;
-        }
 
         .stack-tags {
           margin-bottom: 2.5rem;
@@ -228,6 +219,7 @@
   </head>
 
   <body>
+  <a class="skip-link" href="#main">Skip to content</a>
     <nav id="navbar">
       <div class="nav-left">
         <a href="../1_hauptseite/indexen.html" class="nav-home-text">Home</a>
@@ -238,7 +230,7 @@
         <a href="snake.html" class="nav-lang"><span class="nav-EN">EN</span>/<span class="nav-DE">DE</span></a>
       </div>
       <div class="nav-right">
-        <a href="../2_projekte/projekteen.html"><span style="color: var(--Lila)">Projects</span></a>
+        <a href="../2_projekte/projekteen.html" aria-current="true">Projects</a>
         <a href="../6_skills/skillsen.html">Skills</a>
         <a href="../7_uebermich/uebermichen.html">About Me</a>
         <a href="../8_kontakt/kontakten.html">Contact</a>
@@ -249,7 +241,7 @@
     </button></div>
     </nav>
 
-    <section class="detail-section">
+    <section class="detail-section" id="main" tabindex="-1">
       <a href="../2_projekte/projekteen.html" class="detail-back">← All projects</a>
       <h1 class="detail-title">Snake Game</h1>
       <p class="detail-meta">2026 · School Project · IMS-T Switzerland</p>
@@ -321,7 +313,7 @@
   <div id="mobile-menu">
     <button type="button" id="mobile-menu-close" aria-label="Close menu">&times;</button>
     <a href="../1_hauptseite/indexen.html" class="mobile-menu-link">Home</a>
-    <a href="../2_projekte/projekteen.html" class="mobile-menu-link">Projects</a>
+    <a href="../2_projekte/projekteen.html" class="mobile-menu-link" aria-current="true">Projects</a>
     <a href="../6_skills/skillsen.html" class="mobile-menu-link">Skills</a>
     <a href="../7_uebermich/uebermichen.html" class="mobile-menu-link">About Me</a>
     <a href="../8_kontakt/kontakten.html" class="mobile-menu-link">Contact</a>

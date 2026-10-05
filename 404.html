@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seite nicht gefunden | Sergiu Bolohan</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap">
+    <!-- Absolute Pfade, weil diese Seite unter jeder falschen Adresse erscheinen kann -->
+    <link rel="stylesheet" href="/all.css">
+    <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode")}catch(e){}</script>
+    <link rel="icon" href="/bilder/sb.ico">
+    <style>
+        body {
+            padding-top: 0;
+            display: grid;
+            place-items: center;
+        }
+
+        .not-found {
+            max-width: 640px;
+            padding: 3rem 1.5rem;
+        }
+
+        .not-found-code {
+            color: var(--Lila);
+            font-weight: 600;
+            margin: 0 0 0.75rem;
+        }
+
+        .not-found h1 {
+            font-size: clamp(2.2rem, 6vw, 3.4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0 0 1.25rem;
+        }
+
+        .not-found p {
+            color: var(--Gray);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin: 0 0 2rem;
+        }
+
+        .not-found-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .not-found-links a {
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            border: 1px solid color-mix(in srgb, var(--White) 20%, transparent);
+            transition: border-color var(--TransitionFast), background-color var(--TransitionFast);
+        }
+
+        .not-found-links a:first-child {
+            background: var(--Lila);
+            border-color: var(--Lila);
+            color: #ffffff;
+        }
+
+        .not-found-links a:hover,
+        .not-found-links a:focus-visible {
+            border-color: var(--White);
+        }
+
+        .not-found-links a:first-child:hover,
+        .not-found-links a:first-child:focus-visible {
+            background: var(--LilaHover);
+            border-color: var(--LilaHover);
+        }
+
+        .not-found-links a:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <main class="not-found">
+        <p class="not-found-code">404</p>
+        <h1>Diese Seite gibt es nicht.</h1>
+        <p>Vielleicht hat sich die Adresse geändert oder es ist ein Tippfehler drin.<br>
+            <span lang="en">This page doesn't exist. The address may have changed or contain a typo.</span></p>
+        <div class="not-found-links">
+            <a href="/1_hauptseite/index.html">Zur Startseite</a>
+            <a href="/1_hauptseite/indexen.html" lang="en">Go to homepage</a>
+        </div>
+    </main>
+</body>
+</html>

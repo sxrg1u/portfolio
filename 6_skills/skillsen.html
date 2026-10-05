@@ -4,31 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Skills | Sergiu Bolohan</title>
+    <meta name="description" content="What Sergiu Bolohan can do and is learning: C#, HTML & CSS, SQL and Bash, each with the matching projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sergiu Bolohan">
+    <meta property="og:title" content="Skills | Sergiu Bolohan">
+    <meta property="og:description" content="What Sergiu Bolohan can do and is learning: C#, HTML & CSS, SQL and Bash, each with the matching projects.">
+    <meta property="og:url" content="https://sergiu-bolohan.vercel.app/6_skills/skillsen.html">
+    <meta property="og:image" content="https://sergiu-bolohan.vercel.app/bilder/portfolioscc.png">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../all.css" />
     <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode")}catch(e){}</script>
     <link rel="icon" href="../bilder/skill.ico"> 
     <style>
-      .nav-lang .nav-EN {
-        color: var(--Lila);
-        font-size: x-large;
-      }
-
-      .nav-lang:hover .nav-DE {
-        color: var(--Lila);
-        font-size: x-large;
-      }
-
-      .nav-lang:hover .nav-EN {
-        color: var(--White);
-        font-size: 1.1rem;
-      }
-
-      .skills-section {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 4rem 1.5rem 8rem;
-      }
 
       .skills-block {
         margin-bottom: 6rem;
@@ -84,7 +76,8 @@
       }
 
       .skill-card h3 {
-        overflow-wrap: anywhere;
+        overflow-wrap: break-word;
+        hyphens: auto;
         font-size: 1.3rem;
         font-weight: 800;
         margin: 0;
@@ -98,53 +91,90 @@
         margin-bottom: 0.4rem;
       }
 
-      .skill-card p {
+      .skill-card > p:not(.skill-projects-label) {
         color: var(--Gray);
         line-height: 1.6;
         margin: 0.75rem 0 0;
       }
 
-      /* BALKEN */
-      .skill-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .skill-list li + li {
-        margin-top: 1.25rem;
-      }
-
-      .skill-row-head {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        margin-bottom: 0.5rem;
-        font-size: 0.95rem;
-      }
-
-      .skill-level {
-        color: var(--Gray);
-        text-align: right;
+      /* STUFEN */
+      .skill-level-badge {
+        margin-left: auto;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--Lila);
+        padding: 0.25rem 0.65rem;
+        border: 1px solid color-mix(in srgb, var(--Lila) 45%, transparent);
+        border-radius: 6px;
         white-space: nowrap;
       }
 
-      .skill-bar {
+      .skill-topics {
+        color: var(--Gray);
+        line-height: 1.7;
+        padding-left: 1.2rem;
+        margin: 0 0 1.5rem;
+      }
+
+      .skill-topics li::marker {
+        color: var(--Lila);
+      }
+
+      .skill-note {
+        font-size: 0.85rem;
+        opacity: 0.8;
+      }
+
+      .skill-projects-label {
+        font-size: 0.85rem;
+        color: var(--Gray);
+        margin: 0 0 0.5rem;
+      }
+
+      .skill-projects {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .skill-projects a,
+      .skill-projects span {
+        font-size: 0.85rem;
+        padding: 0.25rem 0.65rem;
+        border: 1px solid color-mix(in srgb, var(--White) 12%, transparent);
+        border-radius: 6px;
+      }
+
+      .skill-projects a {
+        transition: border-color var(--TransitionFast), color var(--TransitionFast);
+      }
+
+      .skill-projects a:hover,
+      .skill-projects a:focus-visible {
+        color: var(--Lila);
+        border-color: var(--Lila);
+      }
+
+      .skill-projects span {
+        color: var(--Gray);
+      }
+
+      /* Semester-Anzeige: 6 Felder, die bisherigen sind gefüllt */
+      .semester-steps {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 6px;
+        margin-top: 1.25rem;
+      }
+
+      .semester-steps span {
         height: 6px;
         border-radius: 3px;
         background: color-mix(in srgb, var(--White) 10%, transparent);
-        overflow: hidden;
       }
 
-      .skill-bar span {
-        display: block;
-        height: 100%;
-        border-radius: 3px;
+      .semester-steps span.done {
         background: var(--Lila);
-      }
-
-      .skill-card .skill-bar {
-        margin-top: 1.25rem;
       }
 
       @media (max-width: 860px) {
@@ -154,9 +184,6 @@
       }
 
       @media (max-width: 600px) {
-        .skills-section {
-          padding: 2.5rem 1.1rem 5rem;
-        }
 
         .skills-block {
           margin-bottom: 4rem;
@@ -166,19 +193,12 @@
           padding: 1.5rem;
         }
 
-        .skill-row-head {
-          flex-direction: column;
-          gap: 0.15rem;
-        }
-
-        .skill-level {
-          text-align: left;
-        }
       }
     </style>
   </head>
 
   <body>
+  <a class="skip-link" href="#main">Skip to content</a>
     <nav id="navbar">
       <div class="nav-left">
         <a href="../1_hauptseite/indexen.html" class="nav-home-text">Home</a>
@@ -192,7 +212,7 @@
       </div>
       <div class="nav-right">
         <a href="../2_projekte/projekteen.html">Projects</a>
-        <a href="../6_skills/skillsen.html"><span style="color: var(--Lila)">Skills</span></a>
+        <a href="../6_skills/skillsen.html" aria-current="page">Skills</a>
         <a href="../7_uebermich/uebermichen.html">About Me</a>
         <a href="../8_kontakt/kontakten.html">Contact</a>
     <button class="nav-hamburger" id="hamburger-btn" aria-label="Menü öffnen" aria-expanded="false">
@@ -202,11 +222,11 @@
     </button></div>
     </nav>
 
-    <section class="skills-section">
+    <section class="skills-section" id="main" tabindex="-1">
 
       <div class="skills-block">
         <h1>What I can do and what I'm learning.</h1>
-        <p class="skills-intro">The bars show how confident I feel with a topic. At 0% we haven't covered it at school yet.</p>
+        <p class="skills-intro">Each language has a level: basics, confident or main focus. Below it are the projects where I used it.</p>
       </div>
 
       <div class="skills-block">
@@ -216,13 +236,13 @@
             <span class="skill-tag">EFZ</span>
             <h3>IT Specialist EFZ, Application Development</h3>
             <p>I'm in the second of six semesters.</p>
-            <div class="skill-bar" aria-hidden="true"><span style="width: 25%"></span></div>
+            <div class="semester-steps" role="img" aria-label="Semester 2 of 6"><span class="done"></span><span class="done"></span><span></span><span></span><span></span><span></span></div>
           </article>
           <article class="skill-card">
             <span class="skill-tag">BM</span>
             <h3>Vocational Baccalaureate</h3>
             <p>I'm in the second of six semesters.</p>
-            <div class="skill-bar" aria-hidden="true"><span style="width: 25%"></span></div>
+            <div class="semester-steps" role="img" aria-label="Semester 2 of 6"><span class="done"></span><span class="done"></span><span></span><span></span><span></span><span></span></div>
           </article>
         </div>
       </div>
@@ -231,64 +251,42 @@
         <h2 class="skills-heading">Technologies</h2>
         <div class="skills-grid">
           <article class="skill-card">
-            <div class="skill-card-head"><img src="../bilder/csharp.png" alt=""><h3>C#</h3></div>
-            <ul class="skill-list">
-                <li>
-                  <div class="skill-row-head"><span>Syntax & fundamentals</span><span class="skill-level">Advanced, 90%</span></div>
-                  <div class="skill-bar" aria-hidden="true"><span style="width: 90%"></span></div>
-                </li>
-                <li>
-                  <div class="skill-row-head"><span>OOP, classes & inheritance</span><span class="skill-level">Good, 65%</span></div>
-                  <div class="skill-bar" aria-hidden="true"><span style="width: 65%"></span></div>
-                </li>
-                <li>
-                  <div class="skill-row-head"><span>Database integration</span><span class="skill-level">Not covered yet, 0%</span></div>
-                  <div class="skill-bar" aria-hidden="true"><span style="width: 0%"></span></div>
-                </li>
+            <div class="skill-card-head"><img src="../bilder/csharp.png" alt=""><h3>C#</h3><span class="skill-level-badge">Main focus</span></div>
+            <ul class="skill-topics">
+              <li>Syntax & fundamentals</li>
+              <li>OOP, classes & inheritance</li>
+              <li>Database integration <span class="skill-note">(not covered yet)</span></li>
             </ul>
+            <p class="skill-projects-label">Used in:</p>
+            <div class="skill-projects"><a href="../3_snake/snakeen.html">Snake</a><a href="../9_jetpackprojekt/jetpackjoyrideEN.html">Jetpack Joyride</a><a href="../10_bombgameprojekt/bombgameen.html">Bomb Game</a></div>
           </article>
           <article class="skill-card">
-            <div class="skill-card-head"><img src="../bilder/html.png" alt=""><img src="../bilder/css.png" alt=""><h3>HTML & CSS</h3></div>
-            <ul class="skill-list">
-                <li>
-                  <div class="skill-row-head"><span>HTML structure</span><span class="skill-level">Good to advanced, 75%</span></div>
-                  <div class="skill-bar" aria-hidden="true"><span style="width: 75%"></span></div>
-                </li>
-                <li>
-                  <div class="skill-row-head"><span>CSS, styling & layouts</span><span class="skill-level">Good, 60%</span></div>
-                  <div class="skill-bar" aria-hidden="true"><span style="width: 60%"></span></div>
-                </li>
-                <li>
-                  <div class="skill-row-head"><span>Responsive design</span><span class="skill-level">Learning it now, 50%</span></div>
-                  <div class="skill-bar" aria-hidden="true"><span style="width: 50%"></span></div>
-                </li>
+            <div class="skill-card-head"><img src="../bilder/html.png" alt=""><img src="../bilder/css.png" alt=""><h3>HTML & CSS</h3><span class="skill-level-badge">Confident</span></div>
+            <ul class="skill-topics">
+              <li>HTML structure</li>
+              <li>CSS, styling & layouts</li>
+              <li>Responsive design <span class="skill-note">(learning it now)</span></li>
             </ul>
+            <p class="skill-projects-label">Used in:</p>
+            <div class="skill-projects"><a href="../5_portfolio/portfolioen.html">Portfolio Website</a></div>
           </article>
           <article class="skill-card">
-            <div class="skill-card-head"><img src="../bilder/sql.png" alt=""><h3>SQL</h3></div>
-            <ul class="skill-list">
-                <li>
-                  <div class="skill-row-head"><span>DDL, DML & more</span><span class="skill-level">Advanced, 85%</span></div>
-                  <div class="skill-bar" aria-hidden="true"><span style="width: 85%"></span></div>
-                </li>
-                <li>
-                  <div class="skill-row-head"><span>Database design</span><span class="skill-level">Very good, 70%</span></div>
-                  <div class="skill-bar" aria-hidden="true"><span style="width: 70%"></span></div>
-                </li>
+            <div class="skill-card-head"><img src="../bilder/sql.png" alt=""><h3>SQL</h3><span class="skill-level-badge">Confident</span></div>
+            <ul class="skill-topics">
+              <li>DDL, DML & more</li>
+              <li>Database design</li>
             </ul>
+            <p class="skill-projects-label">Used in:</p>
+            <div class="skill-projects"><span>Only in class so far</span></div>
           </article>
           <article class="skill-card">
-            <div class="skill-card-head"><img src="../bilder/bash.png" alt=""><h3>Bash</h3></div>
-            <ul class="skill-list">
-                <li>
-                  <div class="skill-row-head"><span>Linux commands & navigation</span><span class="skill-level">Solid, 65%</span></div>
-                  <div class="skill-bar" aria-hidden="true"><span style="width: 65%"></span></div>
-                </li>
-                <li>
-                  <div class="skill-row-head"><span>Shell scripting</span><span class="skill-level">Good, 60%</span></div>
-                  <div class="skill-bar" aria-hidden="true"><span style="width: 60%"></span></div>
-                </li>
+            <div class="skill-card-head"><img src="../bilder/bash.png" alt=""><h3>Bash</h3><span class="skill-level-badge">Basics</span></div>
+            <ul class="skill-topics">
+              <li>Linux commands & navigation</li>
+              <li>Shell scripting</li>
             </ul>
+            <p class="skill-projects-label">Used in:</p>
+            <div class="skill-projects"><a href="../4_getraenkeautomat/geraenkeautomaten.html">Vending Machine</a></div>
           </article>
         </div>
       </div>
@@ -300,7 +298,7 @@
     <button type="button" id="mobile-menu-close" aria-label="Close menu">&times;</button>
     <a href="../1_hauptseite/indexen.html" class="mobile-menu-link">Home</a>
     <a href="../2_projekte/projekteen.html" class="mobile-menu-link">Projects</a>
-    <a href="../6_skills/skillsen.html" class="mobile-menu-link">Skills</a>
+    <a href="../6_skills/skillsen.html" class="mobile-menu-link" aria-current="page">Skills</a>
     <a href="../7_uebermich/uebermichen.html" class="mobile-menu-link">About Me</a>
     <a href="../8_kontakt/kontakten.html" class="mobile-menu-link">Contact</a>
   </div>
