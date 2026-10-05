@@ -105,6 +105,7 @@
         /* PROJEKTE */
         .home-heading-row {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: baseline;
             gap: 1rem;
@@ -207,7 +208,7 @@
 
         @media (max-width: 860px) {
             .home-hero {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
                 gap: 2.5rem;
             }
 
