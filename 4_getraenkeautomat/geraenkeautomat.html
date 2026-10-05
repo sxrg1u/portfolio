@@ -6,230 +6,9 @@
     <title>Projekt Getränkeautomat | Sergiu Bolohan</title>
     
     <link rel="stylesheet" href="../all.css" />
+    <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode")}catch(e){}</script>
     <link rel="icon" href="../bilder/tea.ico"> 
     <style>
-      .detail-section {
-        padding: 4rem 0;
-      max-width: 1200px;
-      margin: 0 auto;
-      }
-
-      /* META */
-      .detail-meta {
-        float: right;
-        text-align: right;
-        font-size: 0.95rem;
-        line-height: 1.8;
-        color: var(--Gray);
-      }
-      .detail-meta .meta-year {
-        color: var(--Lila);
-        font-weight: 700;
-      }
-      .detail-meta .meta-type {
-        color: var(--Grün);
-        font-weight: 700;
-      }
-      .detail-meta .meta-school {
-        color: var(--White);
-        font-weight: 700;
-      }
-
-      /* TITLE */
-      .detail-number {
-        color: var(--Grün);
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
-      .detail-title {
-        font-size: clamp(1.3rem, 6vw, 3.4rem);
-        font-weight: 800;
-        margin: 0.3rem 0 2rem;
-        line-height: 1.05;
-      }
-
-      /* STACK BOX */
-      .stack-box {
-        background: var(--CardBg);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        padding: 1.5rem 1.7rem;
-        margin-bottom: 3rem;
-        display: inline-block;
-        min-width: 280px;
-      }
-      .stack-label {
-        font-size: 0.75rem;
-        letter-spacing: 0.12em;
-        color: var(--Gray);
-        margin-bottom: 0.8rem;
-      }
-      .stack-tags {
-        display: flex;
-        gap: 0.7rem;
-        flex-wrap: wrap;
-      }
-      .stack-tags span {
-        border: 1px solid var(--Lila);
-        color: var(--LilaLight);
-        padding: 0.45rem 1.1rem;
-        border-radius: 8px;
-        font-size: 0.9rem;
-        font-weight: 600;
-      }
-
-      /* GRID */
-      .content-grid {
-        display: flex;
-        gap: 4rem;
-        align-items: flex-start;
-      }
-      .left-col {
-        flex: 1;
-      }
-      .right-col {
-        width: 360px;
-        flex-shrink: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-
-      /* TEXT */
-      .block-title {
-        font-size: 1.25rem;
-        font-weight: 700;
-        margin-bottom: 0.6rem;
-      }
-      .block-text {
-        color: var(--Gray);
-        line-height: 1.75;
-        font-size: 1.05rem;
-        margin-bottom: 2rem;
-      }
-
-      /* LIST */
-      .learn-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      .learn-list li {
-        color: var(--Gray);
-        font-size: 1.05rem;
-        line-height: 1.75;
-        padding-left: 1.2rem;
-        position: relative;
-      }
-      .learn-list li::before {
-        content: "▸";
-        position: absolute;
-        left: 0;
-        color: var(--Lila);
-      }
-
-      /* IMAGE */
-      .preview-img {
-        width: 100%;
-        border-radius: 10px;
-        display: block;
-      }
-
-      /* DETAILS BOX */
-      .details-box {
-        background: var(--CardBg);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        padding: 1.5rem 1.7rem;
-      }
-      .details-box-title {
-        font-size: 0.75rem;
-        letter-spacing: 0.12em;
-        color: var(--Gray);
-        margin-bottom: 1rem;
-      }
-      .detail-row {
-        display: flex;
-        justify-content: space-between;
-        padding: 0.55rem 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        font-size: 1rem;
-      }
-      .detail-row:last-child {
-        border-bottom: none;
-      }
-      .detail-row .key {
-        color: var(--Gray);
-      }
-      .detail-row .val {
-        font-weight: 700;
-      }
-
-      /* CODE BOX */
-      .code-box {
-        background: var(--CardBg);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        padding: 1.5rem 1.7rem;
-        transition:
-          box-shadow 0.3s ease,
-          border-color 0.3s ease;
-        cursor: pointer;
-      }
-      .code-box:hover {
-        box-shadow: var(--GlowLila);
-        border-color: var(--Lila);
-      }
-      .code-box-link {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        text-decoration: none;
-      }
-      .code-box-label {
-        font-size: 0.75rem;
-        letter-spacing: 0.12em;
-        color: var(--Gray);
-        margin-bottom: 0.4rem;
-      }
-      .code-box-text {
-        color: var(--Lila);
-        font-size: 1rem;
-        font-weight: 600;
-      }
-      .code-box-link:hover .code-box-text {
-        text-decoration: underline;
-      }
-      .gh-circle {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-      .gh-circle img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      /* HIGHLIGHTS */
-      .highlight-green {
-        color: var(--Grün);
-        font-weight: 650;
-      }
-      .highlight-purple {
-        color: var(--Lila);
-        font-weight: 650;
-      }
-      .highlight-white {
-        color: var(--White);
-        font-weight: 650;
-      }
               .nav-lang .nav-DE {
             color: var(--Lila);
             font-size: x-large;
@@ -238,53 +17,212 @@
             color: var(--Lila);
             font-size: x-large;
         }
-
         .nav-lang:hover .nav-DE {
             color: var(--White);
             font-size:  1.1rem;
         }
-        .detail-meta {
-        animation: fade-up 0.6s ease forwards;
-        animation-delay: 0.1s;
-        opacity: 0;
+
+      .detail-section {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 8rem;
       }
 
-      .detail-number {
-        animation: fade-up 0.6s ease forwards;
-        animation-delay: 0.3s;
-        opacity: 0;
+      .detail-back {
+        display: inline-block;
+        color: var(--Gray);
+        margin-bottom: 2rem;
+        transition: color var(--TransitionFast);
       }
 
+      .detail-back:hover,
+      .detail-back:focus-visible {
+        color: var(--White);
+      }
+
+      /* KOPF */
       .detail-title {
-        animation: fade-up 0.6s ease forwards;
-        animation-delay: 0.5s;
-        opacity: 0;
+        font-size: clamp(2.2rem, 6vw, 3.4rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin: 0 0 0.75rem;
       }
-      .stack-box {
-        animation: fade-up 0.6s ease forwards;
-        animation-delay: 0.7s;
-        opacity: 0;
+
+      .detail-meta {
+        color: var(--Gray);
+        margin: 0 0 1.25rem;
       }
+
+      .stack-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 4rem;
+      }
+
+      .stack-tags span {
+        color: var(--Gray);
+        font-size: 0.85rem;
+        padding: 0.25rem 0.65rem;
+        border: 1px solid color-mix(in srgb, var(--White) 12%, transparent);
+        border-radius: 6px;
+      }
+
+      /* INHALT */
       .content-grid {
-        animation: fade-up 0.6s ease forwards;
-        animation-delay: 0.9s;
-        opacity: 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 340px;
+        gap: 4rem;
+        align-items: start;
       }
+
+      .block-title {
+        font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+        font-weight: 800;
+        margin: 0 0 0.75rem;
+      }
+
+      .block-text {
+        color: var(--Gray);
+        font-size: 1.05rem;
+        line-height: 1.75;
+        max-width: 65ch;
+        margin: 0 0 3rem;
+      }
+
+      .learn-list {
+        color: var(--Gray);
+        font-size: 1.05rem;
+        line-height: 1.75;
+        padding-left: 1.2rem;
+        margin: 0;
+      }
+
+      .learn-list li::marker {
+        color: var(--Lila);
+      }
+
+      /* SEITENLEISTE */
       .right-col {
-        animation: fade-up 0.6s ease forwards;
-        animation-delay: 1.1s;
-        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
       }
-      .details-box {
-        animation: fade-up 0.6s ease forwards;
-        animation-delay: 1.3s;
-        opacity: 0;
+
+      .preview-img {
+        display: block;
+        width: 100%;
+        border-radius: 12px;
+      }
+
+      .details-box,
+      .code-box {
+        background: var(--CardBg);
+        border: 1px solid color-mix(in srgb, var(--White) 8%, transparent);
+        border-radius: 12px;
+        padding: 1.5rem 1.75rem;
+      }
+
+      .details-box-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+      }
+
+      .detail-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.55rem 0;
+        border-bottom: 1px solid color-mix(in srgb, var(--White) 6%, transparent);
+      }
+
+      .detail-row:last-child {
+        border-bottom: none;
+      }
+
+      .detail-row .key {
+        color: var(--Gray);
+      }
+
+      .detail-row .val {
+        text-align: right;
       }
 
       .code-box {
-        animation: fade-up 0.6s ease forwards;
-        animation-delay: 1.5s;
-        opacity: 0;
+        transition: border-color var(--TransitionFast);
+      }
+
+      .code-box:hover,
+      .code-box:focus-within {
+        border-color: color-mix(in srgb, var(--Lila) 60%, transparent);
+      }
+
+      .code-box-link {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .gh-icon {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+        flex-shrink: 0;
+        /* Das Logo ist schwarz: im Dark Mode weiss anzeigen */
+        filter: invert(1);
+        opacity: 0.85;
+      }
+
+      html.light-mode .gh-icon {
+        filter: none;
+      }
+
+      .code-box-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .code-box-label {
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+      }
+
+      .code-box-text {
+        color: var(--Gray);
+        font-size: 0.9rem;
+        overflow-wrap: anywhere;
+      }
+
+      .code-box-arrow {
+        color: var(--Lila);
+        font-size: 1.3rem;
+        flex-shrink: 0;
+      }
+
+      @media (max-width: 860px) {
+        .content-grid {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 3rem;
+        }
+
+        .right-col {
+          max-width: 480px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .detail-section {
+          padding: 2.5rem 1.1rem 5rem;
+        }
+
+        .stack-tags {
+          margin-bottom: 2.5rem;
+        }
+
+        .block-text {
+          margin-bottom: 2.25rem;
+        }
       }
     </style>
   </head>
@@ -296,7 +234,7 @@
         <a href="../1_hauptseite/index.html" class="nav-home-icon"
           ><img id="home-icon" src="../bilder/home.png" alt="Home"
         /></a>
-        <img id="theme-icon" src="../bilder/sun.png" alt="Theme Toggle" class="nav-icon" onclick="toggleTheme()" style="cursor:pointer;">
+        <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Hell-/Dunkelmodus umschalten"><img id="theme-icon" src="../bilder/sun.png" alt="" class="nav-icon"></button>
         <a href="../4_getraenkeautomat/geraenkeautomaten.html" class="nav-lang"
           ><span class="nav-EN">EN</span>/<span class="nav-DE">DE</span></a
         >
@@ -314,85 +252,42 @@
     </nav>
 
     <section class="detail-section">
-      <div class="detail-meta">
-        <div>Jahr: <span class="meta-year">2025</span></div>
-        <div>Typ: <span class="meta-type">Schulprojekt</span></div>
-        <div>Schule: <span class="meta-school">IMS-T Schweiz</span></div>
-      </div>
-
-      <div class="detail-number">// 02</div>
+      <a href="../2_projekte/projekte.html" class="detail-back">← Alle Projekte</a>
       <h1 class="detail-title">Getränkeautomat</h1>
-
-      <div class="stack-box">
-        <div class="stack-label">STACK</div>
-        <div class="stack-tags">
-          <span>Bash</span>
-          <span>Shell-Scripting</span>
-        </div>
-      </div>
+      <p class="detail-meta">2025 · Schulprojekt · IMS-T Schweiz</p>
+      <div class="stack-tags"><span>Bash</span><span>Shell-Scripting</span></div>
 
       <div class="content-grid">
         <div class="left-col">
-          <h2 class="block-title">Über das Projekt</h2>
+          <h2 class="block-title">Ablauf im Terminal</h2>
           <p class="block-text">
-            Dieses Projekt ist eine vollständige Simulation eines
-            <span class="highlight-green">Getränkeautomaten</span>, umgesetzt in
-            <span class="highlight-purple">Bash</span>. Ziel war es, ein
-            interaktives <span class="highlight-white">Terminal-Programm</span>
-            zu entwickeln, das den Benutzer durch einen realistischen
-            Kaufprozess führt. Das Programm verwaltet ein zufälliges Lager,
-            unterstützt drei verschiedene Zahlungsmethoden und gibt korrektes
-            Wechselgeld zurück.
+            Ein Getränkeautomat, der komplett im Terminal läuft. Ich habe ihn in Bash geschrieben. Das Skript füllt das Lager mit zufälligen Mengen. Du wählst ein Getränk, zahlst bar, mit TWINT oder mit PayPal und bekommst das richtige Wechselgeld zurück.
           </p>
 
-          <h2 class="block-title">Was war die Aufgabe?</h2>
+          <h2 class="block-title">Anforderungen</h2>
           <p class="block-text">
-            Die Aufgabe bestand darin, ein voll funktionsfähiges
-            <span class="highlight-green">Bash-Skript</span> zu schreiben, das
-            grundlegende
-            <span class="highlight-purple">Programmierkonzepte</span> wie
-            Funktionen, Schleifen, Benutzereingaben und bedingte Logik umsetzt.
-            Zusätzlich sollte das Programm
-            <span class="highlight-white">benutzerfreundlich</span> gestaltet
-            und robust gegenüber ungültigen Eingaben sein.
+            Wir sollten ein Bash-Skript schreiben, das Funktionen, Schleifen, Benutzereingaben und Bedingungen verwendet. Bei einer falschen Eingabe musste das Programm nachfragen und weiterlaufen.
           </p>
 
-          <h2 class="block-title">Was ich gelernt habe</h2>
+          <h2 class="block-title">Was ich mitnehme</h2>
           <ul class="learn-list">
-            <li>
-              Strukturiertes Programmieren mit
-              <span class="highlight-green">Bash-Funktionen</span>
-            </li>
-            <li>
-              Umgang mit Benutzereingaben und
-              <span class="highlight-purple">Input-Validierung</span>
-            </li>
-            <li>
-              Zufallsbasierte Logik und
-              <span class="highlight-white">Lagerbestandsverwaltung</span>
-            </li>
-            <li>
-              Simulation von
-              <span class="highlight-green">Zahlungsmethoden</span> (Bargeld,
-              TWINT, PayPal)
-            </li>
-            <li>
-              Fehlerbehandlung und saubere
-              <span class="highlight-purple">Programmstruktur</span> in Shell
-              Scripts
-            </li>
+            <li>Code in Bash-Funktionen aufteilen</li>
+            <li>Eingaben prüfen und Fehleingaben abfangen</li>
+            <li>Zufallszahlen für den Lagerbestand</li>
+            <li>Drei Zahlungsarten: Bargeld, TWINT und PayPal</li>
+            <li>Fehlerbehandlung in Shell-Skripten</li>
           </ul>
         </div>
 
         <div class="right-col">
           <img
-            class="preview-img"
+            class="preview-img" loading="lazy"
             src="../bilder/getraenkeautomatcode.gif"
             alt="Getränkeautomat Code Preview"
           />
 
           <div class="details-box">
-            <div class="details-box-title">PROJEKTDETAILS</div>
+            <div class="details-box-title">Projektdetails</div>
             <div class="detail-row">
               <span class="key">Zeitraum</span><span class="val">2025</span>
             </div>
@@ -410,18 +305,13 @@
           </div>
 
           <div class="code-box">
-            <a
-              href="https://github.com/sxrg1u/ProjektScriptingGetraenkeautomat"
-              target="_blank"
-              class="code-box-link"
-            >
-              <div>
-                <div class="code-box-label">ZUM CODE</div>
-                <span class="code-box-text">sxrg1u/Getränkeautomat</span>
+            <a href="https://github.com/sxrg1u/ProjektScriptingGetraenkeautomat" target="_blank" rel="noopener noreferrer" class="code-box-link">
+              <img class="gh-icon" src="../bilder/githublogo.png" alt="">
+              <div class="code-box-info">
+                <div class="code-box-label">Code auf GitHub</div>
+                <div class="code-box-text">sxrg1u/Getränkeautomat</div>
               </div>
-              <div class="gh-circle">
-                <img src="../bilder/githublogo.png" alt="GitHub" />
-              </div>
+              <span class="code-box-arrow" aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
@@ -431,7 +321,7 @@
 
   <!-- Mobile Menu Overlay -->
   <div id="mobile-menu">
-    <span id="mobile-menu-close" aria-label="Menü schliessen">&times;</span>
+    <button type="button" id="mobile-menu-close" aria-label="Menü schliessen">&times;</button>
     <a href="../1_hauptseite/index.html" class="mobile-menu-link">Home</a>
     <a href="../2_projekte/projekte.html" class="mobile-menu-link">Projekte</a>
     <a href="../6_skills/skills.html" class="mobile-menu-link">Skills</a>

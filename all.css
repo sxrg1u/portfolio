@@ -49,12 +49,12 @@
   --GlowBlack: 0 0 20px var(--Black);
 }
 
-/* LIGHT MODE */
-body.light-mode {
+/* LIGHT MODE (Klasse sitzt auf <html>, damit sie schon vor dem Rendern gesetzt werden kann) */
+html.light-mode {
   --Lila: #3b35b0;
   --LilaHover: #2d2890;
   --LilaLight: #8b85ff;
-  --Grün: #00c97d;
+  --Grün: #007a4d;
   --Gray: #747474;
   --White: #000000;
   --Black: #f7f8fa;
@@ -193,7 +193,7 @@ body {
   transform: scaleX(1);
 }
 
-.mobile-menu-close {
+#mobile-menu-close {
   position: absolute;
   top: 1.1rem;
   right: 1.2rem;
@@ -203,10 +203,13 @@ body {
   line-height: 1;
   padding: 6px 10px;
   border-radius: var(--RadiusMD);
+  background: transparent;
+  border: none;
   transition: background var(--TransitionFast);
 }
 
-.mobile-menu-close:hover {
+#mobile-menu-close:hover,
+#mobile-menu-close:focus-visible {
   background: color-mix(in srgb, var(--Lila) 25%, transparent);
 }
 
@@ -278,6 +281,31 @@ body {
   transform: scaleX(1);
 }
 
+/* Theme-Schalter: Button ohne eigenes Aussehen, nur das Icon ist sichtbar */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--RadiusSM);
+}
+
+.theme-toggle:focus-visible,
+.nav-hamburger:focus-visible {
+  outline: 2px solid var(--Lila);
+  outline-offset: 4px;
+}
+
+.theme-toggle:hover .nav-icon {
+  transform: rotate(25deg);
+}
+
+.theme-toggle:active .nav-icon {
+  transform: rotate(180deg);
+}
+
 .nav-icon {
   transition: transform var(--TransitionSlow);
 }
@@ -303,7 +331,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: var(--CardBg);
 }
 
 ::-webkit-scrollbar-thumb {

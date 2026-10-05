@@ -6,118 +6,9 @@
     <title>Portfolio | Sergiu Bolohan</title>
     
     <link rel="stylesheet" href="../all.css">
+    <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode")}catch(e){}</script>
     <link rel="icon" href="../bilder/sb.ico"> 
     <style>
-        /* HERO */
-        #hero {
-            padding: 4rem 0;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .hero-left {
-            max-width: 520px;
-        }
-
-        .hero-tag {
-            color: var(--Grün);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .hero-title {
-            font-size: clamp(2rem, 6vw, 3.4rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .hero-title span {
-            color: var(--Lila);
-        }
-
-        .hero-desc span.Lila {
-            color: var(--Lila);
-        }
-
-        .hero-desc span.Grün {
-            color: var(--Grün);
-        }
-
-        .hero-desc {
-            color: var(--Gray);
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
-            font-size: 1.1rem;
-        }
-
-        /* BUTTONS */
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
-            padding: 0.8rem 1.6rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: 0.2s ease;
-        }
-
-        .btn-projects {
-            background-color: var(--Lila);
-            color: var(--White);
-            border: none;
-        }
-
-        .btn-projects:hover {
-            background-color: var(--LilaHover);
-            box-shadow: var(--GlowLila);
-        }
-
-        .btn-contact {
-            background-color: transparent;
-            border: 1px solid var(--Gray);
-            color: var(--White);
-        }
-
-        .btn-contact:hover {
-            border-color: var(--White);
-            box-shadow: var(--GlowBlack);
-        }
-
-        /* TERMINAL GIF */
-        .hero-right {
-            margin-left: auto;
-            padding-left: clamp(0rem, 3vw, 6rem);
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .hero-right img {
-            width: min(440px, 100%);
-            border-radius: 10px;
-            box-shadow: var(--GlowBlack);
-        }
-        .navbar span{
-            color: var(--Lila);
-        }
-                /* Curser animation */
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50%       { opacity: 0; }
-        }
-
-        .cursor {
-            color: var(--Grün);
-            animation: blink 1s step-end infinite;
-            font-weight: 400;
-            margin-left: 2px;
-        }
         .nav-lang .nav-EN {
             color: var(--Lila);
             font-size: x-large;
@@ -126,48 +17,225 @@
             color: var(--Lila);
             font-size: x-large;
         }
-
         .nav-lang:hover .nav-EN {
             color: var(--White);
             font-size:  1.1rem;
         }
 
-        .hero-tag {
-            animation: fade-up 0.6s ease forwards;
-            animation-delay: 0.1s;
-            opacity: 0;
+        .home {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 8rem;
         }
 
-        .hero-title {
-            animation: fade-up 0.6s ease forwards;
-            animation-delay: 0.3s;
-            opacity: 0;
+        .home-block {
+            margin-bottom: 6rem;
         }
 
-        .hero-desc {
-            animation: fade-up 0.6s ease forwards;
-            animation-delay: 0.5s;
-            opacity: 0;
+        /* HERO */
+        .home-hero {
+            display: grid;
+            grid-template-columns: 1fr minmax(280px, 440px);
+            gap: 4rem;
+            align-items: center;
         }
 
-        .hero-buttons {
-            animation: fade-up 0.6s ease forwards;
-            animation-delay: 0.7s;
-            opacity: 0;
+        .home-role {
+            color: var(--Gray);
+            font-size: 1rem;
+            margin: 0 0 0.75rem;
         }
 
-        .hero-right {
-            animation: fade-up 0.6s ease forwards;
-            animation-delay: 0.9s;
-            opacity: 0;
+        .home-hero h1 {
+            font-size: clamp(2.6rem, 7vw, 4.2rem);
+            font-weight: 800;
+            line-height: 1.05;
+            margin: 0 0 1.5rem;
         }
 
-        @media (max-width: 768px) {
-            .hero-right {
-                margin-left: 0 !important;
-                padding-left: 0 !important;
-                justify-content: center !important;
-                width: 100%;
+        .home-desc {
+            color: var(--Gray);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 52ch;
+            margin: 0 0 2.5rem;
+        }
+
+        .home-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            border: 1px solid transparent;
+            transition: background-color var(--TransitionFast), border-color var(--TransitionFast);
+        }
+
+        .home-btn-primary {
+            background: var(--Lila);
+            color: #ffffff;
+        }
+
+        .home-btn-primary:hover,
+        .home-btn-primary:focus-visible {
+            background: var(--LilaHover);
+        }
+
+        .home-btn-secondary {
+            border-color: color-mix(in srgb, var(--White) 20%, transparent);
+        }
+
+        .home-btn-secondary:hover,
+        .home-btn-secondary:focus-visible {
+            border-color: var(--White);
+        }
+
+        .home-photo {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        /* PROJEKTE */
+        .home-heading-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .home-heading {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .home-all {
+            color: var(--Lila);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .home-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--CardBg);
+            border: 1px solid color-mix(in srgb, var(--White) 8%, transparent);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color var(--TransitionFast);
+        }
+
+        .project-card:hover,
+        .project-card:focus-visible {
+            border-color: color-mix(in srgb, var(--Lila) 60%, transparent);
+        }
+
+        .project-card img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+        }
+
+        .project-body {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 1.75rem 2rem 2rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .project-meta {
+            color: var(--Gray);
+            font-size: 0.85rem;
+            margin: 0.35rem 0 1rem;
+        }
+
+        .project-desc {
+            color: var(--Gray);
+            line-height: 1.6;
+            margin: 0 0 1.5rem;
+        }
+
+        .project-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tags span {
+            color: var(--Gray);
+            font-size: 0.8rem;
+            padding: 0.25rem 0.6rem;
+            border: 1px solid color-mix(in srgb, var(--White) 12%, transparent);
+            border-radius: 6px;
+        }
+
+        .project-more {
+            color: var(--Lila);
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 860px) {
+            .home-hero {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .home-photo {
+                max-width: 440px;
+            }
+
+            .home-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .home {
+                padding: 2.5rem 1.1rem 5rem;
+            }
+
+            .home-block {
+                margin-bottom: 4rem;
+            }
+
+            .home-btn {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+
+            .project-body {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -181,7 +249,7 @@
         <div class="nav-left">
             <a href="../1_hauptseite/indexen.html" class="nav-home-text"><span>Home</span></a>
             <a href="../1_hauptseite/indexen.html" class="nav-home-icon"><img id="home-icon" src="../bilder/home.png" alt="Haus Icon"></a>
-            <img id="theme-icon" src="../bilder/sun.png" alt="Theme Toggle" class="nav-icon" onclick="toggleTheme()" style="cursor:pointer;">
+            <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode"><img id="theme-icon" src="../bilder/sun.png" alt="" class="nav-icon"></button>
             <a href="../1_hauptseite/index.html" class="nav-lang"><span class="nav-EN">EN</span>/<span class="nav-DE">DE</span></a>
         </div>
 
@@ -197,28 +265,59 @@
     </button></div>
     </nav>
 
-    <main id="hero">
-        <div class="hero-left">
-            <p class="hero-tag">// Application Developer in Training<span class="cursor">|</span></p>
-            <h1 class="hero-title">I am <br><span>Sergiu Bolohan</span></h1>
-            <p class="hero-desc">I'm learning to turn digital ideas into working <span class="Grün">apps</span> — with clean <span class="Lila">code</span> and clear thinking. I'm currently studying at the School of Computer Science, specialising in <span class="Grün">application development</span>.</p>
-
-            <div class="hero-buttons">
-                <a href="../2_projekte/projekteen.html" class="btn btn-projects">View projects</a>
-                <a href="../8_kontakt/kontakten.html" class="btn btn-contact">Get in touch</a>
+    <main class="home">
+        <section class="home-block home-hero">
+            <div>
+                <p class="home-role">Application developer in training</p>
+                <h1>Sergiu Bolohan</h1>
+                <p class="home-desc">I'm training as an IT specialist (EFZ) in application development and doing the vocational baccalaureate alongside it. On this site you'll find the games and tools I've built in C#, Bash and HTML/CSS.</p>
+                <div class="home-buttons">
+                    <a href="../2_projekte/projekteen.html" class="home-btn home-btn-primary">View projects</a>
+                    <a href="../8_kontakt/kontakten.html" class="home-btn home-btn-secondary">Get in touch</a>
+                </div>
             </div>
-        </div>
+            <img src="../bilder/terminalhome.gif" alt="Terminal animation with C# code" class="home-photo">
+        </section>
 
-        <div class="hero-right">
-            <img src="../bilder/terminalhome.gif" alt="Terminal Animation">
-        </div>
+        <section>
+            <div class="home-heading-row">
+                <h2 class="home-heading">Featured projects</h2>
+                <a href="../2_projekte/projekteen.html" class="home-all">All projects →</a>
+            </div>
+            <div class="home-grid">
+                <a href="../9_jetpackprojekt/jetpackjoyrideEN.html" class="project-card">
+                    <img src="../bilder/jetpackgame.gif" alt="Jetpack Joyride" loading="lazy">
+                    <div class="project-body">
+                        <h3>Jetpack Joyride</h3>
+                        <div class="project-meta">2026 · Personal project</div>
+                        <div class="project-desc">An endless runner modelled on Jetpack Joyride. You fly with the spacebar and dodge three kinds of lasers. They speed up as your score climbs.</div>
+                        <div class="project-footer">
+                            <div class="project-tags"><span>C#</span><span>Win-Forms</span></div>
+                            <span class="project-more" aria-hidden="true">Details →</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="../10_bombgameprojekt/bombgameen.html" class="project-card">
+                    <img src="../bilder/bombgame.gif" alt="Bomb Game" loading="lazy">
+                    <div class="project-body">
+                        <h3>Bomb Game</h3>
+                        <div class="project-meta">2026 · Personal project</div>
+                        <div class="project-desc">Works like Minesweeper. You reveal tiles until you've found every safe one or hit a bomb. The game saves your highscore.</div>
+                        <div class="project-footer">
+                            <div class="project-tags"><span>C#</span><span>Win-Forms</span></div>
+                            <span class="project-more" aria-hidden="true">Details →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
     </main>
 
     <script src="../script.js"></script>
 
   <!-- Mobile Menu Overlay -->
   <div id="mobile-menu">
-    <span id="mobile-menu-close" aria-label="Menü schliessen">&times;</span>
+    <button type="button" id="mobile-menu-close" aria-label="Close menu">&times;</button>
     <a href="../1_hauptseite/indexen.html" class="mobile-menu-link">Home</a>
     <a href="../2_projekte/projekteen.html" class="mobile-menu-link">Projects</a>
     <a href="../6_skills/skillsen.html" class="mobile-menu-link">Skills</a>

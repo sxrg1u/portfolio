@@ -6,165 +6,177 @@
     <title>Contact | Sergiu Bolohan</title>
     
     <link rel="stylesheet" href="../all.css">
+    <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode")}catch(e){}</script>
     <link rel="icon" href="../bilder/bubble.ico"> 
     <style>
-        .kontakt-section {
-            padding: 4rem 0;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .kontakt-subtitle {
-            color: var(--Grün);
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .kontakt-title {
-            font-size: clamp(1.4rem, 6vw, 3.4rem);
-            font-weight: 800;
-            margin: 0 0 1rem;
-            line-height: 1.1;
-        }
-
-        .kontakt-title span {
-            color: var(--Lila);
-        }
-
-        .kontakt-desc {
-            color: var(--Gray);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-        }
-
-        .kontakt-links-title {
-            color: var(--Gray);
-            font-size: 1rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .kontakt-links-title::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: rgba(255,255,255,0.12);
-        }
-
-        .kontakt-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .kontakt-card {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            background: var(--CardBgAlt);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 12px;
-            padding: 1.5rem 2rem;
-            transition: 0.3s ease;
-        }
-
-        .kontakt-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--Lila);
-            box-shadow: 3px 3px 8px var(--Lila);
-        }
-
-        .kontakt-card-icon {
-            width: 48px;
-            height: 48px;
-            object-fit: contain;
-            flex-shrink: 0;
-            opacity: 0.85;
-        }
-
-        .kontakt-card-info {
-            flex: 1;
-        }
-
-        .kontakt-card-info h3 {
-            margin: 0 0 0.3rem;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--White);
-        }
-
-        .kontakt-card-info p {
-            margin: 0;
-            color: var(--Lila);
-            font-size: 1rem;
-        }
-
-        .kontakt-card-arrow {
-            color: var(--White);
-            font-size: 1.5rem;
-            opacity: 0.6;
-            flex-shrink: 0;
-        }
-
-        @media (max-width: 768px) {
-            .kontakt-card {
-                padding: 1.1rem 1.2rem;
-                gap: 1rem;
-            }
-            .kontakt-title {
-                font-size: clamp(1.6rem, 9vw, 2.4rem);
-            }
-        }
-
-        .nav-right span {
-            color: var(--Lila);
-        }
-
         .nav-lang .nav-EN {
             color: var(--Lila);
             font-size: x-large;
         }
-
         .nav-lang:hover .nav-DE {
             color: var(--Lila);
             font-size: x-large;
         }
-
         .nav-lang:hover .nav-EN {
             color: var(--White);
             font-size: 1.1rem;
         }
 
-        .kontakt-subtitle {
-            animation: fade-up 0.6s ease forwards;
-            animation-delay: 0.1s;
-            opacity: 0;
+        .kontakt-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 8rem;
         }
 
         .kontakt-title {
-            animation: fade-up 0.6s ease forwards;
-            animation-delay: 0.3s;
-            opacity: 0;
+            font-size: clamp(2.2rem, 6vw, 3.4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0 0 1.5rem;
         }
 
         .kontakt-desc {
-            animation: fade-up 0.6s ease forwards;
-            animation-delay: 0.5s;
-            opacity: 0;
+            color: var(--Gray);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 60ch;
+            margin: 0 0 4rem;
         }
-        .kontakt-links-title {
-            animation: fade-up 0.6s ease forwards;
-            animation-delay: 0.7s;
-            opacity: 0;
+
+        .kontakt-group + .kontakt-group {
+            margin-top: 3.5rem;
         }
-        .kontakt-cards {
-            animation: fade-up 0.6s ease forwards;
-            animation-delay: 0.9s;
-            opacity: 0;
+
+        .kontakt-heading {
+            font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+            font-weight: 800;
+            margin: 0 0 1.25rem;
+        }
+
+        .kontakt-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .kontakt-card {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            background: var(--CardBg);
+            border: 1px solid color-mix(in srgb, var(--White) 8%, transparent);
+            border-radius: 12px;
+            padding: 1.5rem 1.75rem;
+            transition: border-color var(--TransitionFast);
+        }
+
+        .kontakt-card:hover,
+        .kontakt-card:focus-within {
+            border-color: color-mix(in srgb, var(--Lila) 60%, transparent);
+        }
+
+        /* Der Link deckt die ganze Karte ab, der Kopieren-Knopf liegt darüber */
+        .kontakt-link::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+        }
+
+        .kontakt-icon {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            flex-shrink: 0;
+            /* Die Icons sind schwarz: im Dark Mode weiss anzeigen */
+            filter: invert(1);
+            opacity: 0.85;
+        }
+
+        html.light-mode .kontakt-icon {
+            filter: none;
+        }
+
+        .kontakt-link {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .kontakt-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0 0 0.3rem;
+        }
+
+        .kontakt-card p {
+            color: var(--Gray);
+            margin: 0;
+            overflow-wrap: break-word;
+        }
+
+        .kontakt-arrow {
+            color: var(--Lila);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .copy-btn {
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+            font: inherit;
+            font-size: 0.85rem;
+            color: var(--Gray);
+            background: transparent;
+            border: 1px solid color-mix(in srgb, var(--White) 15%, transparent);
+            border-radius: 6px;
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            transition: color var(--TransitionFast), border-color var(--TransitionFast);
+        }
+
+        .copy-btn:hover,
+        .copy-btn:focus-visible {
+            color: var(--White);
+            border-color: var(--Lila);
+        }
+
+        @media (max-width: 860px) {
+            .kontakt-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .kontakt-section {
+                padding: 2.5rem 1.1rem 5rem;
+            }
+
+            .kontakt-desc {
+                margin-bottom: 2.5rem;
+            }
+
+            .kontakt-card {
+                flex-wrap: wrap;
+                padding: 1.25rem;
+                gap: 1rem;
+            }
+
+            .kontakt-icon {
+                width: 32px;
+                height: 32px;
+            }
+
+            /* Text nimmt die ganze Zeile neben dem Icon ein */
+            .kontakt-card:has(.copy-btn) .kontakt-link {
+                flex-basis: calc(100% - 32px - 1rem);
+            }
+
+            /* Kopieren-Knopf unter die Adresse, eingerückt wie der Text */
+            .copy-btn {
+                margin-left: calc(32px + 1rem);
+            }
         }
     </style>
 </head>
@@ -175,7 +187,7 @@
     <div class="nav-left">
         <a href="../1_hauptseite/indexen.html" class="nav-home-text">Home</a>
         <a href="../1_hauptseite/indexen.html" class="nav-home-icon"><img id="home-icon" src="../bilder/home.png" alt="Home"></a>
-        <img id="theme-icon" src="../bilder/sun.png" alt="Theme Toggle" class="nav-icon" onclick="toggleTheme()" style="cursor:pointer;">
+        <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode"><img id="theme-icon" src="../bilder/sun.png" alt="" class="nav-icon"></button>
         <a href="../8_kontakt/kontakt.html" class="nav-lang"><span class="nav-EN">EN</span>/<span class="nav-DE">DE</span></a>
     </div>
 
@@ -192,51 +204,51 @@
 </nav>
 
 <section class="kontakt-section">
+    <h1 class="kontakt-title">Contact</h1>
+    <p class="kontakt-desc">You can reach me by email or on Instagram. My code is on GitHub.</p>
 
-    <p class="kontakt-subtitle">// contact</p>
-    <h1 class="kontakt-title">Get in<br><span>touch.</span></h1>
-    <p class="kontakt-desc">You can find me on GitHub, via email or on Instagram — pick whichever suits you best.</p>
+    <div class="kontakt-group">
+        <h2 class="kontakt-heading">Email</h2>
+        <div class="kontakt-grid">
+                <div class="kontakt-card">
+                    <img class="kontakt-icon" src="../bilder/mail.png" alt="">
+                    <a href="mailto:sergiu.bolohan@outlook.com" class="kontakt-link">
+                        <h3>Private email</h3>
+                        <p>sergiu.bolohan@<wbr>outlook.com</p>
+                    </a>
+                    <button type="button" class="copy-btn" data-copy="sergiu.bolohan@outlook.com" data-done="Copied" aria-label="Copy email address: sergiu.bolohan@outlook.com">Copy</button>
+                </div>
+                <div class="kontakt-card">
+                    <img class="kontakt-icon" src="../bilder/mail.png" alt="">
+                    <a href="mailto:sergiu.bolohan@stud.bzbs.ch" class="kontakt-link">
+                        <h3>School email</h3>
+                        <p>sergiu.bolohan@<wbr>stud.bzbs.ch</p>
+                    </a>
+                    <button type="button" class="copy-btn" data-copy="sergiu.bolohan@stud.bzbs.ch" data-done="Copied" aria-label="Copy email address: sergiu.bolohan@stud.bzbs.ch">Copy</button>
+                </div>
+        </div>
+    </div>
 
-    <p class="kontakt-links-title">01 Contact links</p>
-
-    <div class="kontakt-cards">
-
-        <a href="https://github.com/sxrg1u" target="_blank" class="kontakt-card">
-            <img class="kontakt-card-icon" src="../bilder/githublogo.png" alt="GitHub">
-            <div class="kontakt-card-info">
-                <h3>GitHub</h3>
-                <p>sxrg1u (sergiu bolohan)</p>
-            </div>
-            <span class="kontakt-card-arrow">→</span>
-        </a>
-
-        <a href="https://www.instagram.com/_sxrgiu_/" target="_blank" class="kontakt-card">
-            <img class="kontakt-card-icon" src="../bilder/insta.png" alt="Instagram">
-            <div class="kontakt-card-info">
-                <h3>Instagram</h3>
-                <p>_sxrgiu_</p>
-            </div>
-            <span class="kontakt-card-arrow">→</span>
-        </a>
-
-        <a href="mailto:sergiu.bolohan@stud.bzbs.ch" class="kontakt-card">
-            <img class="kontakt-card-icon" src="../bilder/mail.png" alt="E-Mail">
-            <div class="kontakt-card-info">
-                <h3>E-Mail der Schule</h3>
-                <p>sergiu.bolohan@stud.bzbs.ch</p>
-            </div>
-            <span class="kontakt-card-arrow">→</span>
-        </a>
-
-        <a href="mailto:sergiu.bolohan@outlook.com" class="kontakt-card">
-            <img class="kontakt-card-icon" src="../bilder/mail.png" alt="E-Mail">
-            <div class="kontakt-card-info">
-                <h3>Privat E-Mail</h3>
-                <p>sergiu.bolohan@outlook.com</p>
-            </div>
-            <span class="kontakt-card-arrow">→</span>
-        </a>
-
+    <div class="kontakt-group">
+        <h2 class="kontakt-heading">Profiles</h2>
+        <div class="kontakt-grid">
+                <div class="kontakt-card">
+                    <img class="kontakt-icon" src="../bilder/githublogo.png" alt="">
+                    <a href="https://github.com/sxrg1u" target="_blank" rel="noopener noreferrer" class="kontakt-link">
+                        <h3>GitHub</h3>
+                        <p>github.com/sxrg1u</p>
+                    </a>
+                    <span class="kontakt-arrow" aria-hidden="true">↗</span>
+                </div>
+                <div class="kontakt-card">
+                    <img class="kontakt-icon" src="../bilder/insta.png" alt="">
+                    <a href="https://www.instagram.com/_sxrgiu_/" target="_blank" rel="noopener noreferrer" class="kontakt-link">
+                        <h3>Instagram</h3>
+                        <p>@_sxrgiu_</p>
+                    </a>
+                    <span class="kontakt-arrow" aria-hidden="true">↗</span>
+                </div>
+        </div>
     </div>
 </section>
 
@@ -244,12 +256,12 @@
 
   <!-- Mobile Menu Overlay -->
   <div id="mobile-menu">
-    <span id="mobile-menu-close" aria-label="Menü schliessen">&times;</span>
+    <button type="button" id="mobile-menu-close" aria-label="Close menu">&times;</button>
     <a href="../1_hauptseite/indexen.html" class="mobile-menu-link">Home</a>
     <a href="../2_projekte/projekteen.html" class="mobile-menu-link">Projects</a>
-    <a href="../6_skills/skills.html" class="mobile-menu-link">Skills</a>
+    <a href="../6_skills/skillsen.html" class="mobile-menu-link">Skills</a>
     <a href="../7_uebermich/uebermichen.html" class="mobile-menu-link">About me</a>
-    <a href="../8_kontakt/kontakt.html" class="mobile-menu-link">Contact</a>
+    <a href="../8_kontakt/kontakten.html" class="mobile-menu-link">Contact</a>
   </div>
 </body>
 </html>

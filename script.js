@@ -1,8 +1,9 @@
-function toggleTheme() {
-    document.body.classList.toggle("light-mode");
-    const isLight = document.body.classList.contains("light-mode");
-    localStorage.setItem("theme", isLight ? "light" : "dark");
+// Die Klasse "light-mode" sitzt auf <html> und wird schon im <head> gesetzt (kein Aufblitzen).
+function isLightMode() {
+    return document.documentElement.classList.contains("light-mode");
+}
 
+function updateThemeIcons(isLight) {
     const icon = document.getElementById("theme-icon");
     if (icon) {
         const src = icon.getAttribute("src");
@@ -18,25 +19,22 @@ function toggleTheme() {
     }
 }
 
+function toggleTheme() {
+    document.documentElement.classList.toggle("light-mode");
+    const isLight = isLightMode();
+    try {
+        localStorage.setItem("theme", isLight ? "light" : "dark");
+    } catch (e) {}
+    updateThemeIcons(isLight);
+}
+
 function loadTheme() {
-    const saved = localStorage.getItem("theme");
-    if (saved === "light") {
-        document.body.classList.add("light-mode");
-
-        const icon = document.getElementById("theme-icon");
-        if (icon) {
-            const src = icon.getAttribute("src");
-            const base = src.substring(0, src.lastIndexOf("/"));
-            icon.setAttribute("src", base + "/sunlightmode.png");
-        }
-
-        const homeIcon = document.getElementById("home-icon");
-        if (homeIcon) {
-            const src = homeIcon.getAttribute("src");
-            const base = src.substring(0, src.lastIndexOf("/"));
-            homeIcon.setAttribute("src", base + "/homelightmode.png");
-        }
-    }
+    let saved = null;
+    try {
+        saved = localStorage.getItem("theme");
+    } catch (e) {}
+    if (saved === "light") document.documentElement.classList.add("light-mode");
+    updateThemeIcons(isLightMode());
 }
 
 // ── HAMBURGER MENU ──────────────────────────────────────────────
@@ -79,7 +77,41 @@ function initHamburger() {
     });
 }
 
+// ── KOPIEREN-KNÖPFE (Kontaktseite) ─────────────────────────────
+function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text).catch(() => copyTextFallback(text));
+    }
+    return copyTextFallback(text);
+}
+
+// Fallback, z.B. wenn die Seite direkt als Datei geöffnet ist
+function copyTextFallback(text) {
+    const area = document.createElement("textarea");
+    area.value = text;
+    area.style.position = "fixed";
+    area.style.opacity = "0";
+    document.body.appendChild(area);
+    area.select();
+    document.execCommand("copy");
+    area.remove();
+    return Promise.resolve();
+}
+
+function initCopyButtons() {
+    document.querySelectorAll("[data-copy]").forEach((btn) => {
+        const label = btn.textContent;
+        btn.addEventListener("click", () => {
+            copyText(btn.dataset.copy).then(() => {
+                btn.textContent = btn.dataset.done;
+                setTimeout(() => (btn.textContent = label), 1500);
+            });
+        });
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     loadTheme();
     initHamburger();
+    initCopyButtons();
 });

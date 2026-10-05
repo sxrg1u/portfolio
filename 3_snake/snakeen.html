@@ -6,230 +6,9 @@
     <title>Project Snake | Sergiu Bolohan</title>
     
     <link rel="stylesheet" href="../all.css" />
+    <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode")}catch(e){}</script>
     <link rel="icon" href="../bilder/snake.ico"> 
     <style>
-      .detail-section {
-        padding: 4rem 0;
-      max-width: 1200px;
-      margin: 0 auto;
-      }
-
-      /* META */
-      .detail-meta {
-        float: right;
-        text-align: right;
-        font-size: 0.95rem;
-        line-height: 1.8;
-        color: var(--Gray);
-      }
-      .detail-meta .meta-year {
-        color: var(--Lila);
-        font-weight: 700;
-      }
-      .detail-meta .meta-type {
-        color: var(--Grün);
-        font-weight: 700;
-      }
-      .detail-meta .meta-school {
-        color: var(--White);
-        font-weight: 700;
-      }
-
-      /* TITLE */
-      .detail-number {
-        color: var(--Grün);
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
-      .detail-title {
-        font-size: clamp(1.3rem, 6vw, 3.4rem);
-        font-weight: 800;
-        margin: 0.3rem 0 2rem;
-        line-height: 1.05;
-      }
-
-      /* STACK BOX */
-      .stack-box {
-        background: var(--CardBg);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        padding: 1.5rem 1.7rem;
-        margin-bottom: 3rem;
-        display: inline-block;
-        min-width: 280px;
-      }
-      .stack-label {
-        font-size: 0.75rem;
-        letter-spacing: 0.12em;
-        color: var(--Gray);
-        margin-bottom: 0.8rem;
-      }
-      .stack-tags {
-        display: flex;
-        gap: 0.7rem;
-        flex-wrap: wrap;
-      }
-      .stack-tags span {
-        border: 1px solid var(--Lila);
-        color: var(--LilaLight);
-        padding: 0.45rem 1.1rem;
-        border-radius: 8px;
-        font-size: 0.9rem;
-        font-weight: 600;
-      }
-
-      /* GRID */
-      .content-grid {
-        display: flex;
-        gap: 4rem;
-        align-items: flex-start;
-      }
-      .left-col {
-        flex: 1;
-      }
-      .right-col {
-        width: 360px;
-        flex-shrink: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-
-      /* TEXT */
-      .block-title {
-        font-size: 1.25rem;
-        font-weight: 700;
-        margin-bottom: 0.6rem;
-      }
-      .block-text {
-        color: var(--Gray);
-        line-height: 1.75;
-        font-size: 1.05rem;
-        margin-bottom: 2rem;
-      }
-
-      /* LIST */
-      .learn-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      .learn-list li {
-        color: var(--Gray);
-        font-size: 1.05rem;
-        line-height: 1.75;
-        padding-left: 1.2rem;
-        position: relative;
-      }
-      .learn-list li::before {
-        content: "▸";
-        position: absolute;
-        left: 0;
-        color: var(--Lila);
-      }
-
-      /* IMAGE */
-      .preview-img {
-        width: 100%;
-        border-radius: 10px;
-        display: block;
-      }
-
-      /* DETAILS BOX */
-      .details-box {
-        background: var(--CardBg);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        padding: 1.5rem 1.7rem;
-      }
-      .details-box-title {
-        font-size: 0.75rem;
-        letter-spacing: 0.12em;
-        color: var(--Gray);
-        margin-bottom: 1rem;
-      }
-      .detail-row {
-        display: flex;
-        justify-content: space-between;
-        padding: 0.55rem 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        font-size: 1rem;
-      }
-      .detail-row:last-child {
-        border-bottom: none;
-      }
-      .detail-row .key {
-        color: var(--Gray);
-      }
-      .detail-row .val {
-        font-weight: 700;
-      }
-
-      /* CODE BOX */
-      .code-box {
-        background: var(--CardBg);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        padding: 1.5rem 1.7rem;
-        transition:
-          box-shadow 0.3s ease,
-          border-color 0.3s ease;
-        cursor: pointer;
-      }
-      .code-box:hover {
-        box-shadow: var(--GlowLila);
-        border-color: var(--Lila);
-      }
-      .code-box-link {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        text-decoration: none;
-      }
-      .code-box-label {
-        font-size: 0.75rem;
-        letter-spacing: 0.12em;
-        color: var(--Gray);
-        margin-bottom: 0.4rem;
-      }
-      .code-box-text {
-        color: var(--Lila);
-        font-size: 1rem;
-        font-weight: 600;
-      }
-      .code-box-link:hover .code-box-text {
-        text-decoration: underline;
-      }
-      .gh-circle {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-      .gh-circle img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      /* HIGHLIGHTS */
-      .highlight-green {
-        color: var(--Grün);
-        font-weight: 650;
-      }
-      .highlight-purple {
-        color: var(--Lila);
-        font-weight: 650;
-      }
-      .highlight-white {
-        color: var(--White);
-        font-weight: 650;
-      }
               .nav-lang .nav-EN {
             color: var(--Lila);
             font-size: x-large;
@@ -238,53 +17,212 @@
             color: var(--Lila);
             font-size: x-large;
         }
-
         .nav-lang:hover .nav-EN {
             color: var(--White);
             font-size:  1.1rem;
         }
-      .detail-meta {
-        animation: fade-up 0.6s ease forwards;
-        animation-delay: 0.1s;
-        opacity: 0;
+
+      .detail-section {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 8rem;
       }
 
-      .detail-number {
-        animation: fade-up 0.6s ease forwards;
-        animation-delay: 0.3s;
-        opacity: 0;
+      .detail-back {
+        display: inline-block;
+        color: var(--Gray);
+        margin-bottom: 2rem;
+        transition: color var(--TransitionFast);
       }
 
+      .detail-back:hover,
+      .detail-back:focus-visible {
+        color: var(--White);
+      }
+
+      /* KOPF */
       .detail-title {
-        animation: fade-up 0.6s ease forwards;
-        animation-delay: 0.5s;
-        opacity: 0;
+        font-size: clamp(2.2rem, 6vw, 3.4rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin: 0 0 0.75rem;
       }
-      .stack-box {
-        animation: fade-up 0.6s ease forwards;
-        animation-delay: 0.7s;
-        opacity: 0;
+
+      .detail-meta {
+        color: var(--Gray);
+        margin: 0 0 1.25rem;
       }
+
+      .stack-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 4rem;
+      }
+
+      .stack-tags span {
+        color: var(--Gray);
+        font-size: 0.85rem;
+        padding: 0.25rem 0.65rem;
+        border: 1px solid color-mix(in srgb, var(--White) 12%, transparent);
+        border-radius: 6px;
+      }
+
+      /* INHALT */
       .content-grid {
-        animation: fade-up 0.6s ease forwards;
-        animation-delay: 0.9s;
-        opacity: 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 340px;
+        gap: 4rem;
+        align-items: start;
       }
+
+      .block-title {
+        font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+        font-weight: 800;
+        margin: 0 0 0.75rem;
+      }
+
+      .block-text {
+        color: var(--Gray);
+        font-size: 1.05rem;
+        line-height: 1.75;
+        max-width: 65ch;
+        margin: 0 0 3rem;
+      }
+
+      .learn-list {
+        color: var(--Gray);
+        font-size: 1.05rem;
+        line-height: 1.75;
+        padding-left: 1.2rem;
+        margin: 0;
+      }
+
+      .learn-list li::marker {
+        color: var(--Lila);
+      }
+
+      /* SEITENLEISTE */
       .right-col {
-        animation: fade-up 0.6s ease forwards;
-        animation-delay: 1.1s;
-        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
       }
-      .details-box {
-        animation: fade-up 0.6s ease forwards;
-        animation-delay: 1.3s;
-        opacity: 0;
+
+      .preview-img {
+        display: block;
+        width: 100%;
+        border-radius: 12px;
+      }
+
+      .details-box,
+      .code-box {
+        background: var(--CardBg);
+        border: 1px solid color-mix(in srgb, var(--White) 8%, transparent);
+        border-radius: 12px;
+        padding: 1.5rem 1.75rem;
+      }
+
+      .details-box-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+      }
+
+      .detail-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.55rem 0;
+        border-bottom: 1px solid color-mix(in srgb, var(--White) 6%, transparent);
+      }
+
+      .detail-row:last-child {
+        border-bottom: none;
+      }
+
+      .detail-row .key {
+        color: var(--Gray);
+      }
+
+      .detail-row .val {
+        text-align: right;
       }
 
       .code-box {
-        animation: fade-up 0.6s ease forwards;
-        animation-delay: 1.5s;
-        opacity: 0;
+        transition: border-color var(--TransitionFast);
+      }
+
+      .code-box:hover,
+      .code-box:focus-within {
+        border-color: color-mix(in srgb, var(--Lila) 60%, transparent);
+      }
+
+      .code-box-link {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .gh-icon {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+        flex-shrink: 0;
+        /* Das Logo ist schwarz: im Dark Mode weiss anzeigen */
+        filter: invert(1);
+        opacity: 0.85;
+      }
+
+      html.light-mode .gh-icon {
+        filter: none;
+      }
+
+      .code-box-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .code-box-label {
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+      }
+
+      .code-box-text {
+        color: var(--Gray);
+        font-size: 0.9rem;
+        overflow-wrap: anywhere;
+      }
+
+      .code-box-arrow {
+        color: var(--Lila);
+        font-size: 1.3rem;
+        flex-shrink: 0;
+      }
+
+      @media (max-width: 860px) {
+        .content-grid {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 3rem;
+        }
+
+        .right-col {
+          max-width: 480px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .detail-section {
+          padding: 2.5rem 1.1rem 5rem;
+        }
+
+        .stack-tags {
+          margin-bottom: 2.5rem;
+        }
+
+        .block-text {
+          margin-bottom: 2.25rem;
+        }
       }
     </style>
   </head>
@@ -296,12 +234,12 @@
         <a href="../1_hauptseite/indexen.html" class="nav-home-icon"
           ><img id="home-icon" src="../bilder/home.png" alt="Home"
         /></a>
-        <img id="theme-icon" src="../bilder/sun.png" alt="Theme Toggle" class="nav-icon" onclick="toggleTheme()" style="cursor:pointer;">
+        <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode"><img id="theme-icon" src="../bilder/sun.png" alt="" class="nav-icon"></button>
         <a href="snake.html" class="nav-lang"><span class="nav-EN">EN</span>/<span class="nav-DE">DE</span></a>
       </div>
       <div class="nav-right">
         <a href="../2_projekte/projekteen.html"><span style="color: var(--Lila)">Projects</span></a>
-        <a href="../6_skills/skills.html">Skills</a>
+        <a href="../6_skills/skillsen.html">Skills</a>
         <a href="../7_uebermich/uebermichen.html">About Me</a>
         <a href="../8_kontakt/kontakten.html">Contact</a>
     <button class="nav-hamburger" id="hamburger-btn" aria-label="Menü öffnen" aria-expanded="false">
@@ -312,83 +250,42 @@
     </nav>
 
     <section class="detail-section">
-      <div class="detail-meta">
-        <div>Year: <span class="meta-year">2026</span></div>
-        <div>Type: <span class="meta-type">School Project</span></div>
-        <div>School: <span class="meta-school">IMS-T Switzerland</span></div>
-      </div>
-
-      <div class="detail-number">// 01</div>
+      <a href="../2_projekte/projekteen.html" class="detail-back">← All projects</a>
       <h1 class="detail-title">Snake Game</h1>
-
-      <div class="stack-box">
-        <div class="stack-label">STACK</div>
-        <div class="stack-tags">
-          <span>C#</span>
-          <span>Win-Forms</span>
-          <span>.NET</span>
-          <span>RawGameController API</span>
-        </div>
-      </div>
+      <p class="detail-meta">2026 · School Project · IMS-T Switzerland</p>
+      <div class="stack-tags"><span>C#</span><span>Win-Forms</span><span>.NET</span><span>RawGameController API</span></div>
 
       <div class="content-grid">
         <div class="left-col">
-          <h2 class="block-title">About the Project</h2>
+          <h2 class="block-title">How the Game Works</h2>
           <p class="block-text">
-            This project is an implementation of the classic
-            <span class="highlight-green">Snake game</span> in
-            <span class="highlight-purple">C#</span> using Windows Forms.
-            The goal was to develop a fully functional
-            <span class="highlight-white">game</span> that can be controlled
-            both via keyboard and a game controller. The game logic includes
-            snake movement, collision detection, apple generation, and dynamic
-            tail growth. Additionally, a simple game-over system was implemented
-            that allows restarting the game.
+            Snake in C# with Windows Forms. The snake eats apples and grows longer with each one. A collision ends the round, and you can restart right away. You can play with the keyboard or with a game controller.
           </p>
 
-          <h2 class="block-title">What Was the Task?</h2>
+          <h2 class="block-title">The Assignment</h2>
           <p class="block-text">
-            The task was to create a small
-            <span class="highlight-green">game</span> that uses fundamental
-            <span class="highlight-purple">programming concepts</span> such as
-            logic, events, timers, and object management. The project also had
-            to be cleanly structured and provide stable
-            <span class="highlight-white">game functionality</span>.
+            At school we had to program a small game of our own. It had to use events, timers and objects, have a clean structure and run without crashing.
           </p>
 
-          <h2 class="block-title">What I Learned</h2>
+          <h2 class="block-title">New to Me</h2>
           <ul class="learn-list">
-            <li>
-              Working with C# Windows <span class="highlight-green">Forms</span>
-            </li>
-            <li>
-              Handling timers and <span class="highlight-purple">events</span>
-            </li>
-            <li>
-              Object-oriented <span class="highlight-white">programming</span>
-              in a real project
-            </li>
-            <li>
-              Collision detection and
-              <span class="highlight-green">game logic</span>
-            </li>
-            <li>
-              Integrating a
-              <span class="highlight-purple">game controller</span> using
-              RawGameController
-            </li>
+            <li>Forms and controls in Windows Forms</li>
+            <li>Timers and events to drive the game</li>
+            <li>Using classes and objects in a project of my own</li>
+            <li>Detecting collisions</li>
+            <li>Connecting a game controller through the RawGameController API</li>
           </ul>
         </div>
 
         <div class="right-col">
           <img
-            class="preview-img"
+            class="preview-img" loading="lazy"
             src="../bilder/snake.gif"
             alt="Snake Game Preview"
           />
 
           <div class="details-box">
-            <div class="details-box-title">PROJECT DETAILS</div>
+            <div class="details-box-title">Project details</div>
             <div class="detail-row">
               <span class="key">Timeframe</span><span class="val">2026</span>
             </div>
@@ -406,18 +303,13 @@
           </div>
 
           <div class="code-box">
-            <a
-              href="https://github.com/sxrg1u/28_snake"
-              target="_blank"
-              class="code-box-link"
-            >
-              <div>
-                <div class="code-box-label">VIEW CODE</div>
-                <span class="code-box-text">sxrg1u/28_snake</span>
+            <a href="https://github.com/sxrg1u/28_snake" target="_blank" rel="noopener noreferrer" class="code-box-link">
+              <img class="gh-icon" src="../bilder/githublogo.png" alt="">
+              <div class="code-box-info">
+                <div class="code-box-label">Code on GitHub</div>
+                <div class="code-box-text">sxrg1u/28_snake</div>
               </div>
-              <div class="gh-circle">
-                <img src="../bilder/githublogo.png" alt="GitHub" />
-              </div>
+              <span class="code-box-arrow" aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
@@ -427,10 +319,10 @@
 
   <!-- Mobile Menu Overlay -->
   <div id="mobile-menu">
-    <span id="mobile-menu-close" aria-label="Menü schliessen">&times;</span>
+    <button type="button" id="mobile-menu-close" aria-label="Close menu">&times;</button>
     <a href="../1_hauptseite/indexen.html" class="mobile-menu-link">Home</a>
     <a href="../2_projekte/projekteen.html" class="mobile-menu-link">Projects</a>
-    <a href="../6_skills/skills.html" class="mobile-menu-link">Skills</a>
+    <a href="../6_skills/skillsen.html" class="mobile-menu-link">Skills</a>
     <a href="../7_uebermich/uebermichen.html" class="mobile-menu-link">About Me</a>
     <a href="../8_kontakt/kontakten.html" class="mobile-menu-link">Contact</a>
   </div>

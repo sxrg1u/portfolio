@@ -4,138 +4,184 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projecte | Sergiu Bolohan</title>
+  <title>Projects | Sergiu Bolohan</title>
   <link rel="stylesheet" href="../all.css" />
+  <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode")}catch(e){}</script>
   <link rel="icon" href="../bilder/projekte.ico">
 
   <style>
-    .projects-section {
-      padding: 4rem 0;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .projects-subtitle {
-      color: var(--Grün);
-      font-size: clamp(0.9rem, 3vw, 1.1rem);
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-
-    .projects-title {
-      font-size: clamp(2rem, 6vw, 3.4rem);
-      font-weight: 800;
-      margin: 0;
-      line-height: 1.1;
-      position: relative;
-      display: inline-block;
-    }
-
-    .projects-title::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -12px;
-      width: 90px;
-      height: 4px;
-      background: var(--Lila);
-    }
-
-    .projects-container {
-      margin-top: 4rem;
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .project-card {
-      width: clamp(260px, 80vw, 320px);
-      background: var(--CardBg);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--Lila);
-      box-shadow: 3px 3px 8px var(--Lila);
-    }
-
-    .project-card h3 {
-      margin: 0 0 1rem;
-      font-size: clamp(1.1rem, 4vw, 1.7rem);
-      font-weight: 600;
-    }
-
-    .project-card p {
-      color: var(--Gray);
-      line-height: 1.6;
-      font-size: clamp(0.9rem, 3vw, 1.1rem);
-      margin-bottom: 1.5rem;
-    }
-
-    .project-card img {
-      width: 100%;
-      height: clamp(140px, 22vw, 180px);
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .project-tags {
-      margin-top: 1.5rem;
-      display: flex;
-      gap: 1rem;
-      align-content: end;
-    }
-
-    .project-tags span {
-      border: 1px solid var(--Lila);
-      color: var(--LilaLight);
-      padding: 0.6rem 1.3rem;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .nav-right span {
-      color: var(--Lila);
-    }
-
     .nav-lang .nav-EN {
       color: var(--Lila);
       font-size: x-large;
     }
-
     .nav-lang:hover .nav-DE {
       color: var(--Lila);
       font-size: x-large;
     }
-
     .nav-lang:hover .nav-EN {
       color: var(--White);
       font-size: 1.1rem;
     }
 
-    .projects-subtitle {
-      animation: fade-up 0.6s ease forwards;
-      animation-delay: 0.1s;
-      opacity: 0;
-    }
+        .projects-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 8rem;
+        }
 
-    .projects-title {
-      animation: fade-up 0.6s ease forwards;
-      animation-delay: 0.3s;
-      opacity: 0;
-    }
+        .projects-title {
+            font-size: clamp(2.2rem, 6vw, 3.4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0 0 1.5rem;
+        }
 
-    .projects-container {
-      animation: fade-up 0.6s ease forwards;
-      animation-delay: 0.5s;
-      opacity: 0;
-    }
-  </style>
+        .projects-intro {
+            color: var(--Gray);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 60ch;
+            margin: 0 0 4rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--CardBg);
+            border: 1px solid color-mix(in srgb, var(--White) 8%, transparent);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color var(--TransitionFast);
+        }
+
+        .project-card:hover,
+        .project-card:focus-visible {
+            border-color: color-mix(in srgb, var(--Lila) 60%, transparent);
+        }
+
+        .project-card img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+        }
+
+        .project-body {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 1.75rem 2rem 2rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .project-meta {
+            color: var(--Gray);
+            font-size: 0.85rem;
+            margin: 0.35rem 0 1rem;
+        }
+
+        .project-desc {
+            color: var(--Gray);
+            line-height: 1.6;
+            margin: 0 0 1.5rem;
+        }
+
+        /* Tags und "Details" immer am unteren Rand */
+        .project-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tags span {
+            color: var(--Gray);
+            font-size: 0.8rem;
+            padding: 0.25rem 0.6rem;
+            border: 1px solid color-mix(in srgb, var(--White) 12%, transparent);
+            border-radius: 6px;
+        }
+
+        .project-more {
+            color: var(--Lila);
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* Hervorgehobenes Projekt: volle Breite, Bild neben dem Text */
+        .project-card.featured {
+            grid-column: 1 / -1;
+            flex-direction: row;
+        }
+
+        .project-card.featured img {
+            width: 58%;
+            aspect-ratio: auto;
+            min-height: 320px;
+        }
+
+        .project-card.featured .project-body {
+            padding: 2.5rem;
+        }
+
+        .project-card.featured h3 {
+            font-size: 1.8rem;
+        }
+
+        @media (max-width: 860px) {
+            .projects-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .project-card.featured {
+                flex-direction: column;
+            }
+
+            .project-card.featured img {
+                width: 100%;
+                min-height: 0;
+                aspect-ratio: 16 / 10;
+            }
+
+            .project-card.featured .project-body {
+                padding: 1.75rem 2rem 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .projects-section {
+                padding: 2.5rem 1.1rem 5rem;
+            }
+
+            .projects-intro {
+                margin-bottom: 2.5rem;
+            }
+
+            .project-body,
+            .project-card.featured .project-body {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -144,8 +190,7 @@
       <a href="../1_hauptseite/indexen.html" class="nav-home-text">Home</a>
       <a href="../1_hauptseite/indexen.html" class="nav-home-icon"><img id="home-icon" src="../bilder/home.png"
           alt="Home" /></a>
-      <img id="theme-icon" src="../bilder/sun.png" alt="Theme Toggle" class="nav-icon" onclick="toggleTheme()"
-        style="cursor:pointer;">
+      <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode"><img id="theme-icon" src="../bilder/sun.png" alt="" class="nav-icon"></button>
       <a href="../2_projekte/projekte.html" class="nav-lang"><span class="nav-EN">EN</span>/<span
           class="nav-DE">DE</span></a>
     </div>
@@ -163,88 +208,78 @@
   </nav>
 
   <section class="projects-section">
-    <p class="projects-subtitle">// what I have built</p>
-    <h1 class="projects-title">Projects</h1>
+        <h1 class="projects-title">Projects</h1>
+        <p class="projects-intro">School projects and games I built in my free time.</p>
 
-    <div class="projects-container">
-
-      <a href="../3_snake/snakeen.html" class="project-card">
-        <h3>Snake Game</h3>
-        <p>
-          A classic Snake game developed with Windows Forms. This project
-          demonstrates basic game-loop mechanics, event handling, and simple
-          2D graphics programming in C#.
-        </p>
-        <img src="../bilder/snake.gif" alt="Snake Game" />
-        <div class="project-tags">
-          <span>C#</span>
-          <span>Win-Forms</span>
+        <div class="projects-grid">
+            <a href="../9_jetpackprojekt/jetpackjoyrideEN.html" class="project-card featured">
+                <img src="../bilder/jetpackgame.gif" alt="Jetpack Joyride" loading="lazy">
+                <div class="project-body">
+                    <h3>Jetpack Joyride</h3>
+                    <div class="project-meta">2026 · Personal project</div>
+                    <div class="project-desc">An endless runner modelled on Jetpack Joyride. You fly with the spacebar and dodge three kinds of lasers. They speed up as your score climbs.</div>
+                    <div class="project-footer">
+                        <div class="project-tags"><span>C#</span><span>Win-Forms</span></div>
+                        <span class="project-more" aria-hidden="true">Details →</span>
+                    </div>
+                </div>
+            </a>
+            <a href="../10_bombgameprojekt/bombgameen.html" class="project-card">
+                <img src="../bilder/bombgame.gif" alt="Bomb Game" loading="lazy">
+                <div class="project-body">
+                    <h3>Bomb Game</h3>
+                    <div class="project-meta">2026 · Personal project</div>
+                    <div class="project-desc">Works like Minesweeper. You reveal tiles until you've found every safe one or hit a bomb. The game saves your highscore.</div>
+                    <div class="project-footer">
+                        <div class="project-tags"><span>C#</span><span>Win-Forms</span></div>
+                        <span class="project-more" aria-hidden="true">Details →</span>
+                    </div>
+                </div>
+            </a>
+            <a href="../3_snake/snakeen.html" class="project-card">
+                <img src="../bilder/snake.gif" alt="Snake Game" loading="lazy">
+                <div class="project-body">
+                    <h3>Snake Game</h3>
+                    <div class="project-meta">2026 · School project</div>
+                    <div class="project-desc">Snake in C# with Windows Forms. You steer the snake with the keyboard or a game controller.</div>
+                    <div class="project-footer">
+                        <div class="project-tags"><span>C#</span><span>Win-Forms</span></div>
+                        <span class="project-more" aria-hidden="true">Details →</span>
+                    </div>
+                </div>
+            </a>
+            <a href="../5_portfolio/portfolioen.html" class="project-card">
+                <img src="../bilder/portfolioscc.png" alt="Portfolio Website" loading="lazy">
+                <div class="project-body">
+                    <h3>Portfolio Website</h3>
+                    <div class="project-meta">2026 · School project</div>
+                    <div class="project-desc">This website. I designed it in Figma first and then built it with HTML and CSS, including a dark and a light mode.</div>
+                    <div class="project-footer">
+                        <div class="project-tags"><span>HTML</span><span>CSS</span></div>
+                        <span class="project-more" aria-hidden="true">Details →</span>
+                    </div>
+                </div>
+            </a>
+            <a href="../4_getraenkeautomat/geraenkeautomaten.html" class="project-card">
+                <img src="../bilder/getraenkeautomatcode.gif" alt="Vending Machine" loading="lazy">
+                <div class="project-body">
+                    <h3>Beverage Vending Machine</h3>
+                    <div class="project-meta">2025 · School project</div>
+                    <div class="project-desc">A vending machine that runs in the terminal, written in Bash. You pay with cash, TWINT or PayPal and get your change back.</div>
+                    <div class="project-footer">
+                        <div class="project-tags"><span>Bash</span><span>Shell Scripting</span></div>
+                        <span class="project-more" aria-hidden="true">Details →</span>
+                    </div>
+                </div>
+            </a>
         </div>
-      </a>
-
-      <a href="../4_getraenkeautomat/geraenkeautomaten.html" class="project-card">
-        <h3>Beverage Vending Machine</h3>
-        <p>
-          A fully terminal-based vending machine simulation that handles user
-          interaction, menu navigation, and input validation. Built to show
-          how logical flows and user guidance can be implemented in shell
-          scripts.
-        </p>
-        <img src="../bilder/getraenkeautomatcode.gif" alt="Vending Machine" />
-        <div class="project-tags">
-          <span>Bash</span>
-          <span>Shell Scripting</span>
-        </div>
-      </a>
-
-      <a href="../5_portfolio/portfolioen.html" class="project-card">
-        <h3>Portfolio Website</h3>
-        <p>
-          A modern, responsive portfolio website featuring dark mode, clean
-          typography, and a technical aesthetic. Built to professionally
-          present my projects, skills, and background.
-        </p>
-        <img src="../bilder/portfolioscc.png" alt="Portfolio Website" />
-        <div class="project-tags">
-          <span>HTML</span>
-          <span>CSS</span>
-        </div>
-      </a>
-
-      <a href="../9_jetpackprojekt/jetpackjoyrideEN.html" class="project-card">
-        <h3>Jetpack Joyride</h3>
-        <p>
-          An endless runner inspired by Jetpack Joyride. The player dodges
-          three types of lasers while gravity and jetpack physics control
-          movement. Difficulty scales dynamically with the score.
-        </p>
-        <img src="../bilder/jetpackgame.gif" alt="Jetpack Joyride" />
-        <div class="project-tags">
-          <span>C#</span>
-          <span>Win-Forms</span>
-        </div>
-      </a>
-      <a href="../10_bombgameprojekt/bombgameen.html" class="project-card">
-        <h3>Bomb Game</h3>
-        <p>
-          A Minesweeper-inspired game with bombs, timer, explosion effects,
-          particle system and highscore tracking. Built in C# Windows Forms
-          with dynamic gameplay and a game-over system.
-        </p>
-        <img src="../bilder/bombgame.gif" alt="Bomb Game">
-        <div class="project-tags">
-          <span>C#</span>
-          <span>Win-Forms</span>
-        </div>
-      </a>
-    </div>
-  </section>
+    </section>
 
   <script src="../script.js"></script>
 
   <!-- Mobile Menu Overlay -->
   <div id="mobile-menu">
-    <span id="mobile-menu-close" aria-label="Menü schliessen">&times;</span>
+    <button type="button" id="mobile-menu-close" aria-label="Close menu">&times;</button>
     <a href="../1_hauptseite/indexen.html" class="mobile-menu-link">Home</a>
     <a href="../2_projekte/projekteen.html" class="mobile-menu-link">Projects</a>
     <a href="../6_skills/skillsen.html" class="mobile-menu-link">Skills</a>

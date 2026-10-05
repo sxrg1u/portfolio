@@ -1,9 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About me | Sergiu Bolohan</title>
     
     <link rel="stylesheet" href="../all.css">
+    <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode")}catch(e){}</script>
     <link rel="icon" href="../bilder/boy.ico"> 
     <style>
         .nav-lang .nav-EN {
@@ -25,319 +29,162 @@
             max-width: 1100px;
             margin: 0 auto;
             padding: 4rem 1.5rem 8rem;
-            animation: fade-up 0.6s ease forwards;
-            animation-delay: 0.1s;
-            opacity: 0;
         }
 
-        .section-label {
-            font-size: 0.85rem;
-            letter-spacing: 0.12em;
-            color: var(--Grün);
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: clamp(2.4rem, 8vw, 3.6rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin: 0 0 4rem;
-        }
-
-        .section-title .highlight-purple {
-            color: var(--Lila);
-        }
-
-        .block-heading {
-            font-size: 0.8rem;
-            letter-spacing: 0.12em;
-            color: var(--Gray);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding-bottom: 0.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        /* INTRODUCTION */
-        .vorstellung-grid {
-            display: grid;
-            grid-template-columns: minmax(280px, 340px) 1fr;
-            gap: 3.5rem;
-            align-items: start;
+        .ueber-block {
             margin-bottom: 6rem;
         }
 
-        .vorstellung-img {
-            width: 100%;
-            aspect-ratio: 4 / 5;
-            border-radius: 14px;
-            border: 1px solid rgba(108, 99, 255, 0.35);
-            box-shadow: 0 0 30px rgba(108, 99, 255, 0.15);
-            object-fit: cover;
-            transition: box-shadow 0.4s ease, transform 0.4s ease;
-        }
-
-        .vorstellung-img:hover {
-            box-shadow: 0 0 50px rgba(108, 99, 255, 0.4);
-            transform: scale(1.02);
-        }
-
-        .vorstellung-right h2 {
-            font-size: clamp(1.6rem, 5vw, 2rem);
+        .ueber-heading {
+            font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: 800;
             margin: 0 0 1.5rem;
         }
 
-        .vorstellung-right h2 .name-grün {
-            color: var(--Grün);
-        }
-
-        .vorstellung-right h2 .name-lila {
-            color: var(--Lila);
-        }
-
-        .info-block {
-            margin-bottom: 1.4rem;
-        }
-
-        .info-tag {
-            font-size: 0.75rem;
-            letter-spacing: 0.12em;
-            color: var(--Grün);
-            margin-bottom: 0.4rem;
-        }
-
-        .info-text {
-            color: var(--Gray);
-            line-height: 1.65;
-            font-size: 0.97rem;
-        }
-
-        /* HOBBIES — compact cards */
-        .hobby-grid {
+        /* VORSTELLUNG */
+        .intro {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3.5rem;
+            grid-template-columns: minmax(240px, 320px) 1fr;
+            gap: 3.5rem;
+            align-items: center;
         }
 
-        .hobby-card {
-            background: var(--CardBg);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            border-radius: 16px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-        }
-
-        .hobby-card-media {
+        .intro-img {
+            display: block;
             width: 100%;
-            height: 170px;
-            overflow: hidden;
-        }
-
-        .hobby-card-media img {
-            width: 100%;
-            height: 100%;
+            aspect-ratio: 4 / 5;
             object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
+            border-radius: 12px;
         }
 
-        .hobby-card:hover .hobby-card-media img {
-            transform: scale(1.05);
-        }
-
-        .hobby-card-body {
-            padding: 1.4rem 1.5rem 1.6rem;
-            flex: 1;
-        }
-
-        .hobby-card-tag {
-            display: block;
-            font-size: 0.7rem;
-            letter-spacing: 0.14em;
-            margin-bottom: 0.5rem;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .hobby-card h3 {
-            font-size: 1.3rem;
+        .intro h1 {
+            font-size: clamp(2.2rem, 6vw, 3.4rem);
             font-weight: 800;
-            margin: 0 0 0.7rem;
+            line-height: 1.1;
+            margin: 0 0 1.5rem;
         }
 
-        .hobby-card p {
+        .intro p,
+        .reise-intro {
+            color: var(--Gray);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 60ch;
+            margin: 0 0 1rem;
+        }
+
+        /* FOTOS (Hobbys + Reisen) */
+        .photo-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .hobby-grid {
+            grid-template-columns: repeat(2, minmax(0, 400px));
+        }
+
+        .reise-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .photo {
+            margin: 0;
+        }
+
+        .photo img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .photo figcaption {
+            margin-top: 1rem;
             color: var(--Gray);
             line-height: 1.6;
-            font-size: 0.9rem;
-            margin: 0;
         }
 
-        .hobby-card.grün {
-            border-top: 3px solid var(--Grün);
-        }
-
-        .hobby-card.grün .hobby-card-tag,
-        .hobby-card.grün h3 {
-            color: var(--Grün);
-        }
-
-        .hobby-card.grün:hover {
-            transform: translateY(-6px);
-            border-color: rgba(0, 255, 157, 0.35);
-            box-shadow: 0 12px 30px rgba(0, 255, 157, 0.08);
-        }
-
-        .hobby-card.lila {
-            border-top: 3px solid var(--Lila);
-        }
-
-        .hobby-card.lila .hobby-card-tag,
-        .hobby-card.lila h3 {
-            color: var(--Lila);
-        }
-
-        .hobby-card.lila:hover {
-            transform: translateY(-6px);
-            border-color: rgba(108, 99, 255, 0.4);
-            box-shadow: 0 12px 30px rgba(108, 99, 255, 0.12);
-        }
-
-        /* TRAVEL HIGHLIGHTS — compact grid */
-        .highlight-label {
-            font-size: 0.85rem;
-            letter-spacing: 0.1em;
-            color: var(--Gray);
-            margin: 0 0 1.4rem;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .dest-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 1rem;
-            margin-bottom: 6rem;
-        }
-
-        .dest-card {
-            background: var(--CardBg);
-            border: 1px solid rgba(108, 99, 255, 0.18);
-            border-radius: 12px;
-            padding: 1.3rem 1.4rem;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .dest-card::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--Grün);
-            transform: scaleY(0);
-            transform-origin: bottom;
-            transition: transform 0.35s ease;
-        }
-
-        .dest-card:hover::before {
-            transform: scaleY(1);
-        }
-
-        .dest-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(0, 255, 157, 0.3);
-            box-shadow: 0 8px 24px rgba(0, 255, 157, 0.07);
-        }
-
-        .dest-name {
-            font-size: 1.05rem;
-            font-weight: 800;
-            margin-bottom: 0.4rem;
-            color: var(--Grün);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .dest-desc {
-            color: var(--Gray);
-            line-height: 1.55;
-            font-size: 0.86rem;
-            margin: 0;
-        }
-
-        /* CV */
-        .PDF-card {
+        .photo figcaption strong {
             display: block;
-            background: var(--CardBg);
-            border: 1px solid rgba(108, 99, 255, 0.25);
-            border-radius: 14px;
-            padding: 2rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            max-width: 700px;
+            color: var(--White);
+            font-size: 1.15rem;
+            margin-bottom: 0.25rem;
         }
 
-        .PDF-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--Grün);
-            box-shadow: 0 0 30px rgba(63, 255, 140, 0.15);
+        .reise-intro {
+            margin-bottom: 2rem;
         }
 
-        .PDF-card-top {
+        .reise-notes {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0 0;
+            color: var(--Gray);
+            line-height: 1.6;
+        }
+
+        .reise-notes li + li {
+            margin-top: 0.5rem;
+        }
+
+        .reise-notes strong {
+            color: var(--White);
+        }
+
+        /* LEBENSLAUF */
+        .PDF-card {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 1rem;
+            justify-content: space-between;
+            gap: 1rem;
+            max-width: 520px;
+            background: var(--CardBg);
+            border: 1px solid color-mix(in srgb, var(--White) 8%, transparent);
+            border-radius: 12px;
+            padding: 1.5rem 1.75rem;
+            transition: border-color var(--TransitionFast);
         }
 
-        .PDF-tag {
-            color: var(--Grün);
-            font-size: 0.75rem;
-            letter-spacing: 0.12em;
+        .PDF-card:hover,
+        .PDF-card:focus-visible {
+            border-color: color-mix(in srgb, var(--Lila) 60%, transparent);
+        }
+
+        .PDF-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0 0 0.3rem;
+        }
+
+        .PDF-card p {
+            color: var(--Gray);
+            margin: 0;
         }
 
         .PDF-arrow {
             color: var(--Lila);
-            font-size: 1.4rem;
-        }
-
-        .PDF-card h2 {
-            font-size: clamp(1.5rem, 5vw, 2rem);
-            margin-bottom: 0.8rem;
-            color: var(--White);
-        }
-
-        .PDF-footer {
-            color: var(--Lila);
-            font-weight: 600;
+            font-size: 1.3rem;
+            flex-shrink: 0;
         }
 
         /* RESPONSIVE */
         @media (max-width: 860px) {
-            .vorstellung-grid {
+            .intro {
                 grid-template-columns: 1fr;
                 gap: 2rem;
-                margin-bottom: 4.5rem;
             }
 
-            .vorstellung-img {
+            .intro-img {
                 max-width: 320px;
-                aspect-ratio: 1 / 1;
             }
 
-            .hobby-grid {
+            .reise-grid {
                 grid-template-columns: 1fr;
-                max-width: 460px;
             }
 
-            .hobby-card-media {
-                height: 200px;
+            .reise-grid .photo img {
+                aspect-ratio: 4 / 3;
             }
         }
 
@@ -346,16 +193,16 @@
                 padding: 2.5rem 1.1rem 5rem;
             }
 
-            .section-title {
-                margin-bottom: 3rem;
+            .ueber-block {
+                margin-bottom: 4rem;
             }
 
-            .dest-grid {
+            .hobby-grid {
                 grid-template-columns: 1fr;
             }
 
             .PDF-card {
-                padding: 1.5rem;
+                padding: 1.25rem;
             }
         }
     </style>
@@ -367,7 +214,7 @@
             <a href="../1_hauptseite/indexen.html" class="nav-home-text">Home</a>
             <a href="../1_hauptseite/indexen.html" class="nav-home-icon"><img id="home-icon" src="../bilder/home.png"
                     alt="Home"></a>
-            <img id="theme-icon" src="../bilder/sun.png" alt="Theme Toggle" class="nav-icon" onclick="toggleTheme()" style="cursor:pointer;">
+            <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode"><img id="theme-icon" src="../bilder/sun.png" alt="" class="nav-icon"></button>
             <a href="uebermich.html" class="nav-lang"><span class="nav-EN">EN</span>/<span
                     class="nav-DE">DE</span></a>
         </div>
@@ -385,124 +232,68 @@
 
     <main class="ueber-section">
 
-        <div class="section-label">// about me</div>
-        <h1 class="section-title">Who I<br><span class="highlight-purple">am.</span></h1>
-
-        <!-- 01 INTRODUCTION -->
-        <div class="block-heading">01 INTRODUCTION</div>
-        <div class="vorstellung-grid">
-            <img src="../bilder/me.jpeg" alt="Sergiu Bolohan" class="vorstellung-img">
-            <div class="vorstellung-right">
-                <h2>Hi, <span class="name-grün">I</span> am<br><span class="name-lila">Sergiu.</span></h2>
-                <div class="info-block">
-                    <div class="info-tag">// EDUCATION</div>
-                    <p class="info-text">I am completing a dual apprenticeship as an IT specialist with a focus on
-                        application development while simultaneously attending vocational baccalaureate school. The
-                        combination of work and school motivates me to continuously grow both professionally and
-                        personally.</p>
-                </div>
-                <div class="info-block">
-                    <div class="info-tag">// PERSONALITY</div>
-                    <p class="info-text">I am characterized by curiosity, a willingness to learn, and perseverance. I
-                        enjoy working with others, bringing my own ideas to the table, and learning from the experiences
-                        of those around me. I see challenges as opportunities to discover something new.</p>
-                </div>
-                <div class="info-block">
-                    <div class="info-tag">// MOTIVATION</div>
-                    <p class="info-text">What excites me most about software development is the ability to turn creative
-                        ideas into working solutions. It motivates me to analyze problems, find the right approach, and
-                        continuously keep learning along the way.</p>
-                </div>
+        <section class="ueber-block intro">
+            <img src="../bilder/me.jpeg" alt="Sergiu Bolohan" class="intro-img">
+            <div>
+                <h1>Hi, I'm Sergiu.</h1>
+                <p>I'm doing a dual apprenticeship as an IT specialist (EFZ) in application development and attend vocational baccalaureate school alongside it. I'm curious and I stick with a problem until it works. In a team I like to bring my own ideas and pick up how others solve things.</p>
+                <p>What I like about programming is that an idea turns into something you can launch and use. I enjoy hunting down a bug until I understand where it comes from.</p>
             </div>
-        </div>
+        </section>
 
-        <!-- 02 HOBBIES -->
-        <div class="block-heading">02 HOBBIES & INTERESTS</div>
-
-        <div class="hobby-grid">
-            <article class="hobby-card grün">
-                <div class="hobby-card-media">
-                    <img src="../bilder/fussballlfv.jpeg" alt="Football">
-                </div>
-                <div class="hobby-card-body">
-                    <span class="hobby-card-tag">// SPORT</span>
-                    <h3>Football</h3>
-                    <p>Playing in clubs since I was four, on the right wing. After stints in Romania and at LFV
-                        Liechtenstein, I now play for FC Buchs.</p>
-                </div>
-            </article>
-
-            <article class="hobby-card lila">
-                <div class="hobby-card-media">
-                    <img src="../bilder/gym.jpeg" alt="Gym">
-                </div>
-                <div class="hobby-card-body">
-                    <span class="hobby-card-tag">// TRAINING</span>
-                    <h3>Gym</h3>
-                    <p>My second sporting outlet, up to five times a week. For me it's about discipline, staying
-                        performant and clearing my head.</p>
-                </div>
-            </article>
-
-            <article class="hobby-card grün">
-                <div class="hobby-card-media">
-                    <img src="../bilder/japan.png" alt="Travel">
-                </div>
-                <div class="hobby-card-body">
-                    <span class="hobby-card-tag">// ON THE ROAD</span>
-                    <h3>Travel</h3>
-                    <p>Discovering new countries and cultures inspires me and broadens my horizons. My highlights so
-                        far are below.</p>
-                </div>
-            </article>
-        </div>
-
-        <p class="highlight-label">// Travel highlights</p>
-        <div class="dest-grid">
-            <div class="dest-card">
-                <div class="dest-name">Japan</div>
-                <p class="dest-desc">A world of its own: temples in Kyoto, neon lights in Tokyo and incredible food.</p>
+        <section class="ueber-block">
+            <h2 class="ueber-heading">Hobbies</h2>
+            <div class="photo-grid hobby-grid">
+                <figure class="photo">
+                    <img src="../bilder/fussballlfv.jpeg" alt="Sergiu playing football in an LFV shirt" loading="lazy">
+                    <figcaption><strong>Football</strong>Playing in clubs since I was four, on the right wing. After stints in Romania and at LFV Liechtenstein, I now play for FC Buchs.</figcaption>
+                </figure>
+                <figure class="photo">
+                    <img src="../bilder/gym.jpeg" alt="Handstand training at the gym" loading="lazy">
+                    <figcaption><strong>Gym</strong>My second sport, up to five times a week. Training keeps me disciplined and helps me switch off.</figcaption>
+                </figure>
             </div>
+        </section>
 
-            <div class="dest-card">
-                <div class="dest-name">Hawaii</div>
-                <p class="dest-desc">Turquoise water, endless beaches and sunsets that feel like a gift.</p>
+        <section class="ueber-block">
+            <h2 class="ueber-heading">Travel</h2>
+            <p class="reise-intro">I like to travel and see how people live in other countries.</p>
+            <div class="photo-grid reise-grid">
+                <figure class="photo">
+                    <img src="../bilder/japan.png" alt="Temple and pagoda in Tokyo" loading="lazy">
+                    <figcaption><strong>Japan</strong>Temples in Kyoto, neon lights in Tokyo and really good food.</figcaption>
+                </figure>
+                <figure class="photo">
+                    <img src="../bilder/london.png" alt="Big Ben in London" loading="lazy">
+                    <figcaption><strong>London</strong>Old buildings and modern districts. As a football fan I had to go.</figcaption>
+                </figure>
+                <figure class="photo">
+                    <img src="../bilder/hawaii.png" alt="Sunset on a beach in Hawaii" loading="lazy" style="object-position: 75% center;">
+                    <figcaption><strong>Hawaii</strong>Turquoise water, long beaches and sunsets over the sea.</figcaption>
+                </figure>
             </div>
+            <ul class="reise-notes">
+                <li><strong>Barcelona:</strong> The Sagrada Família, Camp Nou and FC Barça.</li>
+                <li><strong>Next destination:</strong> a safari in Africa to see lions, elephants and giraffes in the wild.</li>
+            </ul>
+        </section>
 
-            <div class="dest-card">
-                <div class="dest-name">Barcelona</div>
-                <p class="dest-desc">Camp Nou, the Sagrada Família and FC Barça: architecture, emotion and football in
-                    one city.</p>
-            </div>
-
-            <div class="dest-card">
-                <div class="dest-name">England</div>
-                <p class="dest-desc">London between tradition and modernity, and a must-visit for any football fan.</p>
-            </div>
-
-            <div class="dest-card dream">
-                <div class="dest-name">Safari in Africa</div>
-                <p class="dest-desc">My dream destination: seeing lions, elephants and giraffes in the wild.</p>
-            </div>
-        </div>
-
-        <!-- 03 CV -->
-        <div class="block-heading">03 CURRICULUM VITAE</div>
-        <a href="#" target="_blank" class="PDF-card">
-            <div class="PDF-card-top">
-                <span class="PDF-tag">// PDF</span>
-                <span class="PDF-arrow">↗</span>
-            </div>
-            <h2>My CV</h2>
-            <div class="PDF-footer">Open PDF</div>
-        </a>
-
+        <section>
+            <h2 class="ueber-heading">CV</h2>
+            <a href="#" target="_blank" rel="noopener" class="PDF-card">
+                <div>
+                    <h3>My CV</h3>
+                    <p>Open PDF</p>
+                </div>
+                <span class="PDF-arrow" aria-hidden="true">↗</span>
+            </a>
+        </section>
     </main>
     <script src="../script.js"></script>
 
   <!-- Mobile Menu Overlay -->
   <div id="mobile-menu">
-    <span id="mobile-menu-close" aria-label="Menü schliessen">&times;</span>
+    <button type="button" id="mobile-menu-close" aria-label="Close menu">&times;</button>
     <a href="../1_hauptseite/indexen.html" class="mobile-menu-link">Home</a>
     <a href="../2_projekte/projekteen.html" class="mobile-menu-link">Projects</a>
     <a href="../6_skills/skillsen.html" class="mobile-menu-link">Skills</a>
