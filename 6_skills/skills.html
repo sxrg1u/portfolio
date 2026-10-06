@@ -69,8 +69,8 @@
       }
 
       .skill-card-head img {
-        width: 36px;
-        height: 36px;
+        width: 46px;
+        height: 46px;
         object-fit: contain;
       }
 
@@ -97,15 +97,16 @@
       }
 
       /* STUFEN */
-      .skill-level-badge {
-        margin-left: auto;
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: var(--Lila);
-        padding: 0.25rem 0.65rem;
-        border: 1px solid color-mix(in srgb, var(--Lila) 45%, transparent);
-        border-radius: 6px;
-        white-space: nowrap;
+      .skill-card-title {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        min-width: 0;
+      }
+
+      .skill-level {
+        font-size: 0.85rem;
+        color: var(--Gray);
       }
 
       .skill-topics {
@@ -124,34 +125,41 @@
         opacity: 0.8;
       }
 
+      /* VERWENDET IN: Fusszeile mit Textlinks */
       .skill-projects-label {
         font-size: 0.85rem;
         color: var(--Gray);
-        margin: 0 0 0.5rem;
+        margin: 0 0 0.35rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid color-mix(in srgb, var(--White) 8%, transparent);
       }
 
       .skill-projects {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        row-gap: 0.25rem;
+        font-size: 0.95rem;
       }
 
-      .skill-projects a,
-      .skill-projects span {
-        font-size: 0.85rem;
-        padding: 0.25rem 0.65rem;
-        border: 1px solid color-mix(in srgb, var(--White) 12%, transparent);
-        border-radius: 6px;
+      .skill-projects > :not(:last-child)::after {
+        content: "·";
+        display: inline-block;
+        margin: 0 0.6rem;
+        color: var(--Gray);
+        text-decoration: none;
       }
 
       .skill-projects a {
-        transition: border-color var(--TransitionFast), color var(--TransitionFast);
+        text-decoration: underline;
+        text-decoration-color: color-mix(in srgb, var(--White) 25%, transparent);
+        text-underline-offset: 4px;
+        transition: color var(--TransitionFast), text-decoration-color var(--TransitionFast);
       }
 
       .skill-projects a:hover,
       .skill-projects a:focus-visible {
-        color: var(--Lila);
-        border-color: var(--Lila);
+        color: var(--LilaLight);
+        text-decoration-color: currentColor;
       }
 
       .skill-projects span {
@@ -192,6 +200,11 @@
           padding: 1.5rem;
         }
 
+        .skill-card-head img {
+          width: 40px;
+          height: 40px;
+        }
+
       }
     </style>
   </head>
@@ -224,7 +237,7 @@
     <section class="skills-section" id="main" tabindex="-1">
 
       <div class="skills-block">
-        <h1>Was ich kann und was ich gerade lerne.</h1>
+        <h1>Was ich kann und lerne.</h1>
         <p class="skills-intro">Jede Sprache hat eine Stufe: Grundlagen, sicher oder Schwerpunkt. Darunter stehen die Projekte, in denen ich sie eingesetzt habe.</p>
       </div>
 
@@ -232,16 +245,16 @@
         <h2 class="skills-heading">Ausbildung</h2>
         <div class="skills-grid">
           <article class="skill-card">
-            <span class="skill-tag">EFZ</span>
-            <h3>Informatiker EFZ, Applikationsentwicklung</h3>
-            <p>Ich bin im zweiten von sechs Semestern.</p>
-            <div class="semester-steps" role="img" aria-label="Semester 2 von 6"><span class="done"></span><span class="done"></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-tag">EFZ · Applikationsentwicklung</span>
+            <h3>Informatiker EFZ</h3>
+            <p>Ich bin im dritten von sechs Semestern.</p>
+            <div class="semester-steps" role="img" aria-label="Semester 3 von 6"><span class="done"></span><span class="done"></span><span class="done"></span><span></span><span></span><span></span></div>
           </article>
           <article class="skill-card">
             <span class="skill-tag">BM</span>
             <h3>Berufsmaturität</h3>
-            <p>Ich bin im zweiten von sechs Semestern.</p>
-            <div class="semester-steps" role="img" aria-label="Semester 2 von 6"><span class="done"></span><span class="done"></span><span></span><span></span><span></span><span></span></div>
+            <p>Ich bin im dritten von sechs Semestern.</p>
+            <div class="semester-steps" role="img" aria-label="Semester 3 von 6"><span class="done"></span><span class="done"></span><span class="done"></span><span></span><span></span><span></span></div>
           </article>
         </div>
       </div>
@@ -250,42 +263,60 @@
         <h2 class="skills-heading">Technologien</h2>
         <div class="skills-grid">
           <article class="skill-card">
-            <div class="skill-card-head"><img src="../bilder/csharp.png" alt=""><h3>C#</h3><span class="skill-level-badge">Schwerpunkt</span></div>
+            <div class="skill-card-head"><img src="../bilder/csharp.png" alt=""><div class="skill-card-title"><h3>C#</h3><span class="skill-level">Schwerpunkt</span></div></div>
             <ul class="skill-topics">
               <li>Syntax & Grundlagen</li>
               <li>OOP, Klassen & Vererbung</li>
-              <li>Datenbankanbindung <span class="skill-note">(noch nicht behandelt)</span></li>
+              <li>Datenbankanbindung <span class="skill-note">(lerne ich gerade)</span></li>
             </ul>
-            <p class="skill-projects-label">Verwendet in:</p>
-            <div class="skill-projects"><a href="../3_snake/snake.html">Snake</a><a href="../9_jetpackprojekt/jetpackjoyride.html">Jetpack Joyride</a><a href="../10_bombgameprojekt/bombgame.html">Bomb Game</a></div>
+            <p class="skill-projects-label">Verwendet in</p>
+            <div class="skill-projects"><a href="../3_snake/snake.html">Snake</a><a href="../9_jetpackprojekt/jetpackjoyride.html">Jetpack Joyride</a><a href="../10_bombgameprojekt/bombgame.html">Bomb Game</a><a href="../11_barcawebsite/barcawebsite.html">Barça Website</a></div>
           </article>
           <article class="skill-card">
-            <div class="skill-card-head"><img src="../bilder/html.png" alt=""><img src="../bilder/css.png" alt=""><h3>HTML & CSS</h3><span class="skill-level-badge">Sicher</span></div>
+            <div class="skill-card-head"><img src="../bilder/html.png" alt=""><img src="../bilder/css.png" alt=""><div class="skill-card-title"><h3>HTML & CSS</h3><span class="skill-level">Sicher</span></div></div>
             <ul class="skill-topics">
               <li>HTML-Struktur</li>
               <li>CSS, Styling & Layouts</li>
               <li>Responsive Design <span class="skill-note">(lerne ich gerade)</span></li>
             </ul>
-            <p class="skill-projects-label">Verwendet in:</p>
-            <div class="skill-projects"><a href="../5_portfolio/portfolio.html">Portfolio Website</a></div>
+            <p class="skill-projects-label">Verwendet in</p>
+            <div class="skill-projects"><a href="../5_portfolio/portfolio.html">Portfolio Website</a><a href="../11_barcawebsite/barcawebsite.html">Barça Website</a></div>
           </article>
           <article class="skill-card">
-            <div class="skill-card-head"><img src="../bilder/sql.png" alt=""><h3>SQL</h3><span class="skill-level-badge">Sicher</span></div>
+            <div class="skill-card-head"><img src="../bilder/sql.png" alt=""><div class="skill-card-title"><h3>SQL</h3><span class="skill-level">Sicher</span></div></div>
             <ul class="skill-topics">
               <li>DDL, DML & Co.</li>
               <li>Datenbankdesign</li>
             </ul>
-            <p class="skill-projects-label">Verwendet in:</p>
+            <p class="skill-projects-label">Verwendet in</p>
             <div class="skill-projects"><span>Bisher nur im Unterricht</span></div>
           </article>
           <article class="skill-card">
-            <div class="skill-card-head"><img src="../bilder/bash.png" alt=""><h3>Bash</h3><span class="skill-level-badge">Grundlagen</span></div>
+            <div class="skill-card-head"><img src="../bilder/bash.png" alt=""><div class="skill-card-title"><h3>Bash</h3><span class="skill-level">Grundlagen</span></div></div>
             <ul class="skill-topics">
               <li>Linux-Befehle & Navigation</li>
               <li>Shell-Scripting</li>
             </ul>
-            <p class="skill-projects-label">Verwendet in:</p>
+            <p class="skill-projects-label">Verwendet in</p>
             <div class="skill-projects"><a href="../4_getraenkeautomat/geraenkeautomat.html">Getränkeautomat</a></div>
+          </article>
+          <article class="skill-card">
+            <div class="skill-card-head"><img src="../bilder/javascript.svg" alt=""><div class="skill-card-title"><h3>JavaScript</h3><span class="skill-level">Grundlagen</span></div></div>
+            <ul class="skill-topics">
+              <li>Variablen, Funktionen & Events</li>
+              <li>DOM-Manipulation</li>
+            </ul>
+            <p class="skill-projects-label">Verwendet in</p>
+            <div class="skill-projects"><span>ÜK und Unterricht</span></div>
+          </article>
+          <article class="skill-card">
+            <div class="skill-card-head"><img src="../bilder/react.svg" alt=""><div class="skill-card-title"><h3>React</h3><span class="skill-level">Grundlagen</span></div></div>
+            <ul class="skill-topics">
+              <li>Komponenten & JSX</li>
+              <li>Props & State</li>
+            </ul>
+            <p class="skill-projects-label">Verwendet in</p>
+            <div class="skill-projects"><span>ÜK und Unterricht</span></div>
           </article>
         </div>
       </div>

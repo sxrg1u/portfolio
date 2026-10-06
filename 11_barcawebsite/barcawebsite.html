@@ -1,25 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projekt Snake | Sergiu Bolohan</title>
-    <meta name="description" content="Snake in C# mit Windows Forms, steuerbar mit Tastatur oder Gamecontroller. Ein Schulprojekt von Sergiu Bolohan.">
+    <title>Barça Website | Sergiu Bolohan</title>
+    <meta name="description" content="Eine Fan-Website zum FC Barcelona mit ASP.NET Core MVC, mit Kader, Titeln, Favoriten und Login. Von Sergiu Bolohan.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sergiu Bolohan">
-    <meta property="og:title" content="Projekt Snake | Sergiu Bolohan">
-    <meta property="og:description" content="Snake in C# mit Windows Forms, steuerbar mit Tastatur oder Gamecontroller. Ein Schulprojekt von Sergiu Bolohan.">
-    <meta property="og:url" content="https://sergiu-bolohan.vercel.app/3_snake/snake.html">
-    <meta property="og:image" content="https://sergiu-bolohan.vercel.app/bilder/portfolioscc.png">
+    <meta property="og:title" content="Barça Website | Sergiu Bolohan">
+    <meta property="og:description" content="Eine Fan-Website zum FC Barcelona mit ASP.NET Core MVC, mit Kader, Titeln, Favoriten und Login. Von Sergiu Bolohan.">
+    <meta property="og:url" content="https://sergiu-bolohan.vercel.app/11_barcawebsite/barcawebsite.html">
+    <meta property="og:image" content="https://sergiu-bolohan.vercel.app/bilder/barcawebsite.png">
     <meta property="og:locale" content="de_CH">
     <meta name="twitter:card" content="summary_large_image">
+
     
     <link rel="preload" href="../geist-variable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../syne-variable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../all.css" />
     <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode")}catch(e){}</script>
-    <link rel="icon" href="../bilder/snake.ico"> 
-    <style>
+    <link rel="icon" href="../bilder/projekte.ico">
+        <style>
 
       .detail-back {
         display: inline-block;
@@ -215,22 +217,26 @@
         }
       }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
-    <nav id="navbar">
-      <div class="nav-left">
+
+<nav id="navbar">
+    <div class="nav-left">
         <a href="../1_hauptseite/index.html" class="nav-home-text">Sergiu.b</a>
-        <a href="../1_hauptseite/index.html" class="nav-home-icon"
-          ><img id="home-icon" src="../bilder/home.png" alt="Home"
-        /></a>
+        <a href="../1_hauptseite/index.html" class="nav-home-icon">
+            <img id="home-icon" src="../bilder/home.png" alt="Home">
+        </a>
+
         <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Hell-/Dunkelmodus umschalten"><img id="theme-icon" src="../bilder/sun.png" alt="" class="nav-icon"></button>
-        <a href="snakeen.html" class="nav-lang"
-          ><span class="nav-EN">EN</span>/<span class="nav-DE">DE</span></a
-        >
-      </div>
-      <div class="nav-right">
+
+        <a href="barcawebsiteen.html" class="nav-lang">
+            <span class="nav-EN">EN</span>/<span class="nav-DE">DE</span>
+        </a>
+    </div>
+
+    <div class="nav-right">
         <a href="../2_projekte/projekte.html" aria-current="true">Projekte</a>
         <a href="../6_skills/skills.html">Skills</a>
         <a href="../7_uebermich/uebermich.html">Über mich</a>
@@ -240,75 +246,80 @@
       <span></span>
       <span></span>
     </button></div>
-    </nav>
+</nav>
 
-    <section class="detail-section" id="main" tabindex="-1">
-      <a href="../2_projekte/projekte.html" class="detail-back">← Alle Projekte</a>
-      <h1 class="detail-title">Snake spiel</h1>
-      <p class="detail-meta">2026 · Schulprojekt · IMS-T Schweiz</p>
-      <div class="stack-tags"><span>C#</span><span>Win-Forms</span><span>.NET</span><span>RawGameController API</span></div>
+<section class="detail-section" id="main" tabindex="-1">
 
-      <div class="content-grid">
+    <a href="../2_projekte/projekte.html" class="detail-back">← Alle Projekte</a>
+    <h1 class="detail-title">Barça Website</h1>
+    <p class="detail-meta">2026 · Schulprojekt · IMS-T Schweiz</p>
+    <div class="stack-tags"><span>C#</span><span>ASP.NET Core MVC</span><span>HTML</span><span>CSS</span></div>
+
+    <div class="content-grid">
+
         <div class="left-col">
-          <h2 class="block-title">Wie das Spiel funktioniert</h2>
-          <p class="block-text">
-            Snake in C# mit Windows Forms. Die Schlange frisst Äpfel und wird mit jedem Apfel länger. Bei einer Kollision ist die Runde vorbei, und du kannst direkt neu starten. Steuern kannst du mit der Tastatur oder mit einem Gamecontroller.
-          </p>
 
-          <h2 class="block-title">Der Auftrag</h2>
-          <p class="block-text">
-            In der Schule sollten wir ein eigenes kleines Spiel programmieren. Es musste Events, Timer und Objekte verwenden, sauber aufgebaut sein und stabil laufen.
-          </p>
+            <h2 class="block-title">Ziel</h2>
+            <p class="block-text">
+              Eine Fan-Website zum FC Barcelona, gebaut mit ASP.NET Core MVC. Ich wollte lernen, wie Controller, Views und Models zusammenspielen und wie aus einer C#-Anwendung eine Website wird.
+            </p>
 
-          <h2 class="block-title">Neu für mich</h2>
-          <ul class="learn-list">
-            <li>Formulare und Steuerelemente mit Windows Forms</li>
-            <li>Timer und Events für den Spielablauf</li>
-            <li>Klassen und Objekte in einem eigenen Projekt einsetzen</li>
-            <li>Kollisionen erkennen</li>
-            <li>Einen Gamecontroller über die RawGameController-API anbinden</li>
-          </ul>
+            <h2 class="block-title">Aufbau</h2>
+            <p class="block-text">
+              Die Startseite zeigt die Saison 2025/26 und die drei letzten Titel. Dazu kommen Seiten für den Kader, alle Titel seit 2010 und deine Lieblingsspieler. Mit Login und Registrierung kannst du ein Konto anlegen. Die Tabellen für Kader und Titel fülle ich gerade noch mit Daten.
+            </p>
+
+            <h2 class="block-title">Was ich programmiert habe</h2>
+            <ul class="learn-list">
+              <li>Einen Controller mit einer Action pro Seite</li>
+              <li>Views mit Razor und einem gemeinsamen Layout</li>
+              <li>Login und Registrierung mit GET- und POST-Actions</li>
+              <li>Fehlermeldungen über den ViewBag anzeigen</li>
+              <li>Eine eigene 404-Seite über Status-Code-Seiten</li>
+              <li>Ein eigenes Design in den Farben von Barça</li>
+            </ul>
+
         </div>
 
         <div class="right-col">
-          <img
-            class="preview-img" loading="lazy"
-            src="../bilder/snake.gif"
-            alt="Snake Game Preview"
-          />
 
-          <div class="details-box">
-            <div class="details-box-title">Projektdetails</div>
-            <div class="detail-row">
-              <span class="key">Zeitraum</span><span class="val">2026</span>
-            </div>
-            <div class="detail-row">
-              <span class="key">Schule</span
-              ><span class="val">IMS-T Schweiz</span>
-            </div>
-            <div class="detail-row">
-              <span class="key">Typ</span><span class="val">Schulprojekt</span>
-            </div>
-            <div class="detail-row">
-              <span class="key">Status</span
-              ><span class="val">Abgeschlossen</span>
-            </div>
-          </div>
+            <img class="preview-img" loading="lazy" src="../bilder/barcawebsite.png" alt="Startseite der Barça Website" />
 
-          <div class="code-box">
-            <a href="https://github.com/sxrg1u/Snake-Game" target="_blank" rel="noopener noreferrer" class="code-box-link">
-              <img class="gh-icon" src="../bilder/githublogo.png" alt="">
-              <div class="code-box-info">
-                <div class="code-box-label">Code auf GitHub</div>
-                <div class="code-box-text">sxrg1u/Snake-Game</div>
-              </div>
-              <span class="code-box-arrow" aria-hidden="true">↗</span>
-            </a>
-          </div>
+            <div class="details-box">
+                <div class="details-box-title">Projektdetails</div>
+
+                <div class="detail-row">
+                    <span class="key">Zeitraum</span><span class="val">2026</span>
+                </div>
+
+                <div class="detail-row">
+                    <span class="key">Typ</span><span class="val">Schulprojekt</span>
+                </div>
+
+                <div class="detail-row">
+                    <span class="key">Plattform</span><span class="val">Web</span>
+                </div>
+
+                <div class="detail-row">
+                    <span class="key">Status</span><span class="val">In Arbeit</span>
+                </div>
+            </div>
+
+            <div class="code-box">
+                <a href="https://github.com/sxrg1u/BarcaWebsite" target="_blank" rel="noopener noreferrer" class="code-box-link">
+                  <img class="gh-icon" src="../bilder/githublogo.png" alt="">
+                  <div class="code-box-info">
+                    <div class="code-box-label">Code auf GitHub</div>
+                    <div class="code-box-text">sxrg1u/BarcaWebsite</div>
+                  </div>
+                  <span class="code-box-arrow" aria-hidden="true">↗</span>
+                </a>
+            </div>
         </div>
-      </div>
-    </section>
-      <script src="../script.js"></script>
+    </div>
+</section>
+
+<script src="../script.js"></script>
 
   <!-- Mobile Menu Overlay -->
   <div id="mobile-menu">
@@ -320,4 +331,5 @@
     <a href="../8_kontakt/kontakt.html" class="mobile-menu-link">Kontakt</a>
   </div>
 </body>
+
 </html>

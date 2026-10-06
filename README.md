@@ -41,7 +41,7 @@ Persönliche Hero-Section mit Vorstellung als *Applikationsentwickler in Ausbild
 
 Eine vollständige Umsetzung des klassischen Snake-Spiels in C# mit Windows Forms. Ziel war es, ein funktionierendes Spiel zu entwickeln, das sowohl über die Tastatur als auch über einen Game-Controller steuerbar ist.
 
-Schulprojekt · IMS-T Schweiz · 2026 · [Code: sxrg1u/28_snake](https://github.com/sxrg1u/28_snake)
+Schulprojekt · IMS-T Schweiz · 2026 · [Code: sxrg1u/Snake-Game](https://github.com/sxrg1u/Snake-Game)
 
 ### Getränkeautomat (`4_Getraenkeautomat/`)
 
@@ -57,7 +57,7 @@ Schulprojekt · IMS-T Schweiz · 2026 · [Code: sxrg1u/ProjektScriptingGetraenke
 
 Diese Portfolio-Website ist mein persönlicher Auftritt im Web. Sie wurde von Grund auf mit HTML und CSS aufgebaut – das Design zuerst in Figma als Mockup entworfen und anschliessend pixelgenau umgesetzt. Ziel war eine moderne, dunkle Oberfläche, die professionell wirkt und gleichzeitig meinen eigenen Stil widerspiegelt.
 
-Schulprojekt · IMS-T Schweiz · 2026 · [Code: sxrg1u/Portfolio-Website](https://github.com/sxrg1u/Portfolio-Website)
+Schulprojekt · IMS-T Schweiz · 2026 · [Code: sxrg1u/portfolio](https://github.com/sxrg1u/portfolio)
 
 
 ### Skills (`6_Skills/`)
