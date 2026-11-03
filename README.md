@@ -1,85 +1,137 @@
 # Sergiu Bolohan – Portfolio
 
-Ein persönliches Portfolio-Projekt, das als statische Webseite mit reinem HTML, CSS und JavaScript entwickelt wurde. Die Seite ist vollständig zweisprachig (Deutsch 🇩🇪 / Englisch 🇬🇧), enthält interaktive Miniprojekte und wurde zuerst in Figma entworfen, bevor es pixelgenau im Browser umgesetzt wurde.
+Meine persönliche Portfolio-Website. Ich mache die Ausbildung zum Informatiker EFZ in Applikationsentwicklung an der IMS-T und daneben die Berufsmaturität. Auf der Seite zeige ich meine Projekte, meine Skills und wer ich bin.
+
+**Live:** [sergiu-bolohan.vercel.app](https://sergiu-bolohan.vercel.app)
+
+Die Seite ist ein Schulprojekt aus dem Modul 293. Ich habe sie zuerst in Figma entworfen und dann ohne Framework mit HTML, CSS und etwas JavaScript gebaut.
+
+![Startseite im Dark Mode](docs/screenshots/startseite-dark.webp)
 
 ---
 
-## Features
+## Funktionen
 
-- **Zweisprachig** – jede Seite gibt es auf Deutsch und Englisch
-- **Dark / Light Mode** – Theme-Toggle 
-- **Snake-Spiel** – voll spielbar direkt im Browser
-- **Getränkeautomat** – interaktive Bash-Simulation als Web-Demo
-- **Responsive Design** – optimiert für Desktop und Mobile
-- **Figma-First** – das gesamte Design wurde zuerst als Mockup in Figma erstellt und dann sauber umgesetzt
-- **Konsistentes Design-System** – einheitliches Farbschema mit Lila & Grün, durchgängige Typografie
+- **Zweisprachig:** Jede Seite gibt es auf Deutsch und auf Englisch. Der Umschalter EN/DE führt direkt zur gleichen Seite in der anderen Sprache.
+- **Dark und Light Mode:** Die Wahl wird im Browser gespeichert und gilt auf allen Seiten.
+- **Responsive:** Auf dem Handy wird die Navigation zu einem Menü mit Hamburger-Knopf.
+- **Projektseiten:** Jedes Projekt hat eine eigene Seite mit Beschreibung, Vorschau, Projektdetails und Link zum Code auf GitHub.
+- **Skills mit Stufen:** Jede Technologie hat eine Stufe (Grundlagen, Sicher oder Schwerpunkt) und Links zu den Projekten, in denen ich sie eingesetzt habe.
+- **Kontakt:** E-Mail-Adressen mit Kopieren-Knopf, Links zu GitHub und Instagram.
+- **Ruhige Seitenwechsel** mit View Transitions. Wer im System «Bewegung reduzieren» eingestellt hat, bekommt keine Animationen.
+- **Eigene 404-Seite** auf Deutsch und Englisch.
 
----
-
-## Technologien
-
-| Technologie         | Einsatz                                      |
-|---------------------|----------------------------------------------|
-| HTML5               | Seitenstruktur & semantisches Markup         |
-| CSS3                | Layout, Animationen, Design-System           |
-| JavaScript          | Interaktivität, Theme-Toggle                 |
-| Figma               | UI/UX Design & Prototyping                   |
-| C# / Windows Forms  | Snake-Spiel (Schulprojekt)                   |
-| Bash / Shell        | Getränkeautomat-Simulation (Schulprojekt)    |
-| SQL                 | Kenntnisse dokumentiert in Skills            |
+| Light Mode | Auf dem Handy |
+|---|---|
+| ![Startseite im Light Mode](docs/screenshots/startseite-light.webp) | ![Startseite und Skills auf dem Handy](docs/screenshots/mobil.webp) |
 
 ---
 
-## Seiten & Projekte
+## Projekte
 
-### Hauptseite
-Persönliche Hero-Section mit Vorstellung als *Applikationsentwickler in Ausbildung (EFZ)* an der IMS-T Schweiz.
+![Projektübersicht](docs/screenshots/projekte.webp)
 
-### Snake-Spiel (`3_Snake/`)
+| Projekt | Jahr | Typ | Technik | Code |
+|---|---|---|---|---|
+| Jetpack Joyride | 2026 | Privat | C#, Windows Forms | [Sergius_JetpackJoyride](https://github.com/sxrg1u/Sergius_JetpackJoyride) |
+| Bomb Game | 2026 | Privat | C#, Windows Forms | [BombGame](https://github.com/sxrg1u/BombGame) |
+| Barça Website | 2026 | Schule | C#, ASP.NET Core MVC | [BarcaWebsite](https://github.com/sxrg1u/BarcaWebsite) |
+| Snake Game | 2026 | Schule | C#, Windows Forms | [Snake-Game](https://github.com/sxrg1u/Snake-Game) |
+| Portfolio Website | 2026 | Schule | HTML, CSS, Figma | [portfolio](https://github.com/sxrg1u/portfolio) |
+| Getränkeautomat | 2025 | Schule | Bash | [ProjektScriptingGetraenkeautomat](https://github.com/sxrg1u/ProjektScriptingGetraenkeautomat) |
 
-**Stack:** C# · Windows Forms · .NET · RawGameController API
+**Jetpack Joyride:** Ein Endless Runner nach dem Vorbild des Handyspiels. Mit der Leertaste fliegst du nach oben und weichst drei Arten von Lasern aus. Je höher der Score, desto schneller und häufiger kommen sie. Der Game-Loop läuft über einen Timer mit etwa 60 Bildern pro Sekunde.
 
-Eine vollständige Umsetzung des klassischen Snake-Spiels in C# mit Windows Forms. Ziel war es, ein funktionierendes Spiel zu entwickeln, das sowohl über die Tastatur als auch über einen Game-Controller steuerbar ist.
+**Bomb Game:** Funktioniert wie Minesweeper. Das Spielfeld wird zur Laufzeit aus Panels erzeugt, die Bomben liegen zufällig in einem 2D-Array. Mit Explosionseffekt, eigenem Partikelsystem und einem Highscore, der in eine Datei gespeichert wird.
 
-Schulprojekt · IMS-T Schweiz · 2026 · [Code: sxrg1u/Snake-Game](https://github.com/sxrg1u/Snake-Game)
+**Barça Website:** Eine Fan-Website zum FC Barcelona mit ASP.NET Core MVC. Sie hat Seiten für Kader, Titel und Lieblingsspieler, dazu Login und Registrierung. Das Projekt ist noch in Arbeit.
 
-### Getränkeautomat (`4_Getraenkeautomat/`)
+**Snake Game:** Snake in C# mit Windows Forms. Du steuerst die Schlange mit der Tastatur oder mit einem Gamecontroller über die RawGameController-API.
 
-**Stack:** Bash · Shell-Scripting
+**Portfolio Website:** Diese Website.
 
-Eine vollständige Simulation eines Getränkeautomaten, umgesetzt als interaktives Terminal-Programm in Bash. Das Programm führt den Benutzer durch einen realistischen Kaufprozess mit zufälligem Lagerbestand, drei Zahlungsmethoden (Bargeld, TWINT, PayPal) und korrekter Wechselgeldberechnung.
+**Getränkeautomat:** Ein Getränkeautomat im Terminal, geschrieben in Bash. Das Lager wird zufällig gefüllt. Du zahlst bar, mit TWINT oder PayPal und bekommst das richtige Wechselgeld zurück.
 
-Schulprojekt · IMS-T Schweiz · 2026 · [Code: sxrg1u/ProjektScriptingGetraenkeautomat](https://github.com/sxrg1u/ProjektScriptingGetraenkeautomat)
+![Projektseite der Barça Website](docs/screenshots/projekt-barca.webp)
 
-### Portfolio-Website (`5_Portfolio/`)
+---
 
-**Stack:** HTML · CSS · Figma
+## Technik
 
-Diese Portfolio-Website ist mein persönlicher Auftritt im Web. Sie wurde von Grund auf mit HTML und CSS aufgebaut – das Design zuerst in Figma als Mockup entworfen und anschliessend pixelgenau umgesetzt. Ziel war eine moderne, dunkle Oberfläche, die professionell wirkt und gleichzeitig meinen eigenen Stil widerspiegelt.
+| Was | Wie |
+|---|---|
+| Struktur | HTML, eine Datei pro Seite und Sprache |
+| Design | Ein gemeinsames Stylesheet `all.css` mit allen Farben, Abständen und Schriftgrössen als CSS-Variablen |
+| Schriften | Geist für Text und Syne für Überschriften, beide lokal gehostet als `.woff2` |
+| Farben | Eine einzige Akzentfarbe (`--Lila`), die im Light Mode angepasst wird |
+| JavaScript | `script.js` für Theme-Umschalter, Handy-Menü und Kopieren-Knöpfe |
+| Hosting | Vercel, statische Dateien ohne Build-Schritt |
+| Entwurf | Figma |
 
-Schulprojekt · IMS-T Schweiz · 2026 · [Code: sxrg1u/portfolio](https://github.com/sxrg1u/portfolio)
+Es gibt keine externen Abhängigkeiten: keine Frameworks, keine CDNs und keine Schriften von Google.
 
+### Aufbau von `all.css`
 
-### Skills (`6_Skills/`)
-Übersicht der technischen Fähigkeiten mit Fortschrittsangaben – von Gut über Fortgeschritten bis Sehr gut. Zeigt den aktuellen Ausbildungsstand im EFZ-Programm.
+Oben stehen die Variablen, die globalen Regeln und die Navigation. Danach folgt pro Seitentyp ein eigener Abschnitt, markiert mit `/* ===== NAME ===== */`:
 
-### Über mich (`7_UeberMich/`)
-Persönliche Vorstellung, Hobbys (Fussball, Gym, Reisen) und bisherige Highlights. Mit Lebenslauf-Download als PDF.
+- Projekt-Detailseiten
+- Startseite
+- Projekte-Übersicht
+- Skills
+- Über mich
+- Kontakt
+- 404-Seite
 
-### Kontakt (`8_Kontakt/`)
-Kontaktformular sowie Links zu GitHub und Social Media.
+Wer die Akzentfarbe ändern will, ändert nur `--Lila`, `--LilaHover` und `--LilaLight` oben in `:root` und im Light-Mode-Block.
 
-### Jetpack Joyride (`9_JetpackProjekt/`)
+---
 
-**Stack:** C# · Windows Forms · .NET
+## Ordnerstruktur
 
-Mit der Leertaste aktiviert der Spieler den Jetpacund fliegt nach oben — loslassen lässtdie Schwerkraft wirken. Gleichzeitig feuertder Jetpack gelbe Kugeln nach unten ab.Drei Lasertypen rasen von rechts auf den Spieler zu:horizontale Laser auf zufälliger Höhe,BottomUp-Laser die von unten aufsteigen,und diagonale Laser die hin- und herspringen.Mit jedem Punkteblock steigen Lasergeschwindigkeit,Spawn-Rate und die Anzahl gleichzeitiger Laser.
+```
+portfolio/
+├── index.html                 Leitet zur Startseite weiter
+├── 404.html                   Fehlerseite (DE und EN)
+├── all.css                    Gemeinsames Stylesheet
+├── script.js                  Theme, Handy-Menü, Kopieren-Knöpfe
+├── geist-variable.woff2       Schrift für Text
+├── syne-variable.woff2        Schrift für Überschriften
+├── 1_hauptseite/              Startseite
+├── 2_projekte/                Projektübersicht
+├── 3_snake/                   Projekt: Snake Game
+├── 4_getraenkeautomat/        Projekt: Getränkeautomat
+├── 5_portfolio/               Projekt: diese Website
+├── 6_skills/                  Skills und Ausbildung
+├── 7_uebermich/               Über mich
+├── 8_kontakt/                 Kontakt
+├── 9_jetpackprojekt/          Projekt: Jetpack Joyride
+├── 10_bombgameprojekt/        Projekt: Bomb Game
+├── 11_barcawebsite/           Projekt: Barça Website
+├── bilder/                    Bilder, GIFs und Icons der Website
+└── docs/screenshots/          Screenshots für dieses README
+```
 
-Schulprojekt · IMS-T Schweiz · 2026 · [Code: sxrg1u/Sergius_JetpackJoyride](https://github.com/sxrg1u/Sergius_JetpackJoyride)
+Jeder Seitenordner enthält eine deutsche und eine englische Datei, zum Beispiel `skills.html` und `skillsen.html`.
+
+---
+
+## Lokal starten
+
+Die Seite braucht keinen Build. Im Projektordner einen kleinen Webserver starten:
+
+```bash
+python -m http.server 8000
+```
+
+Danach [localhost:8000](http://localhost:8000) im Browser öffnen.
+
+Du kannst `index.html` auch direkt per Doppelklick öffnen. Dann funktionieren aber die Links auf der 404-Seite nicht, weil sie vom Hauptordner aus rechnen.
 
 ---
 
 ## Autor
 
-**sxrg1u** – Schulprojekt
+**Sergiu Bolohan**, Informatiker EFZ in Ausbildung an der IMS-T
 
+- GitHub: [sxrg1u](https://github.com/sxrg1u)
+- Website: [sergiu-bolohan.vercel.app](https://sergiu-bolohan.vercel.app)

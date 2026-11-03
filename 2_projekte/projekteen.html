@@ -18,83 +18,8 @@
   <link rel="preload" href="../syne-variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../all.css" />
   <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode")}catch(e){}</script>
-  <link rel="icon" href="../bilder/projekte.ico">
+  <link rel="icon" href="../bilder/sb.ico">
 
-  <style>
-
-        .projects-title {
-            font-size: clamp(2.2rem, 6vw, 3.4rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin: 0 0 1.5rem;
-        }
-
-        .projects-intro {
-            color: var(--Gray);
-            font-size: 1.05rem;
-            line-height: 1.7;
-            max-width: 60ch;
-            margin: 0 0 4rem;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1.5rem;
-        }
-
-        /* Hervorgehobenes Projekt: volle Breite, Bild neben dem Text */
-        .project-card.featured {
-            grid-column: 1 / -1;
-            flex-direction: row;
-        }
-
-        .project-card.featured img {
-            width: 58%;
-            aspect-ratio: auto;
-            min-height: 320px;
-        }
-
-        .project-card.featured .project-body {
-            padding: 2.5rem;
-        }
-
-        .project-card.featured h3 {
-            font-size: 1.8rem;
-        }
-
-        @media (max-width: 860px) {
-            .projects-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .project-card.featured {
-                flex-direction: column;
-            }
-
-            .project-card.featured img {
-                width: 100%;
-                min-height: 0;
-                aspect-ratio: 16 / 10;
-            }
-
-            .project-card.featured .project-body {
-                padding: 1.75rem 2rem 2rem;
-            }
-        }
-
-        @media (max-width: 600px) {
-
-            .projects-intro {
-                margin-bottom: 2.5rem;
-            }
-
-            .project-body,
-            .project-card.featured .project-body {
-                padding: 1.5rem;
-            }
-        }
-    </style>
 </head>
 
 <body>
