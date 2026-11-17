@@ -349,10 +349,7 @@ button:focus-visible {
 .nav-right a {
   position: relative;
   padding-bottom: 3px;
-  transform-origin: left bottom;
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
+  transition: color 0.25s ease;
 }
 
 .nav-right a::after {
@@ -371,7 +368,6 @@ button:focus-visible {
 
 .nav-right a:hover {
   color: var(--Lila);
-  transform: scale(1.07);
 }
 
 .nav-right a:hover::after {

@@ -2,7 +2,7 @@
 
 Meine persönliche Portfolio-Website. Ich mache die Ausbildung zum Informatiker EFZ in Applikationsentwicklung an der IMS-T und daneben die Berufsmaturität. Auf der Seite zeige ich meine Projekte, meine Skills und wer ich bin.
 
-**Live:** [sergiu-bolohan.vercel.app](https://sergiu-bolohan.vercel.app)
+**Live:** [sergiubolohan.vercel.app](https://sergiubolohan.vercel.app)
 
 Die Seite ist ein Schulprojekt aus dem Modul 293. Ich habe sie zuerst in Figma entworfen und dann ohne Framework mit HTML, CSS und etwas JavaScript gebaut.
 
@@ -134,4 +134,4 @@ Du kannst `index.html` auch direkt per Doppelklick öffnen. Dann funktionieren a
 **Sergiu Bolohan**, Informatiker EFZ in Ausbildung an der IMS-T
 
 - GitHub: [sxrg1u](https://github.com/sxrg1u)
-- Website: [sergiu-bolohan.vercel.app](https://sergiu-bolohan.vercel.app)
+- Website: [sergiubolohan.vercel.app](https://sergiubolohan.vercel.app)
