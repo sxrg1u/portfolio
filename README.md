@@ -35,6 +35,7 @@ Die Seite ist ein Schulprojekt aus dem Modul 293. Ich habe sie zuerst in Figma e
 |---|---|---|---|---|
 | Jetpack Joyride | 2026 | Privat | C#, Windows Forms | [Sergius_JetpackJoyride](https://github.com/sxrg1u/Sergius_JetpackJoyride) |
 | Bomb Game | 2026 | Privat | C#, Windows Forms | [BombGame](https://github.com/sxrg1u/BombGame) |
+| Color Dash | 2026 | Privat, mit Yannick Leutner | Unity, C#, Netcode | [colordash](https://github.com/Colniro/colordash) |
 | Barça Website | 2026 | Schule | C#, ASP.NET Core MVC | [BarcaWebsite](https://github.com/sxrg1u/BarcaWebsite) |
 | Snake Game | 2026 | Schule | C#, Windows Forms | [Snake-Game](https://github.com/sxrg1u/Snake-Game) |
 | Portfolio Website | 2026 | Schule | HTML, CSS, Figma | [portfolio](https://github.com/sxrg1u/portfolio) |
@@ -43,6 +44,8 @@ Die Seite ist ein Schulprojekt aus dem Modul 293. Ich habe sie zuerst in Figma e
 **Jetpack Joyride:** Ein Endless Runner nach dem Vorbild des Handyspiels. Mit der Leertaste fliegst du nach oben und weichst drei Arten von Lasern aus. Je höher der Score, desto schneller und häufiger kommen sie. Der Game-Loop läuft über einen Timer mit etwa 60 Bildern pro Sekunde.
 
 **Bomb Game:** Funktioniert wie Minesweeper. Das Spielfeld wird zur Laufzeit aus Panels erzeugt, die Bomben liegen zufällig in einem 2D-Array. Mit Explosionseffekt, eigenem Partikelsystem und einem Highscore, der in eine Datei gespeichert wird.
+
+**Color Dash:** Ein Partyspiel nach dem Prinzip «Der Boden ist Lava», inspiriert von Fall Guys. Ich habe es zusammen mit Yannick Leutner in Unity gebaut. Das Spiel sagt eine Farbe an, du rennst auf die passende Plattform, und alle anderen verschwinden. Es gibt Online-Multiplayer für bis zu 8 Spieler.
 
 **Barça Website:** Eine Fan-Website zum FC Barcelona mit ASP.NET Core MVC. Sie hat Seiten für Kader, Titel und Lieblingsspieler, dazu Login und Registrierung.
 
@@ -107,6 +110,7 @@ portfolio/
 ├── 9_jetpackprojekt/          Projekt: Jetpack Joyride
 ├── 10_bombgameprojekt/        Projekt: Bomb Game
 ├── 11_barcawebsite/           Projekt: Barça Website
+├── 12_colordash/              Projekt: Color Dash
 ├── bilder/                    Bilder, GIFs und Icons der Website
 └── docs/screenshots/          Screenshots für dieses README
 ```

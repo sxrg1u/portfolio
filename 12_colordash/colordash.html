@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Dash | Sergiu Bolohan</title>
+    <meta name="description" content="Ein Partyspiel in Unity mit C# und Online-Multiplayer nach dem Prinzip «Der Boden ist Lava». Zusammen mit Yannick Leutner entwickelt.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sergiu Bolohan">
+    <meta property="og:title" content="Color Dash | Sergiu Bolohan">
+    <meta property="og:description" content="Ein Partyspiel in Unity mit C# und Online-Multiplayer nach dem Prinzip «Der Boden ist Lava». Zusammen mit Yannick Leutner entwickelt.">
+    <meta property="og:url" content="https://sergiubolohan.vercel.app/12_colordash/colordash.html">
+    <meta property="og:image" content="https://sergiubolohan.vercel.app/bilder/colordash.png">
+    <meta property="og:locale" content="de_CH">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preload" href="../geist-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../syne-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../all.css" />
+    <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light-mode")}catch(e){}</script>
+    <link rel="icon" href="../bilder/sb.ico">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<nav id="navbar">
+    <div class="nav-left">
+        <a href="../1_hauptseite/index.html" class="nav-home-text">Sergiu.b</a>
+        <a href="../1_hauptseite/index.html" class="nav-home-icon">
+            <img id="home-icon" src="../bilder/home.png" alt="Home">
+        </a>
+
+        <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Hell-/Dunkelmodus umschalten"><img id="theme-icon" src="../bilder/sun.png" alt="" class="nav-icon"></button>
+
+        <a href="colordashen.html" class="nav-lang">
+            <span class="nav-EN">EN</span>/<span class="nav-DE">DE</span>
+        </a>
+    </div>
+
+    <div class="nav-right">
+        <a href="../2_projekte/projekte.html" aria-current="true">Projekte</a>
+        <a href="../6_skills/skills.html">Skills</a>
+        <a href="../7_uebermich/uebermich.html">Über mich</a>
+        <a href="../8_kontakt/kontakt.html">Kontakt</a>
+    <button class="nav-hamburger" id="hamburger-btn" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button></div>
+</nav>
+
+<section class="detail-section" id="main" tabindex="-1">
+
+    <a href="../2_projekte/projekte.html" class="detail-back">← Alle Projekte</a>
+    <h1 class="detail-title">Color Dash</h1>
+    <p class="detail-meta">2026 · Privates Projekt · Zusammen mit Yannick Leutner</p>
+    <div class="stack-tags"><span>Unity</span><span>C#</span><span>Netcode</span><span>Multiplayer</span></div>
+
+    <div class="content-grid">
+
+        <div class="left-col">
+
+            <h2 class="block-title">Spielziel</h2>
+            <p class="block-text">
+              Color Dash ist ein Partyspiel nach dem Prinzip «Der Boden ist Lava», inspiriert von Fall Guys. Das Spiel nennt eine Farbe, und du rennst so schnell wie möglich auf eine Plattform in dieser Farbe. Alle anderen Plattformen verschwinden. Wer runterfällt, ist raus, und wer zuletzt übrig bleibt, gewinnt.
+            </p>
+
+            <h2 class="block-title">Ablauf einer Runde</h2>
+            <p class="block-text">
+              Alle Spieler bestätigen in der Lobby, dass sie bereit sind. Danach startet die erste Runde. Mit jeder Runde bleibt weniger Zeit zum Reagieren. Ab Runde 10 können mehrere Farben hintereinander kommen, und pro Runde gilt ein Modifikator: rutschiger Boden, wenig Schwerkraft oder invertierte Kamera. Du kannst allein spielen und versuchen, möglichst viele Runden zu überleben, oder online mit bis zu 8 Spielern.
+            </p>
+
+            <h2 class="block-title">Zusammenarbeit</h2>
+            <p class="block-text">
+              Ich habe Color Dash zusammen mit Yannick Leutner gebaut. Das Repository liegt auf seinem GitHub-Account.
+            </p>
+
+            <h2 class="block-title">Was wir programmiert haben</h2>
+            <ul class="learn-list">
+              <li>Plattformen, die nach einer Farbansage verschwinden</li>
+              <li>Den Rundenablauf mit kürzer werdender Reaktionszeit</li>
+              <li>Online-Multiplayer mit Netcode for GameObjects und Unity Relay</li>
+              <li>Lobby mit Bereit-Status für bis zu 8 Spieler</li>
+              <li>Eine Spielfigur mit Rennen, Springen, Ducken, Stossen und Emotes</li>
+              <li>Drei Modifikatoren, die den Ablauf verändern</li>
+              <li>Den besten Lauf lokal speichern</li>
+            </ul>
+
+        </div>
+
+        <div class="right-col">
+
+            <img class="preview-img" loading="lazy" src="../bilder/colordash.png" alt="Screenshot von Color Dash mit der Ansage «Steh auf: Blau!»" />
+
+            <div class="details-box">
+                <div class="details-box-title">Projektdetails</div>
+
+                <div class="detail-row">
+                    <span class="key">Jahr</span><span class="val">2026</span>
+                </div>
+
+                <div class="detail-row">
+                    <span class="key">Typ</span><span class="val">Privates Projekt</span>
+                </div>
+
+                <div class="detail-row">
+                    <span class="key">Team</span><span class="val">Yannick Leutner und ich</span>
+                </div>
+
+                <div class="detail-row">
+                    <span class="key">Plattform</span><span class="val">Windows</span>
+                </div>
+
+                <div class="detail-row">
+                    <span class="key">Status</span><span class="val">Spielbar</span>
+                </div>
+            </div>
+
+            <div class="code-box">
+                <a href="https://github.com/Colniro/colordash" target="_blank" rel="noopener noreferrer" class="code-box-link">
+                  <img class="gh-icon" src="../bilder/githublogo.png" alt="">
+                  <div class="code-box-info">
+                    <div class="code-box-label">Code auf GitHub</div>
+                    <div class="code-box-text">Colniro/colordash</div>
+                  </div>
+                  <span class="code-box-arrow" aria-hidden="true">↗</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <footer class="site-footer">
+        <p>© 2026 Sergiu Bolohan · Schweiz</p>
+        <nav aria-label="Footer-Links">
+            <a href="https://github.com/sxrg1u" target="_blank" rel="noopener">GitHub</a>
+            <a href="mailto:sergiu.bolohan@outlook.com">E-Mail</a>
+            <a href="https://www.instagram.com/_sxrgiu_/" target="_blank" rel="noopener">Instagram</a>
+        </nav>
+    </footer>
+
+    <script src="../script.js"></script>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu">
+    <button type="button" id="mobile-menu-close" aria-label="Menü schliessen">&times;</button>
+    <a href="../1_hauptseite/index.html" class="mobile-menu-link">Home</a>
+    <a href="../2_projekte/projekte.html" class="mobile-menu-link" aria-current="true">Projekte</a>
+    <a href="../6_skills/skills.html" class="mobile-menu-link">Skills</a>
+    <a href="../7_uebermich/uebermich.html" class="mobile-menu-link">Über mich</a>
+    <a href="../8_kontakt/kontakt.html" class="mobile-menu-link">Kontakt</a>
+  </div>
+</body>
+
+</html>
