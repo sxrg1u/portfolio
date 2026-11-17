@@ -57,7 +57,7 @@
     <a href="../2_projekte/projekte.html" class="detail-back">← Alle Projekte</a>
     <h1 class="detail-title">Barça Website</h1>
     <p class="detail-meta">2026 · Schulprojekt · IMS-T Schweiz</p>
-    <div class="stack-tags"><span>C#</span><span>ASP.NET Core MVC</span><span>HTML</span><span>CSS</span></div>
+    <div class="stack-tags"><span>C#</span><span>ASP.NET Core MVC</span><span>MySQL</span><span>HTML</span><span>CSS</span></div>
 
     <div class="content-grid">
 
@@ -65,19 +65,23 @@
 
             <h2 class="block-title">Ziel</h2>
             <p class="block-text">
-              Eine Fan-Website zum FC Barcelona, gebaut mit ASP.NET Core MVC. Ich wollte lernen, wie Controller, Views und Models zusammenspielen und wie aus einer C#-Anwendung eine Website wird.
+              Eine Fan-Website zum FC Barcelona, gebaut mit ASP.NET Core MVC und einer MySQL-Datenbank. Ich wollte lernen, wie Controller, Views und Models zusammenspielen, wie eine C#-Anwendung Daten aus einer Datenbank liest und schreibt und wie daraus eine Website wird.
             </p>
 
             <h2 class="block-title">Aufbau</h2>
             <p class="block-text">
-              Die Startseite zeigt die Saison 2026/27 und die drei letzten Titel. Dazu kommen Seiten für den Kader, alle Titel seit 2010 und deine Lieblingsspieler. Mit Login und Registrierung kannst du ein Konto anlegen.
+              Die Startseite zeigt die Saison 2026/27 und die drei letzten Titel. Dazu kommen Seiten für den Kader, alle Titel seit 2010 und deine Lieblingsspieler. Mit Login und Registrierung kannst du ein Konto anlegen. Admins verwalten Spieler, Titel und Benutzer in einem eigenen Admin-Bereich.
             </p>
 
             <h2 class="block-title">Was ich programmiert habe</h2>
             <ul class="learn-list">
-              <li>Einen Controller mit einer Action pro Seite</li>
+              <li>Zwei Controller: einen für die öffentlichen Seiten und einen für den Admin-Bereich</li>
               <li>Views mit Razor und einem gemeinsamen Layout</li>
+              <li>Datenzugriff mit ADO.NET und MySQL, mit einer Repository-Klasse pro Tabelle (Benutzer, Spieler, Titel, Favoriten)</li>
               <li>Login und Registrierung mit GET- und POST-Actions</li>
+              <li>Passwörter mit PBKDF2 und Salt hashen, statt sie im Klartext zu speichern</li>
+              <li>Einen Admin-Bereich zum Verwalten von Spielern, Titeln und Benutzern, geschützt durch einen eigenen Filter</li>
+              <li>Anti-Forgery-Tokens für alle POST-Formulare</li>
               <li>Fehlermeldungen über den ViewBag anzeigen</li>
               <li>Eine eigene 404-Seite über Status-Code-Seiten</li>
               <li>Ein eigenes Design in den Farben von Barça</li>
