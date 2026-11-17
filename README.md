@@ -44,7 +44,7 @@ Die Seite ist ein Schulprojekt aus dem Modul 293. Ich habe sie zuerst in Figma e
 
 **Bomb Game:** Funktioniert wie Minesweeper. Das Spielfeld wird zur Laufzeit aus Panels erzeugt, die Bomben liegen zufällig in einem 2D-Array. Mit Explosionseffekt, eigenem Partikelsystem und einem Highscore, der in eine Datei gespeichert wird.
 
-**Barça Website:** Eine Fan-Website zum FC Barcelona mit ASP.NET Core MVC. Sie hat Seiten für Kader, Titel und Lieblingsspieler, dazu Login und Registrierung. Das Projekt ist noch in Arbeit.
+**Barça Website:** Eine Fan-Website zum FC Barcelona mit ASP.NET Core MVC. Sie hat Seiten für Kader, Titel und Lieblingsspieler, dazu Login und Registrierung.
 
 **Snake Game:** Snake in C# mit Windows Forms. Du steuerst die Schlange mit der Tastatur oder mit einem Gamecontroller über die RawGameController-API.
 
