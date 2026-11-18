@@ -76,6 +76,19 @@ function initHamburger() {
     });
 }
 
+// NAVBAR: Hintergrund erst zeigen, wenn Inhalt darunter durchscrollt
+function initNavScroll() {
+    const navbar = document.getElementById("navbar");
+    if (!navbar) return;
+
+    function update() {
+        navbar.classList.toggle("scrolled", window.scrollY > 8);
+    }
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+}
+
 // KOPIEREN-KNÖPFE (Kontaktseite)
 function copyText(text) {
     if (navigator.clipboard && window.isSecureContext) {
@@ -115,5 +128,6 @@ updateThemeIcons(isLightMode());
 document.addEventListener("DOMContentLoaded", () => {
     loadTheme();
     initHamburger();
+    initNavScroll();
     initCopyButtons();
 });

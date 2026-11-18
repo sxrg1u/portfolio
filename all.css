@@ -322,7 +322,15 @@ button:focus-visible {
   left: 0;
   right: 0;
   z-index: var(--z-nav);
-  background-color: color-mix(in srgb, var(--Black) 50%, transparent);
+  /* Oben auf der Seite gehört die Nav zum Hintergrund, erst beim Scrollen bekommt sie einen Balken */
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color var(--TransitionMD), border-color var(--TransitionMD);
+}
+
+#navbar.scrolled {
+  background-color: color-mix(in srgb, var(--Black) 80%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--White) 8%, transparent);
   backdrop-filter: blur(12px);
 }
 
