@@ -20,7 +20,7 @@
   --SpaceMD: 1.5rem;
   --SpaceLG: 2rem;
   --SpaceXL: 4rem;
-  --MaxWidth: 1200px;
+  --MaxWidth: 1100px; /* gemeinsame Inhaltsbreite von Nav, Seiten und Footer */
 
   /*  BORDER RADIUS  */
   --RadiusSM: 6px;
@@ -154,9 +154,9 @@ body::before {
 .ueber-section,
 .kontakt-section,
 .detail-section {
-  max-width: 1100px;
+  max-width: var(--MaxWidth);
   margin: 0 auto;
-  padding: 4rem 1.5rem 8rem;
+  padding: 4rem var(--SpaceMD) 8rem;
 }
 
 /* Sprung zum Inhalt für Tastatur-Nutzer, nur sichtbar mit Fokus */
@@ -1619,9 +1619,9 @@ body.page-404 {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem 1.5rem;
-  max-width: var(--MaxWidth);
+  max-width: calc(var(--MaxWidth) + 2 * var(--SpaceMD));
   margin: var(--SpaceXL) auto 0;
-  padding: 1.5rem var(--SpaceLG);
+  padding: 1.5rem var(--SpaceMD);
   box-sizing: border-box;
   border-top: 1px solid color-mix(in srgb, var(--White) 8%, transparent);
   font-size: 0.9rem;
